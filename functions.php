@@ -159,7 +159,6 @@ function olynk_content_width() {
 }
 add_action( 'after_setup_theme', 'olynk_content_width', 0 );
 
-
 /**
  * Register widget area.
  *
