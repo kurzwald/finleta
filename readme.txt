@@ -1,15 +1,15 @@
-=== olynk ===
+=== finletta ===
 
 Contributors: automattic
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Tags: redux, custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
 Tested up to: 4.8
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
-A starter theme called olynk.
+A starter theme called finletta.
 
 == Description ==
 
@@ -20,14 +20,18 @@ Description
 1. In your admin panel, go to Appearance > Themes and click the Add New button.
 2. Click Upload Theme and Choose File, then select the theme's .zip file. Click Install Now.
 3. Click Activate to use your new theme right away.
+4. Install required plugins for with theme
+5. Check theme options 
 
 == Frequently Asked Questions ==
 
 = Does this theme support any plugins? =
 
-olynk includes support for Infinite Scroll in Jetpack.
+finletta includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
+= 1.0.1 - March 12 2020 =
+* Redux framework integrated
 
 = 1.0 - May 12 2015 =
 * Initial release
