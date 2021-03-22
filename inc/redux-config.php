@@ -255,39 +255,30 @@ Redux::setSection( $opt_name, array(
 ) );
 
     Redux::setSection( $opt_name, array(
-        'title'      => __( 'Header Slogan  ', 'redux-framework-demo' ),
+        'title'      => __( 'Header phone and link  ', 'redux-framework-demo' ),
         'desc'       => __( '', 'redux-framework-demo' ) . '',
         'id'         => 'opt-textarea-subsection',
         'subsection' => true,
         'fields'     => array(
             array(
-                'id'       => 'site-branding-title',
+                'id'       => 'phone-number',
                 'type'     => 'text',
-                'title'    => __( 'Site header  title', 'redux-framework-demo' ),
+                'title'    => __( 'Phone number', 'redux-framework-demo' ),
 
                 'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                'default'  => 'Targeted Search for Professionals
-                             <br> in your Proximity',
+                'default'  => 'Phone number',
             ),
             array(
-                'id'       => 'site-branding-desc',
+                'id'       => 'link-call-to-action-text',
                 'type'     => 'text',
-                'title'    => __( 'Site header  description', 'redux-framework-demo' ),
-
+                'title'    => __( 'Link text "Request a call"', 'redux-framework-demo' ),
                 'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                'default'  => ' Beta version is available for iPhone users (By Invitation Only).',
+                'default'  => ' Text',
             ),
             array(
-                'id'       => 'site-branding-button-text',
+                'id'       => 'link-call-to-action',
                 'type'     => 'text',
-                'title'    => __( 'Site header  button text', 'redux-framework-demo' ),
-                'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                'default'  => ' Try Beta Version',
-            ),
-            array(
-                'id'       => 'site-branding-button-link',
-                'type'     => 'text',
-                'title'    => __( 'Site header  button link', 'redux-framework-demo' ),
+                'title'    => __( 'link "Request a call"', 'redux-framework-demo' ),
                 'desc'     => __( 'Field Description', 'redux-framework-demo' ),
                 'default'  => ' #',
             ),
@@ -295,111 +286,163 @@ Redux::setSection( $opt_name, array(
         )
     ) );
         Redux::setSection( $opt_name, array(
-            'title' => __( 'About block  ', 'redux-framework-demo' ),
-            'id'    => 'about',
-            'desc'  => __( 'about options.', 'redux-framework-demo' ),
+            'title' => __( 'Header slider  ', 'redux-framework-demo' ),
+            'id'    => 'slider',
+            'desc'  => __( 'slider options.', 'redux-framework-demo' ),
             'icon'  => 'el el-list-alt'
         ) );
 
         Redux::setSection( $opt_name, array(
-            'title'      => __( 'About Title  ', 'redux-framework-demo' ),
+            'title'      => __( 'Options slider  ', 'redux-framework-demo' ),
             'desc'       => __( '', 'redux-framework-demo' ) . '',
-            'id'         => 'opt-about',
+            'id'         => 'opt-slider',
             'subsection' => true,
             'fields'     => array(
                 array(
-                    'id'       => 'about-title',
+                    'id'       => 'slide-title-1',
                     'type'     => 'text',
-                    'title'    => __( 'About    Title', 'redux-framework-demo' ),
+                    'title'    => __( 'Slide   Title 1', 'redux-framework-demo' ),
 
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'About Olynk',
+                    'default'  => 'Slide title',
                 ),
                 array(
-                    'id'       => 'about-desc',
+                    'id'       => 'slide-desc-1',
                     'type'     => 'textarea',
-                    'title'    => __( 'About Description', 'redux-framework-demo' ),
+                    'title'    => __( 'Slide Description 1', 'redux-framework-demo' ),
                     'subtitle' => __( 'Subtitle', 'redux-framework-demo' ),
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
                     'default'  => '  Some small description',
                 ),
                 array(
-                    'id'       => 'about-img-first',
+                    'id'       => 'slide-button-1',
+                    'type'     => 'text',
+                    'title'    => __( 'Slide button link 1', 'redux-framework-demo' ),
+                    'subtitle' => __( 'link', 'redux-framework-demo' ),
+                    'desc'     => __( 'link to page or popup', 'redux-framework-demo' ),
+                    'default'  => '#',
+                ),
+                array(
+                    'id'       => 'slide-img-1',
                     'type'     => 'media',
                     'url'      => true,
-                    'title'    => __('About Advantages Icon 1 ', 'redux-framework-demo'),
-                    'desc'     => __('Advantages icon', 'redux-framework-demo'),
+                    'title'    => __('Image for slide 1 ', 'redux-framework-demo'),
+                    'desc'     => __('Advantages image 840x395', 'redux-framework-demo'),
                     'subtitle' => __('Upload any media using the WordPress native uploader', 'redux-framework-demo'),
                     'default'  => array(
-                        'url'=>'/wp-content/themes/olynk/assets/build/img/about1.png'
+                        'url'=>'/wp-content/uploads/2021/03/slide-3.jpg'
                     ),
                 ),
                 array(
-                    'id'       => 'about-img-second',
+                    'id'       => 'slide-img-mobile-1',
                     'type'     => 'media',
                     'url'      => true,
-                    'title'    => __('About Advantages Icon 2 ', 'redux-framework-demo'),
-                    'desc'     => __('Advantages icon', 'redux-framework-demo'),
+                    'title'    => __('Mobile image for slide 1 ', 'redux-framework-demo'),
+                    'desc'     => __('Advantages image 510x395', 'redux-framework-demo'),
                     'subtitle' => __('Upload any media using the WordPress native uploader', 'redux-framework-demo'),
                     'default'  => array(
-                        'url'=>'/wp-content/themes/olynk/assets/build/img/about2.png'
+                        'url'=>'/wp-content/uploads/2021/03/slide-3-mobile.jpg'
                     ),
                 ),
                 array(
-                    'id'       => 'about-img-third',
+                    'id'       => 'slide-title-2',
+                    'type'     => 'text',
+                    'title'    => __( 'Slide   Title 2', 'redux-framework-demo' ),
+
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => 'Slide title',
+                ),
+                array(
+                    'id'       => 'slide-desc-2',
+                    'type'     => 'textarea',
+                    'title'    => __( 'Slide Description 2', 'redux-framework-demo' ),
+                    'subtitle' => __( 'Subtitle', 'redux-framework-demo' ),
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => '  Some small description',
+                ),
+                array(
+                    'id'       => 'slide-button-2',
+                    'type'     => 'text',
+                    'title'    => __( 'Slide button link 2', 'redux-framework-demo' ),
+                    'subtitle' => __( 'link', 'redux-framework-demo' ),
+                    'desc'     => __( 'link to page or popup', 'redux-framework-demo' ),
+                    'default'  => '#',
+                ),
+                array(
+                    'id'       => 'slide-img-2',
                     'type'     => 'media',
                     'url'      => true,
-                    'title'    => __('About Advantages Icon 3 ', 'redux-framework-demo'),
-                    'desc'     => __('Advantages icon', 'redux-framework-demo'),
+                    'title'    => __('Image for slide 1 ', 'redux-framework-demo'),
+                    'desc'     => __('Advantages image 840x395', 'redux-framework-demo'),
                     'subtitle' => __('Upload any media using the WordPress native uploader', 'redux-framework-demo'),
                     'default'  => array(
-                        'url'=>'/wp-content/themes/olynk/assets/build/img/about3.png'
+                        'url'=>'/wp-content/uploads/2021/03/slide-3.jpg'
                     ),
                 ),
                 array(
-                    'id'       => 'about-adv-header1',
-                    'type'     => 'text',
-                    'title'    => __( 'About Advantages Header  1', 'redux-framework-demo' ),
-                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => ' Complete your Lynk',
+                    'id'       => 'slide-img-mobile-2',
+                    'type'     => 'media',
+                    'url'      => true,
+                    'title'    => __('Mobile image for slide 2 ', 'redux-framework-demo'),
+                    'desc'     => __('Advantages image 510x395', 'redux-framework-demo'),
+                    'subtitle' => __('Upload any media using the WordPress native uploader', 'redux-framework-demo'),
+                    'default'  => array(
+                        'url'=>'/wp-content/uploads/2021/03/slide-3-mobile.jpg'
+                    ),
                 ),
                 array(
-                    'id'       => 'about-adv-header2',
+                    'id'       => 'slide-title-3',
                     'type'     => 'text',
-                    'title'    => __( 'About Advantages Header 2', 'redux-framework-demo' ),
+                    'title'    => __( 'Slide   Title 1', 'redux-framework-demo' ),
+
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'Set Global Filters',
+                    'default'  => 'Slide title',
                 ),
                 array(
-                    'id'       => 'about-adv-header3',
-                    'type'     => 'text',
-                    'title'    => __( 'About Advantages Header 3', 'redux-framework-demo' ),
-                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'Connect',
-                ),
-                array(
-                    'id'       => 'about-adv-text1',
+                    'id'       => 'slide-desc-3',
                     'type'     => 'textarea',
-                    'title'    => __( 'About Advantages Text  1', 'redux-framework-demo' ),
+                    'title'    => __( 'Slide Description 1', 'redux-framework-demo' ),
                     'subtitle' => __( 'Subtitle', 'redux-framework-demo' ),
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'Don\'t forget to add your photo & company logo. Click to upload a photo to help people in your proximity recognize you before they can Lynk with you.',
+                    'default'  => '  Some small description',
                 ),
                 array(
-                    'id'       => 'about-adv-text2',
-                    'type'     => 'textarea',
-                    'title'    => __( 'About Advantages Text  2', 'redux-framework-demo' ),
-                    'subtitle' => __( 'Subtitle', 'redux-framework-demo' ),
-                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'Targeted search will help find professionals based on desired job functions, in your proximity - to enable personalized professional networking.',
+                    'id'       => 'slide-button-3',
+                    'type'     => 'text',
+                    'title'    => __( 'Slide button link 1', 'redux-framework-demo' ),
+                    'subtitle' => __( 'link', 'redux-framework-demo' ),
+                    'desc'     => __( 'link to page or popup', 'redux-framework-demo' ),
+                    'default'  => '#',
                 ),
                 array(
-                    'id'       => 'about-adv-text3',
-                    'type'     => 'textarea',
-                    'title'    => __( 'About Advantages Text  3', 'redux-framework-demo' ),
-                    'subtitle' => __( 'Subtitle', 'redux-framework-demo' ),
-                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'Share your Lynk for in-person networking. Build your personal and professional network organically. Feel free to add as many connections as you like.',
+                    'id'       => 'slide-img-3',
+                    'type'     => 'media',
+                    'url'      => true,
+                    'title'    => __('Image for slide 1 ', 'redux-framework-demo'),
+                    'desc'     => __('Advantages image 840x395', 'redux-framework-demo'),
+                    'subtitle' => __('Upload any media using the WordPress native uploader', 'redux-framework-demo'),
+                    'default'  => array(
+                        'url'=>'/wp-content/uploads/2021/03/slide-3.jpg'
+                    ),
+                ),
+                array(
+                    'id'       => 'slide-img-mobile-3',
+                    'type'     => 'media',
+                    'url'      => true,
+                    'title'    => __('Mobile image for slide 3 ', 'redux-framework-demo'),
+                    'desc'     => __('Advantages image 510x395', 'redux-framework-demo'),
+                    'subtitle' => __('Upload any media using the WordPress native uploader', 'redux-framework-demo'),
+                    'default'  => array(
+                        'url'=>'/wp-content/uploads/2021/03/slide-3-mobile.jpg'
+                    ),
+                ),
+                array(
+                    'id'       => 'slide-button-text',
+                    'type'     => 'text',
+                    'title'    => __('Text button', 'redux-framework-demo'),
+                    'desc'     => __('Text button', 'redux-framework-demo'),
+                    'subtitle' => __('Enter text for the button', 'redux-framework-demo'),
+                    'default'  => 'Show Now'
                 ),
 
             )
@@ -449,90 +492,112 @@ Redux::setSection( $opt_name, array(
             'subsection' => true,
             'fields'     => array(
                 array(
-                    'id'       => 'team-title',
+                    'id'       => 'team-title-1',
                     'type'     => 'text',
-                    'title'    => __( '  Team  title', 'redux-framework-demo' ),
+                    'title'    => __( '  Team  title 1', 'redux-framework-demo' ),
 
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'Our team',
+                    'default'  => 'Title team',
                 ),
                 array(
-                    'id'       => 'team-img-first',
+                    'id'       => 'team-desc-1',
+                    'type'     => 'text',
+                    'title'    => __( '  Team  description 1', 'redux-framework-demo' ),
+
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => 'Description team',
+                ),
+                array(
+                    'id'       => 'team-icon-1',
                     'type'     => 'media',
                     'url'      => true,
-                    'title'    => __('Team   photo 1 ', 'redux-framework-demo'),
+                    'title'    => __('Team   icon 1 ', 'redux-framework-demo'),
                     'desc'     => __('Team icon', 'redux-framework-demo'),
                     'subtitle' => __('Upload any media using the WordPress native uploader', 'redux-framework-demo'),
                     'default'  => array(
-                        'url'=>'/wp-content/themes/olynk/assets/build/img/team1.png'
+                        'url'=>''
                     ),
                 ),
                 array(
-                    'id'       => 'team-img-second',
+                    'id'       => 'team-title-2',
+                    'type'     => 'text',
+                    'title'    => __( '  Team  title 2', 'redux-framework-demo' ),
+
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => 'Title team',
+                ),
+                array(
+                    'id'       => 'team-desc-2',
+                    'type'     => 'text',
+                    'title'    => __( '  Team  description 2', 'redux-framework-demo' ),
+
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => 'Description team',
+                ),
+                array(
+                    'id'       => 'team-icon-2',
                     'type'     => 'media',
                     'url'      => true,
-                    'title'    => __('Team   photo 2 ', 'redux-framework-demo'),
+                    'title'    => __('Team   icon 2 ', 'redux-framework-demo'),
                     'desc'     => __('Team icon', 'redux-framework-demo'),
                     'subtitle' => __('Upload any media using the WordPress native uploader', 'redux-framework-demo'),
                     'default'  => array(
-                        'url'=>'/wp-content/themes/olynk/assets/build/img/team2.png'
+                        'url'=>''
                     ),
                 ),
                 array(
-                    'id'       => 'team-img-third',
+                    'id'       => 'team-title-3',
+                    'type'     => 'text',
+                    'title'    => __( '  Team  title 3', 'redux-framework-demo' ),
+
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => 'Title team',
+                ),
+                array(
+                    'id'       => 'team-desc-3',
+                    'type'     => 'text',
+                    'title'    => __( '  Team  description 3', 'redux-framework-demo' ),
+
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => 'Description team',
+                ),
+                array(
+                    'id'       => 'team-icon-3',
                     'type'     => 'media',
                     'url'      => true,
-                    'title'    => __('Team   photo 3 ', 'redux-framework-demo'),
+                    'title'    => __('Team   icon 3 ', 'redux-framework-demo'),
                     'desc'     => __('Team icon', 'redux-framework-demo'),
                     'subtitle' => __('Upload any media using the WordPress native uploader', 'redux-framework-demo'),
                     'default'  => array(
-                        'url'=>'/wp-content/themes/olynk/assets/build/img/team2.png'
+                        'url'=>''
                     ),
                 ),
                 array(
-                    'id'       => 'team-adv-header1',
+                    'id'       => 'team-title-4',
                     'type'     => 'text',
-                    'title'    => __( ' Team Employee Name  1', 'redux-framework-demo' ),
+                    'title'    => __( '  Team  title 4', 'redux-framework-demo' ),
+
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'Gaurav Saraf   ',
+                    'default'  => 'Title team',
                 ),
                 array(
-                    'id'       => 'team-adv-header2',
+                    'id'       => 'team-desc-4',
                     'type'     => 'text',
-                    'title'    => __( 'Team Employee Name 2', 'redux-framework-demo' ),
+                    'title'    => __( '  Team  description 4', 'redux-framework-demo' ),
+
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'Ankur Saraogi',
+                    'default'  => 'Description team',
                 ),
                 array(
-                    'id'       => 'team-adv-header3',
-                    'type'     => 'text',
-                    'title'    => __( 'Team Employee Name 3', 'redux-framework-demo' ),
-                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'Piyush Gupta',
-                ),
-                array(
-                    'id'       => 'team-adv-text1',
-                    'type'     => 'textarea',
-                    'title'    => __( 'Team Employee position  1', 'redux-framework-demo' ),
-                    'subtitle' => __( 'Subtitle', 'redux-framework-demo' ),
-                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'Product leader',
-                ),
-                array(
-                    'id'       => 'team-adv-text2',
-                    'type'     => 'textarea',
-                    'title'    => __( 'Team Employee position   2', 'redux-framework-demo' ),
-                    'subtitle' => __( 'Subtitle', 'redux-framework-demo' ),
-                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'Product & Program Management',
-                ),
-                array(
-                    'id'       => 'team-adv-text3',
-                    'type'     => 'textarea',
-                    'title'    => __( 'Team Employee position   3', 'redux-framework-demo' ),
-                    'subtitle' => __( 'Subtitle', 'redux-framework-demo' ),
-                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'Product & Program Management',
+                    'id'       => 'team-icon-4',
+                    'type'     => 'media',
+                    'url'      => true,
+                    'title'    => __('Team   icon 4 ', 'redux-framework-demo'),
+                    'desc'     => __('Team icon', 'redux-framework-demo'),
+                    'subtitle' => __('Upload any media using the WordPress native uploader', 'redux-framework-demo'),
+                    'default'  => array(
+                        'url'=>''
+                    ),
                 ),
 
 

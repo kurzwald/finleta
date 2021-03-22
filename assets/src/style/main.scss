@@ -7,10 +7,13 @@
 @import "../../../node_modules/photoswipe/dist/photoswipe.css";
 @import "../../../node_modules/photoswipe/dist/default-skin/default-skin.css";
 @import "../../../node_modules/select2/dist/css/select2.min.css";
-@import "style";
-@import "../../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 
 // Подключение своих SCSS файлов
+@import "style";
 
-@import "stroyka";
+@import "../../../node_modules/@fortawesome/fontawesome-free/css/all.css";
+@import "my";
+
+
+
 
