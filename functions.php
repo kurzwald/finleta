@@ -234,11 +234,66 @@ if (function_exists('register_sidebar')){
         'name'          => 'Top header right', //название виджета в админ-панели
         'id'            => 'top_bar-right', //идентификатор виджета
         'description'   => 'Блок над шапкой справа', //описание виджета в админ-панели
-        'before_widget' => '', //открывающий тег виджета с динамичным идентификатором
-        'after_widget'  => '', //закрывающий тег виджета с очищающим блоком
-        'before_title'  => '<div class="topbar__item">', //открывающий тег заголовка виджета
-        'after_title'   => '</div>',//закрывающий тег заголовка виджета
+        'before_widget' => '<div class="topbar__item">', //открывающий тег виджета с динамичным идентификатором
+        'after_widget'  => '</div>', //закрывающий тег виджета с очищающим блоком
+        'before_title'  => '', //открывающий тег заголовка виджета
+        'after_title'   => '',//закрывающий тег заголовка виджета
         ) );
+}
+if (function_exists('register_sidebar')){
+    register_sidebar( array(
+        'name'          => 'Left menu', //название виджета в админ-панели
+        'id'            => 'left_menu', //идентификатор виджета
+        'description'   => 'Левое меню', //описание виджета в админ-панели
+        'before_widget' => '<div class="nav-panel__departments">', //открывающий тег виджета с динамичным идентификатором
+        'after_widget'  => '</div>', //закрывающий тег виджета с очищающим блоком
+        'before_title'  => '', //открывающий тег заголовка виджета
+        'after_title'   => '',//закрывающий тег заголовка виджета
+    ) );
+}
+if (function_exists('register_sidebar')){
+    register_sidebar( array(
+        'name'          => 'Footer col first', //название виджета в админ-панели
+        'id'            => 'footer_first', //идентификатор виджета
+        'description'   => 'Футер первая колонка', //описание виджета в админ-панели
+        'before_widget' => '<div class="site-footer__widget footer-contacts">', //открывающий тег виджета с динамичным идентификатором
+        'after_widget'  => '</div>', //закрывающий тег виджета с очищающим блоком
+        'before_title'  => '<h5 class="footer-contacts__title">', //открывающий тег заголовка виджета
+        'after_title'   => '</h5>',//закрывающий тег заголовка виджета
+    ) );
+}
+if (function_exists('register_sidebar')){
+    register_sidebar( array(
+        'name'          => 'Footer col second', //название виджета в админ-панели
+        'id'            => 'footer_second', //идентификатор виджета
+        'description'   => 'Футер вторая колонка', //описание виджета в админ-панели
+        'before_widget' => '<div class="site-footer__widget footer-links">', //открывающий тег виджета с динамичным идентификатором
+        'after_widget'  => '</div>', //закрывающий тег виджета с очищающим блоком
+        'before_title'  => '<h5 class="footer-links__title">', //открывающий тег заголовка виджета
+        'after_title'   => '</h5>',//закрывающий тег заголовка виджета
+    ) );
+}
+if (function_exists('register_sidebar')){
+    register_sidebar( array(
+        'name'          => 'Footer col fhird', //название виджета в админ-панели
+        'id'            => 'footer_third', //идентификатор виджета
+        'description'   => 'Футер третья колонка', //описание виджета в админ-панели
+        'before_widget' => '<div class="site-footer__widget footer-links">', //открывающий тег виджета с динамичным идентификатором
+        'after_widget'  => '</div>', //закрывающий тег виджета с очищающим блоком
+        'before_title'  => '<h5 class="footer-links__title">', //открывающий тег заголовка виджета
+        'after_title'   => '</h5>',//закрывающий тег заголовка виджета
+    ) );
+}
+if (function_exists('register_sidebar')){
+    register_sidebar( array(
+        'name'          => 'Footer col fourth', //название виджета в админ-панели
+        'id'            => 'footer_fourth', //идентификатор виджета
+        'description'   => 'Футер третья колонка', //описание виджета в админ-панели
+        'before_widget' => '<div class="site-footer__widget footer-links">', //открывающий тег виджета с динамичным идентификатором
+        'after_widget'  => '</div>', //закрывающий тег виджета с очищающим блоком
+        'before_title'  => '<h5 class="footer-links__title">', //открывающий тег заголовка виджета
+        'after_title'   => '</h5>',//закрывающий тег заголовка виджета
+    ) );
 }
 function hstngr_register_widget() {
 register_widget( 'hstngr_widget' );
@@ -306,5 +361,12 @@ $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_in
 $instance['link'] = ( ! empty( $new_instance['link'] ) ) ? strip_tags( $new_instance['link'] ) : '';
 return $instance;
 }
+}
+add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
 
+add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
+
+function special_nav_class($classes, $item){
+    $classes[] = 'nav-links__item  nav-links__item--has-submenu';
+    return $classes;
 }

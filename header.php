@@ -63,7 +63,7 @@
                     <div class="mobile-header__body">
                         <button class="mobile-header__menu-button">
                             <svg width="18px" height="14px">
-                                <use xlink:href="images/sprite.svg#menu-18x14"></use>
+                                <use xlink:href="<?php echo get_template_directory_uri(); ?>images/sprite.svg#menu-18x14"></use>
                             </svg>
                         </button>
                         <a class="mobile-header__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -73,20 +73,7 @@
                         </a>
                         <div class="search search--location--mobile-header mobile-header__search">
                             <div class="search__body">
-                                <form class="search__form" action="">
-                                    <input class="search__input" name="search" placeholder="Search over 10,000 products" aria-label="Site search" type="text" autocomplete="off">
-                                    <button class="search__button search__button--type--submit" type="submit">
-                                        <svg width="20px" height="20px">
-                                            <use xlink:href="images/sprite.svg#search-20"></use>
-                                        </svg>
-                                    </button>
-                                    <button class="search__button search__button--type--close" type="button">
-                                        <svg width="20px" height="20px">
-                                            <use xlink:href="images/sprite.svg#cross-20"></use>
-                                        </svg>
-                                    </button>
-                                    <div class="search__border"></div>
-                                </form>
+                                <?php echo do_shortcode('[fibosearch]'); ?>
                                 <div class="search__suggestions suggestions suggestions--location--mobile-header"></div>
                             </div>
                         </div>
@@ -95,7 +82,7 @@
                                 <button class="indicator__button">
                                         <span class="indicator__area">
                                             <svg width="20px" height="20px">
-                                                <use xlink:href="images/sprite.svg#search-20"></use>
+                                                <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#search-20"></use>
                                             </svg>
                                         </span>
                                 </button>
@@ -104,19 +91,21 @@
                                 <a href="wishlist.html" class="indicator__button">
                                         <span class="indicator__area">
                                             <svg width="20px" height="20px">
-                                                <use xlink:href="images/sprite.svg#heart-20"></use>
+                                                <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#heart-20"></use>
                                             </svg>
                                             <span class="indicator__value">0</span>
                                         </span>
                                 </a>
                             </div>
                             <div class="indicator indicator--mobile">
-                                <a href="cart.html" class="indicator__button">
+                                <?php
+                                global $woocommerce; ?>
+                                <a href="<?php echo $woocommerce->cart->get_cart_url() ?>" class="indicator__button">
                                         <span class="indicator__area">
                                             <svg width="20px" height="20px">
-                                                <use xlink:href="images/sprite.svg#cart-20"></use>
+                                                <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#cart-20"></use>
                                             </svg>
-                                            <span class="indicator__value">3</span>
+                                            <span class="indicator__value"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
                                         </span>
                                 </a>
                             </div>
@@ -128,34 +117,173 @@
     </header>
     <!-- mobile site__header / end -->
     <!-- desktop site__header -->
-    <header  class="site__header d-lg-block d-none">
+
+    <header id="site-header" class="site__header d-lg-block d-none" role="banner">
         <div class="site-header">
-            <div class="container">
-                <div class="row">
-                    <?php
-                    the_custom_logo();
-                    if ( is_front_page() && is_home() ) :
-                        ?>
-                        <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                                <object type="image/svg+xml" data="<?php echo $redux_options['opt-logo']['url'];?>"  ></object>
+			  <!-- .topbar -->
+			   <div class="site-header__topbar topbar">
+					<div class="topbar__container container">
+						<div class="topbar__row">
+							<?php dynamic_sidebar( 'top_bar' ); ?>
+							<div class="topbar__spring"></div>
+                            <?php dynamic_sidebar( 'top_bar-right' ); ?>
 
-                            </a></h1>
-                    <?php else : ?>
-                        <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                                <object type="image/svg+xml" data="<?php echo $redux_options['opt-logo']['url'];?>"  ></object>
-                            </a></p>
-                    <?php endif; ?>
-
-                </div><!-- .site-branding -->
-                <div class="row flex-column">
-
-                    <?php // echo  $redux_options['site-branding-button-link']; ?>
-                    <div class="site-branding_title"> <?php echo  $redux_options['site-branding-title']; ?> </div>
-                    <div class="site-branding_desc"> <?php echo  $redux_options['site-branding-desc']; ?></div>
-                    <a href="tel:<?php echo  $redux_options['site-branding-button-link']; ?>"> <div class="site-branding_button"> <?php echo  $redux_options['site-branding-button-text']; ?> </div></a>
+						</div>
+					</div>
+			   </div>
+			   <!-- .topbar / end -->
+            <div class="site-header__middle container">
+                <div class="site-header__logo">
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                        <img src="<?php echo $redux_options['opt-logo']['url'];?>" />
+                    </a>
+                </div>
+                <div class="site-header__search">
+                    <div class="search search--location--header ">
+                        <?php echo do_shortcode('[fibosearch]'); ?>
+                    </div>
+                </div>
+                <div class="site-header__phone">
+                    <div class="site-header__phone-number"><?php echo  $redux_options['phone-number']; ?></div>
+                    <div class="site-header__phone-title">
+                        <a href="<?php echo  $redux_options['link-call-to-action']; ?>" target="_blank"><?php echo  $redux_options['link-call-to-action-text']; ?></a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </header><!-- #masthead -->
+            <h class="site-header__nav-panel">
+                <!-- data-sticky-mode - one of [pullToShow, alwaysOnTop] -->
+                <div class="nav-panel nav-panel--sticky" data-sticky-mode="pullToShow">
+                    <div class="nav-panel__container container">
+                        <div class="nav-panel__row">
+                            <div class="nav-panel__departments">
+                                <div class="departments  departments--open departments--fixed " data-departments-fixed-by=".block-slideshow">
+                                    <div class="departments__body">
+                                        <div class="departments__links-wrapper">
+                                            <div class="departments__submenus-container"></div>
+                                               <?php
+                                               $category = 0;
+                                               $r = '';
+                                               $args = array(
+                                                   'parent' => $category,
+                                               );
+                                               $next = get_terms('product_cat', $args);
+                                               if ($next) {
+                                                   foreach ($next as $cat) {
+                                                       $r .= '<ul  class="departments__links">';
+                                                       $args = array(
+                                                           'parent' => $cat->term_id,
+                                                       );
+                                                       $next_sub = get_terms('product_cat', $args);
+                                                       if ($next_sub) {
+                                                           foreach ($next_sub as $cat_sub) {
+                                                               $r .= '<li class="departments__item"><a class="departments__item-link" href=" ' . get_term_link($cat_sub->slug, $cat_sub->taxonomy) . '" title="' . sprintf(__("View all products in %s"), $cat_sub->name) . '" ' . '>' .
+                                                                   $cat_sub->name;
+                                                               $args = array(
+                                                                   'parent' => $cat_sub->term_id,
+                                                               );
+                                                               $next_sub_child = get_terms('product_cat', $args);
+                                                               if ($next_sub_child) {
 
+                                                                   $r .= '<svg class="departments__item-arrow" width="6px" height="9px">
+                                                                      <use xlink:href="'.get_template_directory_uri() .'/images/sprite.svg#arrow-rounded-right-6x9"></use>
+                                                                   </svg>
+                                                                </a>';
+                                                                   $thumbnail_id = get_term_meta($cat_sub->term_id, 'thumbnail_id', true);
+                                                                   $image = wp_get_attachment_url($thumbnail_id);
+                                                                   $r .= '<div class="departments__submenu departments__submenu--type--megamenu departments__submenu--size--xl">
+                                                                      <div class="megamenu  megamenu--departments ">
+                                                                          <div class="megamenu__body" style="background-image:url(' . $image . ')">
+                                                                             <div class="row">
+                                                                                 <div class="col-3">
+                                                                                     <ul class="megamenu__links megamenu__links--level--0">';
+                                                                   foreach ($next_sub_child as $cat_sub_child) {
+                                                                       $r .= '<li class="megamenu__item  megamenu__item--with-submenu ">
+                                                                                <a href="' . get_term_link($cat_sub_child->slug, $cat_sub_child->taxonomy) . '"title="' . sprintf(__("View all products in %s"), $cat_sub_child->name) . '" >' . $cat_sub_child->name . '</a>';
+                                                                       if ($cat_sub_child->term_id !== 0) {
+                                                                           $args = array(
+                                                                               'parent' => $cat_sub_child->term_id,
+                                                                           );
+                                                                           $next_sub_child_last = get_terms('product_cat', $args);
+                                                                           $r .= '<ul class="megamenu__links megamenu__links--level--1">';
+                                                                           foreach ($next_sub_child_last as $cat_sub_child_last) {
+                                                                               $r .= '<li class="megamenu__item">
+                                                                                 <a href="' . get_term_link($cat_sub_child_last->slug, $cat_sub_child_last->taxonomy) . '"title="' . sprintf(__("View all products in %s"), $cat_sub_child_last->name) . '">' . $cat_sub_child_last->name . '</a>
+                                                                              </li>';
+                                                                           }
+                                                                           $r .= '</ul>';
+                                                                       }
+                                                                       $r .= '</li>';
+                                                                   }
+                                                                   $r .= '</div></div></div></div></div></ul>';
+                                                               } else {
+                                                                   $r .= '</a>';
+                                                               }
+                                                               $r .= '</li>';
+                                                           }
+
+                                                       }
+                                                       $r .= '</ul>';
+                                                   }
+                                               }
+                                               echo $r;
+                                                ?>
+                                        </div>
+                                    </div>
+                                    <button class="departments__button">
+                                        <svg class="departments__button-icon" width="18px" height="14px">
+                                            <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#menu-18x14"></use>
+                                        </svg>
+                                        <?php echo __('Shop by category'); ?>
+                                        <svg class="departments__button-arrow" width="9px" height="6px">
+                                            <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#arrow-rounded-down-9x6"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="nav-panel__nav-links nav-links">
+                            <?php wp_nav_menu(array('menu_class'=>'nav-links__list','link_before' =>'<div class="nav-links__item-body">','link_after' =>'</div>')); ?>
+                            </div>
+                            <div class="nav-panel__indicators">
+                                <div class="mobile-header__indicators">
+
+
+                                    <div class="indicator indicator--mobile d-sm-flex d-none">
+                                        <a href="wishlist.html" class="indicator__button">
+                                        <span class="indicator__area">
+                                            <svg width="20px" height="20px">
+                                                <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#heart-20"></use>
+                                            </svg>
+                                            <span class="indicator__value">0</span>
+                                        </span>
+                                        </a>
+                                    </div>
+                                    <div class="indicator indicator--mobile">
+                                        <?php
+                                        global $woocommerce; ?>
+                                        <a href="<?php echo $woocommerce->cart->get_cart_url() ?>" class="indicator__button">
+                                        <span class="indicator__area">
+                                            <svg width="20px" height="20px">
+                                                <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#cart-20"></use>
+                                            </svg>
+                                            <span class="indicator__value"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+                                        </span>
+                                        </a>
+                                    </div>
+                                    <div class="indicator indicator--mobile-search indicator--mobile d-md-none">
+                                        <button class="indicator__button">
+                                        <span class="indicator__area">
+                                            <svg width="20px" height="20px">
+                                                <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#search-20"></use>
+                                            </svg>
+                                        </span>
+                                        </button>
+                                    </div>
+
+
+                            </div
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </header>
     <div id="content" class="site__body">
