@@ -13,6 +13,7 @@
 //= number.js
 //= myA.js
 //= header.js
+//= map.js
 
 //= ../../../node_modules/svg4everybody/dist/svg4everybody.min.js
 

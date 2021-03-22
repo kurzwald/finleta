@@ -723,6 +723,37 @@ Redux::setSection( $opt_name, array(
                 ),
             )
         ) );
+
+Redux::setSection( $opt_name, array(
+    'title' => __( 'Contacts  ', 'redux-framework-demo' ),
+    'id'    => 'contacts',
+    'desc'  => __( 'contacts options.', 'redux-framework-demo' ),
+    'icon'  => 'el el-phone'
+) );
+
+
+
+
+Redux::setSection( $opt_name, array(
+    'title'      => __( 'contacts', 'redux-framework-demo' ),
+    'desc'       => __( '  ', 'redux-framework-demo' ) ,
+    'id'         => 'opt-text-subsection',
+    'subsection' => true,
+    'fields'     => array(
+
+        array(
+            'id'       => 'opt-logo',
+            'type'     => 'media',
+            'url'      => true,
+            'title'    => __('Logo ', 'redux-framework-demo'),
+            'desc'     => __('Basic logo  on the header', 'redux-framework-demo'),
+            'subtitle' => __('Upload any media using the WordPress native uploader', 'redux-framework-demo'),
+            'default'  => array(
+                'url'=>'/wp-content/themes/olynk/assets/build/img/logo.svg'
+            ),
+        ),
+    )
+) );
     /*
      * <--- END SECTIONS
      */

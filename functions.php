@@ -40,8 +40,50 @@ function olynk_register_required_plugins() {
           //  'external_url'       => '', // If set, overrides default API URL and points to an external URL.
           //  'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
         ),
-
-
+        array(
+            'name'               => 'Woocommerce', // The plugin name.
+            'slug'               => 'woocommerce', // The plugin slug (typically the folder name).
+            // 'source'             => 'https://downloads.wordpress.org/plugin/woocommerce.5.1.0.zip', // The plugin source.
+            'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+            //  'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+            //  'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+            //  'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+            //  'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+            //  'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+        ),
+        array(
+            'name'               => 'Polylang', // The plugin name.
+            'slug'               => 'polylang', // The plugin slug (typically the folder name).
+            // 'source'             => 'https://downloads.wordpress.org/plugin/polylang.3.0.2.zip', // The plugin source.
+            'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+            //  'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+            //  'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+            //  'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+            //  'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+            //  'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+        ),
+        array(
+            'name'               => 'FiboSearch — Ajax Search for WooCommerce', // The plugin name.
+            'slug'               => 'ajax-search-for-woocommerce', // The plugin slug (typically the folder name).
+            // 'source'             => 'https://downloads.wordpress.org/plugin/ajax-search-for-woocommerce.1.9.0.zip', // The plugin source.
+            'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+            //  'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+            //  'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+            //  'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+            //  'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+            //  'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+        ),
+        array(
+            'name'               => 'WooMS', // The plugin name.
+            'slug'               => 'wooms', // The plugin slug (typically the folder name).
+            // 'source'             => 'https://downloads.wordpress.org/plugin/wooms.zip', // The plugin source.
+            'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+            //  'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+            //  'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+            //  'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+            //  'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+            //  'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+        ),
     );
 
 
