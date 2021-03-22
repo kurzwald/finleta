@@ -3,3 +3,131 @@
 $red:     #cc2eaa;
 $green:   #2ecc71;
 
+// Variables Bootstrap 4
+$min-width-xs:      320px;
+$min-width-pre-xs:      420px;
+$max-width-xs:      767px;
+
+$min-width-s:        (($max-width-xs) + 1)px;
+$max-width-s:       768px;
+
+$min-width-m:        (($max-width-s) + 1) px;
+$max-width-m:       1024px;
+$max-width-pre-m:    (($max-width-m) - 1) px; //1023px
+
+$min-width-l:        (($max-width-m) + 1) px;
+$max-width-l:       1280px;
+$max-width-pre-l:    (($max-width-l) - 1) px; //1279px
+
+$min-width-xl:       (($max-width-l) + 1) px;
+$max-width-xl:      1440px;
+$max-width-pre-xl:    (($max-width-xl) - 1) px; //1439px
+
+$min-width-xxl:      (($max-width-xl) + 1) px;
+$max-width-xxl:     1600px;
+
+$min-width-xxxl:     (($max-width-xxl) + 1) px;
+$max-width-xxxl:    1920px;
+
+$max-width-tab-big: 970px;
+$max-width-mobile: 480px;
+
+$min-width-sidebar: 1200px;
+$max-width-cluster:  (($min-width-sidebar) - 1) px;
+
+$min-width-point-a :1768px;
+$min-width-point-b :1625px;
+$min-width-point-c :1473px;
+$min-width-point-d :1359px;
+$min-width-point-e :1196px;
+
+$fs-base: 16px;
+$fs-paragraph: 18px;
+
+$content-padding-xs: 8px;
+$content-padding-s: 16px;
+$content-padding-m: 27px;
+$content-padding-l: 55px;
+$content-padding-xl: 135px;
+$content-padding-xxl: 116px;
+
+$w-content-max-xxl: 40px;
+$w-content-max: 1200px;
+
+$font-base: "Open Sans", "sans-serif";
+
+$white: #ffffff;
+$bg-white: #fafafa;
+$bg-light-gray: #f6f8f8;
+$bg-footer: #0b3155;
+$bg-languages: #193d5f;
+
+$color-base: #333333;
+$color-black: #222222;
+$color-white: #ffffff;
+$color-red: #ff0000;
+$color-blue: #005eb8;
+$color-hover: #635F60;
+$color-black-hover: #000000;
+$color-unimportant: #6c6e70;
+$color-social: #989898;
+$color-silver: #bfc3c7;
+$color-tangerine: #FFD600;
+$color-separator: #c4c4c4;
+$color-search-border: #e7e7e7;
+$color-search-border--focus: $color-separator;
+$color-search-placeholder: #c4c4c4;
+$color-search-text: #2b2826;
+$color-search-close: #828282;
+$color-blockquote: #dadfe3;
+$color-slider: #bababa;
+$color-error: #e4002b;
+$color-search-mob: #828282;
+$light-navy: #115689;
+$color-green: #48a23f;
+$color-orange: #ed8b00;
+$color-footer: rgba(255, 255, 255, 0.7);
+$color-footer-hr: rgba(255, 255, 255, 0.3);
+$color-border-light: #dadada;
+$color-table-border: #c7c7c7;
+$color-table-border--blog: #ededed;
+$color-upload-limit: #666666;
+$color-placeholder-gray: #999999;
+$color-icon-gray: #afafaf;
+$color-label-gray: #555555;
+$color-text-gray: #3b3c3d;
+$color-blue-nav-menu: #025eb8;
+$color-btn-blue: #0269c0;
+$color-btn-blue--hover: #004688;
+$color-btn-green: #47bb3b;
+$color-btn-green--hover: #48a23e;
+$color-btn-orange: #ff9600;
+$color-btn-orange--hover: #ed8b00;
+$color-orange-bright: #f59a17;
+
+$color-menu-separator: #89c8ff;
+$color-menu-mobile: #14315d;
+$color-menu-mobile-active-item: #D7EEFF;
+$color-menu-mobile-toggle: $color-blue;
+
+$color-breadcrumbs: #717171;
+$color-breadcrumbs--inactive: #a3a3a3;
+
+$dragover-blue: #f2f9fe;
+
+$transition-speed: .2s ease-in-out;
+
+$c-tab-blue: #0b3155;
+$c-tab-active: $color-blue;
+
+$c-pagination: #bfc3c7;
+$c-pagination-active: #f59000;
+
+$blog-link: #333333;
+$blog-link--active: #0065c5;
+$blog-dot: #6c6e70;
+
+// MD form
+$label--gray: #939eab;
+$border--gray: #dce1e5;
+$border--dark-gray: #cdd3d8;
