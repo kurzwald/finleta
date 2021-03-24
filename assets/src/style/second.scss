@@ -1,0 +1,15 @@
+#map {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: calc(100%);
+  flex-wrap: nowrap;
+  height: 540px;
+
+  @media only screen and (max-width: $max-width-l) {
+    height: 480px;
+    flex-basis: unset;
+  }
+  @media only screen and (max-width: $max-width-xs) {
+    height: 380px;
+  }
+}
