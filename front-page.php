@@ -110,7 +110,95 @@ get_header();
             </div>
         </div>
     </div>
+
+
+
     <!-- .block-products-carousel -->
+<?php
+$args = array(
+    'post_type' => 'product',
+    'posts_per_page' => 12,
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'product_visibility',
+            'field'    => 'name',
+        ),
+    ),
+);
+$featured_category=array();
+$loop = new WP_Query( $args );
+if ( $loop->have_posts() ) {
+    while ( $loop->have_posts() ) : $loop->the_post();
+       // echo '<p>'.get_the_title().'</p>';
+        $list_cat=explode(',',wc_get_product_category_list($loop->get_id()));
+        foreach($list_cat as $cat){
+            if(!in_array($cat,$featured_category)){
+                array_push($featured_category,$cat);
+            }
+        }
+        endwhile;
+} else {
+    echo __( 'No products found' );
+}
+foreach($featured_category as $category){echo 'cat='.$category.'<br>';}
+wp_reset_postdata();
+?>
+
+
+
+
+<?php
+$args = array( 'post_type' => 'product', 'post_status' => 'publish');
+$loop = new WP_Query( $args );
+if ( $loop->have_posts() ) {
+    while ($loop->have_posts()) : $loop->the_post();
+    endwhile;
+    }
+
+?>
+    <div class="block block-products-carousel" data-layout="grid-4" data-mobile-grid-columns="2">
+        <div class="container">
+            <div class="block-header">
+                <h3 class="block-header__title">Featured Products</h3>
+                <div class="block-header__divider"></div>
+                <ul class="block-header__groups-list">
+                    <li><button type="button" class="block-header__group  block-header__group--active ">All</button></li>
+                    <li><button type="button" class="block-header__group ">Power Tools</button></li>
+                    <li><button type="button" class="block-header__group ">Hand Tools</button></li>
+                    <li><button type="button" class="block-header__group ">Plumbing</button></li>
+                </ul>
+                <div class="block-header__arrows-list">
+                    <button class="block-header__arrow block-header__arrow--left" type="button">
+                        <svg width="7px" height="11px">
+                            <use xlink:href="images/sprite.svg#arrow-rounded-left-7x11"></use>
+                        </svg>
+                    </button>
+                    <button class="block-header__arrow block-header__arrow--right" type="button">
+                        <svg width="7px" height="11px">
+                            <use xlink:href="images/sprite.svg#arrow-rounded-right-7x11"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="block-products-carousel__slider">
+                <div class="block-products-carousel__preloader"></div>
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
   <!--  <div class="block block-products-carousel" data-layout="grid-4" data-mobile-grid-columns="2">
         <div class="container">
             <div class="block-header">
@@ -2423,12 +2511,188 @@ get_header();
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- .block-products-carousel / end -->
+    <!-- .block-banner -->
+    <div class="block block-banner">
+        <div class="container">
+            <a href="<?php echo  $redux_options['banner-button-link-1']; ?>" class="block-banner__body">
+                <div class="block-banner__image block-banner__image--desktop" style="background-image: url('<?php echo  $redux_options['banner-img-1']['url']; ?>')"></div>
+                <div class="block-banner__image block-banner__image--mobile" style="background-image: url('<?php echo  $redux_options['banner-img-mob-1']['url']; ?>')"></div>
+                <div class="block-banner__title"><?php echo  $redux_options['banner-title-1']; ?></div>
+                <div class="block-banner__text"><?php echo  $redux_options['banner-desc-1']; ?></div>
+                <div class="block-banner__button">
+                    <span class="btn btn-sm btn-primary"><?php echo  $redux_options['banner-button-1']; ?></span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- .block-banner / end -->
 
+    <!-- .block-categories -->
+    <div class="block block--highlighted block-categories block-categories--layout--classic">
+        <div class="container">
+            <div class="block-header">
+                <h3 class="block-header__title"><?php echo  $redux_options['services-title']; ?></h3>
+                <div class="block-header__divider"></div>
+            </div>
+            <div class="block-categories__list">
+                <div class="block-categories__item category-card category-card--layout--classic">
+                    <div class="category-card__body">
+                        <div class="category-card__image">
+                            <a href="<?php echo  $redux_options['services-link-1']; ?>"><img src="<?php echo  $redux_options['services-img-1']['url']; ?>" alt=""></a>
+                        </div>
+                        <div class="category-card__content">
+                            <div class="category-card__name">
+                                <a href="<?php echo  $redux_options['services-link-1']; ?>"><?php echo  $redux_options['services-title-1']; ?></a>
+                            </div>
+                            <ul class="category-card__links">
+                                <?php echo  $redux_options['services-desc-1']; ?>
+                            </ul>
+                            <div class="category-card__all">
+                                <a href="<?php echo  $redux_options['services-link-1']; ?>"><?php echo  $redux_options['services-button-text']; ?></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block-categories__item category-card category-card--layout--classic">
+                    <div class="category-card__body">
+                        <div class="category-card__image">
+                            <a href="<?php echo  $redux_options['services-link-2']; ?>"><img src="<?php echo  $redux_options['services-img-2']['url']; ?>" alt=""></a>
+                        </div>
+                        <div class="category-card__content">
+                            <div class="category-card__name">
+                                <a href="<?php echo  $redux_options['services-link-2']; ?>"><?php echo  $redux_options['services-title-2']; ?></a>
+                            </div>
+                            <ul class="category-card__links">
+                                <?php echo  $redux_options['services-desc-2']; ?>
+                            </ul>
+                            <div class="category-card__all">
+                                <a href="<?php echo  $redux_options['services-link-2']; ?>"><?php echo  $redux_options['services-button-text']; ?></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block-categories__item category-card category-card--layout--classic">
+                    <div class="category-card__body">
+                        <div class="category-card__image">
+                            <a href="<?php echo  $redux_options['services-link-3']; ?>"><img src="<?php echo  $redux_options['services-img-3']['url']; ?>" alt=""></a>
+                        </div>
+                        <div class="category-card__content">
+                            <div class="category-card__name">
+                                <a href="<?php echo  $redux_options['services-link-3']; ?>"><?php echo  $redux_options['services-title-3']; ?></a>
+                            </div>
+                            <ul class="category-card__links">
+                                <?php echo  $redux_options['services-desc-3']; ?>
+                            </ul>
+                            <div class="category-card__all">
+                                <a href="<?php echo  $redux_options['services-link-3']; ?>"><?php echo  $redux_options['services-button-text']; ?></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block-categories__item category-card category-card--layout--classic">
+                    <div class="category-card__body">
+                        <div class="category-card__image">
+                            <a href="<?php echo  $redux_options['services-link-4']; ?>"><img src="<?php echo  $redux_options['services-img-4']['url']; ?>" alt=""></a>
+                        </div>
+                        <div class="category-card__content">
+                            <div class="category-card__name">
+                                <a href="<?php echo  $redux_options['services-link-4']; ?>"><?php echo  $redux_options['services-title-4']; ?></a>
+                            </div>
+                            <ul class="category-card__links">
+                                <?php echo  $redux_options['services-desc-4']; ?>
+                            </ul>
+                            <div class="category-card__all">
+                                <a href="<?php echo  $redux_options['services-link-4']; ?>"><?php echo  $redux_options['services-button-text']; ?></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block-categories__item category-card category-card--layout--classic">
+                    <div class="category-card__body">
+                        <div class="category-card__image">
+                            <a href="<?php echo  $redux_options['services-link-5']; ?>"><img src="<?php echo  $redux_options['services-img-5']['url']; ?>" alt=""></a>
+                        </div>
+                        <div class="category-card__content">
+                            <div class="category-card__name">
+                                <a href="<?php echo  $redux_options['services-link-5']; ?>"><?php echo  $redux_options['services-title-5']; ?></a>
+                            </div>
+                            <ul class="category-card__links">
+                                <?php echo  $redux_options['services-desc-5']; ?>
+                            </ul>
+                            <div class="category-card__all">
+                                <a href="<?php echo  $redux_options['services-link-5']; ?>"><?php echo  $redux_options['services-button-text']; ?></a>
+                            </div>
+                            <div class="category-card__products">
+                                366 Products
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block-categories__item category-card category-card--layout--classic">
+                    <div class="category-card__body">
+                        <div class="category-card__image">
+                            <a href="<?php echo  $redux_options['services-link-6']; ?>"><img src="<?php echo  $redux_options['services-img-6']['url']; ?>" alt=""></a>
+                        </div>
+                        <div class="category-card__content">
+                            <div class="category-card__name">
+                                <a href="<?php echo  $redux_options['services-link-6']; ?>"><?php echo  $redux_options['services-title-6']; ?></a>
+                            </div>
+                            <ul class="category-card__links">
+                                <?php echo  $redux_options['services-desc-6']; ?>
+                            </ul>
+                            <div class="category-card__all">
+                                <a href="<?php echo  $redux_options['services-link-6']; ?>"><?php echo  $redux_options['services-button-text']; ?></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- .block-categories / end -->
 
+    <!-- .block-banner -->
+    <div class="block block-banner">
+        <div class="container">
+            <a href="<?php echo  $redux_options['banner-button-link-2']; ?>" class="block-banner__body">
+                <div class="block-banner__image block-banner__image--desktop" style="background-image: url('<?php echo  $redux_options['banner-img-2']['url']; ?>')"></div>
+                <div class="block-banner__image block-banner__image--mobile" style="background-image: url('<?php echo  $redux_options['banner-img-mob-2']['url']; ?>')"></div>
+                <div class="block-banner__title"><?php echo  $redux_options['banner-title-2']; ?></div>
+                <div class="block-banner__text"><?php echo  $redux_options['banner-desc-2']; ?></div>
+                <div class="block-banner__button">
+                    <span class="btn btn-sm btn-primary"><?php echo  $redux_options['banner-button-2']; ?></span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- .block-banner / end -->
+
+    <!-- .block-brands -->
+    <div class="block block-brands">
+        <div class="container">
+            <div class="block-brands__slider">
+                <div class="owl-carousel">
+                    <?php
+                    $array_brands=$redux_options['brands'];
+                        if(isset($array_brands) && !empty($array_brands)){
+                            foreach ($array_brands as $brand){
+                                ?>
+                                <div class="block-brands__item">
+                                    <a href="<?php if($brand['url']){echo $brand['url']; }?>"><img src="<?php echo $brand['image']?>" alt="<?php if($brand['title']){echo $brand['title']; }?>"></a>
+                                </div>
+                                <?php
+                            }
+                        }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- .block-brands / end -->
 
 <?php
-/*include "request-form.php";
-*/
+/*include "request-form.php";*/
 get_footer();
+?>
