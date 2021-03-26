@@ -934,5 +934,29 @@ Redux::setSection( $opt_name, array(
         ),
     )
 ) );
+
+Redux::setSection( $opt_name, array(
+    'title' => __( 'Contacts page ', 'redux-framework-demo' ),
+    'id'    => 'opt-contact',
+    'desc'  => __( 'Contacts page.', 'redux-framework-demo' ),
+    'icon'  => 'el el-phone'
+
+));
+
+Redux::setSection( $opt_name, array(
+    'title'      => __( 'Add contacts', 'redux-framework-demo' ),
+    'id'         => 'additional-contact',
+    'desc'       => __( 'Add contacts ', 'redux-framework-demo' ) ,
+    'subsection' => true,
+    'fields'     => array(
+        array(
+            'id'       => 'contacts-form',
+            'type'     => 'text',
+            'title'    => __( 'Add shortcode Contact form 7', 'redux-framework-demo' ),
+            'desc'     => __( 'Like [contact-form-7 id="53" title="contact form"]', 'redux-framework-demo' ),
+            'default'  => '[contact-form-7 id="53" title="contact form"]',
+        ),
+    )
+) );
      /* <--- END SECTIONS
      */

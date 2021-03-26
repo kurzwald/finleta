@@ -4,3 +4,4 @@ assets/build/
 .vscode/
 README.md
 package-lock.json
+gulpfile.js
