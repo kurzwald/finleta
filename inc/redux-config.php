@@ -921,7 +921,7 @@ Redux::setSection( $opt_name, array(
     'subsection' => true,
     'fields'     => array(
         array(
-            'id'          => 'brand',
+            'id'          => 'brands',
             'type'        => 'slides',
             'title'       => __( 'Images Options', 'redux-framework-demo' ),
             'subtitle'    => __( 'Images Options.', 'redux-framework-demo' ),
