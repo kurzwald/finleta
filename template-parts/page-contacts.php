@@ -1,0 +1,11 @@
+<?php
+/*
+Template Name: Template page Contacts
+Template Post Type: post, page, product
+*/
+?>
+    <div class="block-map block">
+        <div class="block-map__body">
+            <iframe src='https://maps.google.com/maps?q=Holbrook-Palmer%20Park&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>
+        </div>
+    </div>

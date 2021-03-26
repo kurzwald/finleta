@@ -413,3 +413,16 @@ function special_nav_class($classes, $item){
     $classes[] = 'nav-links__item  nav-links__item--has-submenu';
     return $classes;
 }
+add_filter('woocommerce_product_get_rating_html', 'your_get_rating_html', 10, 2);
+function your_get_rating_html($rating_html, $rating) {
+    if ( $rating > 0 ) {
+        $title = sprintf( __( 'Rated %s out of 5', 'woocommerce' ), $rating );
+    } else {
+        $title = 'Not yet rated';
+        $rating = 0;
+    }
+    $rating_html  = '<div class="star-rating" title="' . $title . '">';
+    $rating_html .= '<span style="width:' . ( ( $rating / 5 ) * 100 ) . '%"><strong class="rating">' . $rating . '</strong> ' . __( 'out of 5', 'woocommerce' ) . '</span>';
+    $rating_html .= '</div>';
+    return $rating_html;
+}
