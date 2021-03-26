@@ -100,7 +100,7 @@
                             <div class="indicator indicator--mobile">
                                 <?php
                                 global $woocommerce; ?>
-                                <a href="<?php echo $woocommerce->cart->get_cart_url() ?>" class="indicator__button">
+                                <a href="<?php echo wc_get_cart_url() ?>" class="indicator__button">
                                         <span class="indicator__area">
                                             <svg width="20px" height="20px">
                                                 <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#cart-20"></use>

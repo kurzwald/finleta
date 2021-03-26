@@ -26,3 +26,9 @@ $head-color: #fff;
   transform: scaleX(1);
   fill:white;
 }
+.category-card__links{
+  flex-grow:2
+}
+.block-products-carousel__slider .quantity,.block-products-carousel__slider .tinv-wishlist{
+  display:none;
+}

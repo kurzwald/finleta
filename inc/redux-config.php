@@ -32,8 +32,8 @@
         //Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
         'allow_sub_menu'       => true,
         // Show the sections below the admin menu item or not
-        'menu_title'           => __( 'Olynk Options', 'redux-framework-demo' ),
-        'page_title'           => __( 'Olynk Options', 'redux-framework-demo' ),
+        'menu_title'           => __( 'Finleta Options', 'redux-framework-demo' ),
+        'page_title'           => __( 'Finleta Options', 'redux-framework-demo' ),
         // You will need to generate a Google API key to use this feature.
         // Please visit: https://developers.google.com/fonts/docs/developer_api#Auth
         'google_api_key'       => '',
@@ -289,7 +289,7 @@ Redux::setSection( $opt_name, array(
             'title' => __( 'Header slider  ', 'redux-framework-demo' ),
             'id'    => 'slider',
             'desc'  => __( 'slider options.', 'redux-framework-demo' ),
-            'icon'  => 'el el-list-alt'
+            'icon'  => 'el el-resize-horizontal'
         ) );
 
         Redux::setSection( $opt_name, array(
@@ -448,43 +448,135 @@ Redux::setSection( $opt_name, array(
             )
         ) );
         Redux::setSection( $opt_name, array(
-            'title' => __( 'Notice block  ', 'redux-framework-demo' ),
-            'id'    => 'notice',
-            'desc'  => __( 'Notice options.', 'redux-framework-demo' ),
-            'icon'  => 'el el-list-alt'
+            'title' => __( 'Banners on Main page ', 'redux-framework-demo' ),
+            'id'    => 'banner',
+            'desc'  => __( 'Banners options.', 'redux-framework-demo' ),
+            'icon'  => 'el el-picture'
         ) );
         Redux::setSection( $opt_name, array(
-            'title'      => __( 'Notice Slogan  ', 'redux-framework-demo' ),
+            'title'      => __( 'Banner  ', 'redux-framework-demo' ),
             'desc'       => __( '', 'redux-framework-demo' ) . '',
-            'id'         => 'opt-notice',
+            'id'         => 'opt-banner',
             'subsection' => true,
             'fields'     => array(
                 array(
-                    'id'       => 'notice-title',
+                    'id'       => 'banner-title-1',
                     'type'     => 'text',
-                    'title'    => __( 'Site header  title', 'redux-framework-demo' ),
+                    'title'    => __( 'Banner  title 1', 'redux-framework-demo' ),
 
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'Get notified about launching',
+                    'default'  => 'Title',
                 ),
                 array(
-                    'id'       => 'notice-form',
-                    'type'     => 'text',
-                    'title'    => __( 'Site header  description', 'redux-framework-demo' ),
+                    'id'       => 'banner-desc-1',
+                    'type'     => 'textarea',
+                    'title'    => __( 'Banner description 1', 'redux-framework-demo' ),
 
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => '[contact-form-7 id="53" title="телефон"]',
+                    'default'  => 'Banner description',
+                ),
+                array(
+                    'id'       => 'banner-button-1',
+                    'type'     => 'text',
+                    'title'    => __( 'Text of banner button 1', 'redux-framework-demo' ),
+
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => 'Press',
+                ),
+                array(
+                    'id'       => 'banner-button-link-1',
+                    'type'     => 'text',
+                    'title'    => __( 'Link of baner button 1', 'redux-framework-demo' ),
+
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => '#',
+                ),
+                array(
+                    'id'       => 'banner-img-1',
+                    'type'     => 'media',
+                    'url'      => true,
+                    'title'    => __('Image for banner 1 ', 'redux-framework-demo'),
+                    'desc'     => __('Advantages image 1110x170', 'redux-framework-demo'),
+                    'subtitle' => __('Upload any media using the WordPress native uploader', 'redux-framework-demo'),
+                    'default'  => array(
+                        'url'=>'/wp-content/uploads/2021/03/slide-1.jpg'
+                    ),
+                ),
+                array(
+                    'id'       => 'banner-img-mob-1',
+                    'type'     => 'media',
+                    'url'      => true,
+                    'title'    => __('Image mobile for banner 1 ', 'redux-framework-demo'),
+                    'desc'     => __('Advantages image 1110x170', 'redux-framework-demo'),
+                    'subtitle' => __('Upload any media using the WordPress native uploader', 'redux-framework-demo'),
+                    'default'  => array(
+                        'url'=>'/wp-content/uploads/2021/03/slide-1-mobile.jpg'
+                    ),
+                ),
+                array(
+                    'id'       => 'banner-title-2',
+                    'type'     => 'text',
+                    'title'    => __( 'Banner  title 2', 'redux-framework-demo' ),
+
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => 'Title',
+                ),
+                array(
+                    'id'       => 'banner-desc-2',
+                    'type'     => 'textarea',
+                    'title'    => __( 'Banner description 2', 'redux-framework-demo' ),
+
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => 'Banner description',
+                ),
+                array(
+                    'id'       => 'banner-button-2',
+                    'type'     => 'text',
+                    'title'    => __( 'Text of banner button 2', 'redux-framework-demo' ),
+
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => 'Press',
+                ),
+                array(
+                    'id'       => 'banner-button-link-2',
+                    'type'     => 'text',
+                    'title'    => __( 'Link of baner button 2', 'redux-framework-demo' ),
+
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => '#',
+                ),
+                array(
+                    'id'       => 'banner-img-2',
+                    'type'     => 'media',
+                    'url'      => true,
+                    'title'    => __('Image for banner 2 ', 'redux-framework-demo'),
+                    'desc'     => __('Advantages image 1110x170', 'redux-framework-demo'),
+                    'subtitle' => __('Upload any media using the WordPress native uploader', 'redux-framework-demo'),
+                    'default'  => array(
+                        'url'=>'/wp-content/uploads/2021/03/slide-1.jpg'
+                    ),
+                ),
+                array(
+                    'id'       => 'banner-img-mob-2',
+                    'type'     => 'media',
+                    'url'      => true,
+                    'title'    => __('Image mobile for banner 2 ', 'redux-framework-demo'),
+                    'desc'     => __('Advantages image 1110x170', 'redux-framework-demo'),
+                    'subtitle' => __('Upload any media using the WordPress native uploader', 'redux-framework-demo'),
+                    'default'  => array(
+                        'url'=>'/wp-content/uploads/2021/03/slide-1-mobile.jpg'
+                    ),
                 ),
 
+            )));
 
-            )
-        ) );
+
         Redux::setSection( $opt_name, array(
             'title' => __( 'Team block  ', 'redux-framework-demo' ),
             'id'    => 'team',
             'desc'  => __( 'Team options.', 'redux-framework-demo' ),
             'icon'  => 'el el-list-alt'
-        ) );
+        ));
         Redux::setSection( $opt_name, array(
             'title'      => __( 'Team Slogan  ', 'redux-framework-demo' ),
             'desc'       => __( '', 'redux-framework-demo' ) . '',
@@ -603,157 +695,244 @@ Redux::setSection( $opt_name, array(
 
             )
         ) );
+
+
+
         Redux::setSection( $opt_name, array(
-            'title' => __( 'Price block  ', 'redux-framework-demo' ),
-            'id'    => 'price',
-            'desc'  => __( 'Price options.', 'redux-framework-demo' ),
-            'icon'  => 'el el-list-alt'
+            'title' => __( 'Services block  ', 'redux-framework-demo' ),
+            'id'    => 'services',
+            'desc'  => __( 'Services block.', 'redux-framework-demo' ),
+            'icon'  => 'el el-person'
         ) );
         Redux::setSection( $opt_name, array(
-            'title'      => __( 'Price Slogan  ', 'redux-framework-demo' ),
+            'title'      => __( 'Services options  ', 'redux-framework-demo' ),
             'desc'       => __( '', 'redux-framework-demo' ) . '',
-            'id'         => 'opt-price',
+            'id'         => 'services-opt',
             'subsection' => true,
             'fields'     => array(
                 array(
-                    'id'       => 'price-title',
+                    'id'       => 'services-title',
                     'type'     => 'text',
-                    'title'    => __( 'Site header  title', 'redux-framework-demo' ),
-
+                    'title'    => __( 'Services  title', 'redux-framework-demo' ),
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'Pricing',
+                    'default'  => 'Services',
                 ),
                 array(
-                    'id'       => 'price-adv-header1',
+                    'id'       => 'services-button-text',
                     'type'     => 'text',
-                    'title'    => __( ' Price tarif title  1', 'redux-framework-demo' ),
+                    'title'    => __( 'Services  button text', 'redux-framework-demo' ),
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'Day tarif  ',
+                    'default'  => 'Click',
                 ),
                 array(
-                    'id'       => 'price-adv-header2',
-                    'type'     => 'text',
-                    'title'    => __( ' Price tarif title  2', 'redux-framework-demo' ),
+                    'id'       => 'services-img-1',
+                    'type'     => 'media',
+                    'title'    => __( ' Image  1', 'redux-framework-demo' ),
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'Evening ',
+                    'default'  => array(
+                        'url'=>''
+                    ),
                 ),
                 array(
-                    'id'       => 'price-adv-header3',
+                    'id'       => 'services-link-1',
                     'type'     => 'text',
-                    'title'    => __( ' Price tarif title 3', 'redux-framework-demo' ),
+                    'title'    => __( ' Link to service 1', 'redux-framework-demo' ),
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'Night  ',
+                    'default'  => '#',
                 ),
                 array(
-                    'id'       => 'price-adv-header4',
+                    'id'       => 'services-title-1',
                     'type'     => 'text',
-                    'title'    => __( ' Price tarif title  4', 'redux-framework-demo' ),
+                    'title'    => __( ' Service title 1', 'redux-framework-demo' ),
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'Morning ',
+                    'default'  => 'Service title',
                 ),
                 array(
-                    'id'       => 'price-adv-price1',
+                    'id'       => 'services-desc-1',
                     'type'     => 'text',
-                    'title'    => __( ' Price 1', 'redux-framework-demo' ),
+                    'title'    => __( ' Service description  1', 'redux-framework-demo' ),
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => '130$ ',
+                    'default'  => '',
                 ),
                 array(
-                    'id'       => 'price-adv-price2',
-                    'type'     => 'text',
-                    'title'    => __( ' Price 2', 'redux-framework-demo' ),
+                    'id'       => 'services-img-2',
+                    'type'     => 'media',
+                    'title'    => __( ' Image  2', 'redux-framework-demo' ),
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => '130$ ',
+                    'default'  => array(
+                        'url'=>''
+                    ),
                 ),
                 array(
-                    'id'       => 'price-adv-price3',
+                    'id'       => 'services-link-2',
                     'type'     => 'text',
-                    'title'    => __( ' Price 3', 'redux-framework-demo' ),
+                    'title'    => __( ' Link to service 2', 'redux-framework-demo' ),
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => '130$ ',
+                    'default'  => '#',
                 ),
                 array(
-                    'id'       => 'price-adv-price4',
+                    'id'       => 'services-title-2',
                     'type'     => 'text',
-                    'title'    => __( ' Price 4', 'redux-framework-demo' ),
+                    'title'    => __( ' Service  title 2', 'redux-framework-demo' ),
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => '130$ ',
+                    'default'  => 'Service title',
                 ),
                 array(
-                    'id'       => 'price-adv-time1',
+                    'id'       => 'services-desc-2',
                     'type'     => 'text',
-                    'title'    => __( ' Time  1', 'redux-framework-demo' ),
+                    'title'    => __( ' Service description  2', 'redux-framework-demo' ),
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'from 7:00 to 21:00 ',
+                    'default'  => '',
                 ),
                 array(
-                    'id'       => 'price-adv-time2',
-                    'type'     => 'text',
-                    'title'    => __( ' Time  2', 'redux-framework-demo' ),
+                    'id'       => 'services-img-3',
+                    'type'     => 'media',
+                    'title'    => __( ' Image  3', 'redux-framework-demo' ),
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'from 21:00 to 2:00 ',
+                    'default'  => array(
+                        'url'=>''
+                    ),
                 ),
                 array(
-                    'id'       => 'price-adv-time3',
+                    'id'       => 'services-link-3',
                     'type'     => 'text',
-                    'title'    => __( ' Time  3', 'redux-framework-demo' ),
+                    'title'    => __( ' Link to service 3', 'redux-framework-demo' ),
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'from 2:00 to 5:00',
+                    'default'  => '#',
                 ),
                 array(
-                    'id'       => 'price-adv-time4',
+                    'id'       => 'services-title-3',
                     'type'     => 'text',
-                    'title'    => __( ' Time  4', 'redux-framework-demo' ),
+                    'title'    => __( ' Service  title 3', 'redux-framework-demo' ),
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'from 5:00 to 7:00 ',
+                    'default'  => 'Service title',
                 ),
                 array(
-                    'id'       => 'price-adv-notice',
+                    'id'       => 'services-desc-3',
                     'type'     => 'text',
-                    'title'    => __( ' Notice on price ', 'redux-framework-demo' ),
+                    'title'    => __( ' Service description  3', 'redux-framework-demo' ),
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => 'The price of the service depends on the time of order acceptance ',
+                    'default'  => '',
                 ),
                 array(
-                    'id'       => 'price-adv-phone',
-                    'type'     => 'text',
-                    'title'    => __( ' Phone to call ', 'redux-framework-demo' ),
+                    'id'       => 'services-img-4',
+                    'type'     => 'media',
+                    'title'    => __( ' Image  4', 'redux-framework-demo' ),
                     'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                    'default'  => '+1445505500',
+                    'default'  => array(
+                        'url'=>''
+                    ),
+                ),
+                array(
+                    'id'       => 'services-link-4',
+                    'type'     => 'text',
+                    'title'    => __( ' Link to service 4', 'redux-framework-demo' ),
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => '#',
+                ),
+                array(
+                    'id'       => 'services-title-4',
+                    'type'     => 'text',
+                    'title'    => __( ' Service  title 4', 'redux-framework-demo' ),
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => 'Service title',
+                ),
+                array(
+                    'id'       => 'services-desc-4',
+                    'type'     => 'text',
+                    'title'    => __( ' Service description  4', 'redux-framework-demo' ),
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => '',
+                ),
+                array(
+                    'id'       => 'services-img-5',
+                    'type'     => 'media',
+                    'title'    => __( ' Image  5', 'redux-framework-demo' ),
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => array(
+                        'url'=>''
+                    ),
+                ),
+                array(
+                    'id'       => 'services-link-5',
+                    'type'     => 'text',
+                    'title'    => __( ' Link to service 5', 'redux-framework-demo' ),
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => '#',
+                ),
+                array(
+                    'id'       => 'services-title-5',
+                    'type'     => 'text',
+                    'title'    => __( ' Service  title 5', 'redux-framework-demo' ),
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => 'Service title',
+                ),
+                array(
+                    'id'       => 'services-desc-5',
+                    'type'     => 'text',
+                    'title'    => __( ' Service description  5', 'redux-framework-demo' ),
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => '',
+                ),
+                array(
+                    'id'       => 'services-img-6',
+                    'type'     => 'media',
+                    'title'    => __( ' Image  6', 'redux-framework-demo' ),
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => array(
+                        'url'=>''
+                    ),
+                ),
+                array(
+                    'id'       => 'services-link-6',
+                    'type'     => 'text',
+                    'title'    => __( ' Link to service 6', 'redux-framework-demo' ),
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => '#',
+                ),
+                array(
+                    'id'       => 'services-title-6',
+                    'type'     => 'text',
+                    'title'    => __( ' Service  title 6', 'redux-framework-demo' ),
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => 'Service title',
+                ),
+                array(
+                    'id'       => 'services-desc-6',
+                    'type'     => 'text',
+                    'title'    => __( ' Service description  6', 'redux-framework-demo' ),
+                    'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                    'default'  => '',
                 ),
             )
-        ) );
+));
+Redux::setSection( $opt_name, array(
+    'title' => __( 'Brands gallery  ', 'redux-framework-demo' ),
+    'id'    => 'opt-brands',
+    'desc'  => __( 'Images for brand gallery.', 'redux-framework-demo' ),
+    'icon'  => 'el el-website'
+
+));
 
 Redux::setSection( $opt_name, array(
-    'title' => __( 'Contacts  ', 'redux-framework-demo' ),
-    'id'    => 'contacts',
-    'desc'  => __( 'contacts options.', 'redux-framework-demo' ),
-    'icon'  => 'el el-phone'
-) );
-
-
-
-
-Redux::setSection( $opt_name, array(
-    'title'      => __( 'contacts', 'redux-framework-demo' ),
-    'desc'       => __( '  ', 'redux-framework-demo' ) ,
-    'id'         => 'opt-text-subsection',
+    'title'      => __( 'Add images', 'redux-framework-demo' ),
+    'id'         => 'additional-brand',
+    'desc'       => __( 'Add images ', 'redux-framework-demo' ) ,
     'subsection' => true,
     'fields'     => array(
-
         array(
-            'id'       => 'opt-logo',
-            'type'     => 'media',
-            'url'      => true,
-            'title'    => __('Logo ', 'redux-framework-demo'),
-            'desc'     => __('Basic logo  on the header', 'redux-framework-demo'),
-            'subtitle' => __('Upload any media using the WordPress native uploader', 'redux-framework-demo'),
-            'default'  => array(
-                'url'=>'/wp-content/themes/olynk/assets/build/img/logo.svg'
+            'id'          => 'brand',
+            'type'        => 'slides',
+            'title'       => __( 'Images Options', 'redux-framework-demo' ),
+            'subtitle'    => __( 'Images Options.', 'redux-framework-demo' ),
+            'desc'        => __( 'This field will store all slides values into a multidimensional array to use into a foreach loop.', 'redux-framework-demo' ),
+            'placeholder' => array(
+                'title'       => __( 'This is a title', 'redux-framework-demo' ),
+                'description' => __( 'Description Here', 'redux-framework-demo' ),
+                'url'         => __( 'Give us a link!', 'redux-framework-demo' ),
             ),
         ),
     )
 ) );
-    /*
-     * <--- END SECTIONS
+     /* <--- END SECTIONS
      */
