@@ -248,7 +248,18 @@ Redux::setSection( $opt_name, array(
             'desc'     => __('Basic logo  on the header', 'redux-framework-demo'),
             'subtitle' => __('Upload any media using the WordPress native uploader', 'redux-framework-demo'),
             'default'  => array(
-                'url'=>'/wp-content/themes/olynk/assets/build/img/logo.svg'
+                'url'=>''
+            ),
+        ),
+        array(
+            'id'       => 'opt-mob-logo',
+            'type'     => 'media',
+            'url'      => true,
+            'title'    => __('Mobile logo ', 'redux-framework-demo'),
+            'desc'     => __('Basic mobile logo  on the header', 'redux-framework-demo'),
+            'subtitle' => __('Upload any media using the WordPress native uploader', 'redux-framework-demo'),
+            'default'  => array(
+                'url'=>''
             ),
         ),
     )

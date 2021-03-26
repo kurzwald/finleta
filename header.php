@@ -68,7 +68,7 @@
                         </button>
                         <a class="mobile-header__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
                             <!-- mobile-logo -->
-                            <img src="<?php echo $redux_options['opt-logo']['url'];?>" />
+                            <img src="<?php echo $redux_options['opt-mob-logo']['url'];?>" height="100%" />
                             <!-- mobile-logo / end -->
                         </a>
                         <div class="search search--location--mobile-header mobile-header__search">
