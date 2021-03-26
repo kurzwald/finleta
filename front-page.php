@@ -746,7 +746,7 @@ wp_reset_postdata();
             <div class="block-brands__slider">
                 <div class="owl-carousel">
                     <?php
-                    $array_brands=$redux_options['brands'];
+                    $array_brands=$redux_options['brand'];
                         if(isset($array_brands) && !empty($array_brands)){
                             foreach ($array_brands as $brand){
                                 ?>
