@@ -248,7 +248,18 @@ Redux::setSection( $opt_name, array(
             'desc'     => __('Basic logo  on the header', 'redux-framework-demo'),
             'subtitle' => __('Upload any media using the WordPress native uploader', 'redux-framework-demo'),
             'default'  => array(
-                'url'=>'/wp-content/themes/olynk/assets/build/img/logo.svg'
+                'url'=>'/wp-content/themes/finleta/assets/build/img/logo.svg'
+            ),
+        ),
+        array(
+            'id'       => 'opt-mob-logo',
+            'type'     => 'media',
+            'url'      => true,
+            'title'    => __('Mobile logo ', 'redux-framework-demo'),
+            'desc'     => __('Basic momillogo  on the header', 'redux-framework-demo'),
+            'subtitle' => __('Upload any media using the WordPress native uploader', 'redux-framework-demo'),
+            'default'  => array(
+                'url'=>'/wp-content/themes/finleta/assets/build/img/logo.svg'
             ),
         ),
     )
@@ -953,8 +964,8 @@ Redux::setSection( $opt_name, array(
             'id'       => 'contacts-form',
             'type'     => 'text',
             'title'    => __( 'Add shortcode Contact form 7', 'redux-framework-demo' ),
-            'desc'     => __( 'Like [contact-form-7 id="53" title="contact form"]', 'redux-framework-demo' ),
-            'default'  => '[contact-form-7 id="53" title="contact form"]',
+            'desc'     => __( 'Like [contact-form-* id="*" title="contact form"]', 'redux-framework-demo' ),
+            'default'  => '',
         ),
     )
 ) );
