@@ -32,3 +32,9 @@ $head-color: #fff;
 .block-products-carousel__slider .quantity,.block-products-carousel__slider .tinv-wishlist{
   display:none;
 }
+[dir=ltr] .mobile-header__logo,[dir=ltr] .mobile-header__logo img{
+  height:100%
+}
+.owl-item .quantity,.owl-item .tinv-wishlist{
+  display:none
+}
