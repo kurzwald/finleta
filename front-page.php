@@ -212,7 +212,7 @@ while ( $featured->have_posts() ) {
                                     </div>
                                     <div class="product-card__actions">
                                         <div class="product-card__availability">
-                                            <?php echo __('Availability:','defaut'); ?> <span class="text-success"><?php __('In Stock','default); ?>'); ?></span>
+                                            <?php echo __('Availability:','default'); ?> <span class="text-success"><?php __('In Stock','default); ?>'); ?></span>
                                         </div>
                                         <div class="product-card__prices">
                                             <span class="product-card__new-price"><?php echo $featured_cours.$sale; ?></span>
@@ -664,7 +664,7 @@ while ( $featured->have_posts() ) {
                                 }
                                 $write_comments = '<a href="' . get_comments_link() .'">'. $comments.'</a>';
                             } else {
-                                $write_comments =  __('Rewievs are off for this product.');
+                                $write_comments =  __('Rewievs are off for this product.','default');
                             }
                             if($i==0){ ?>
                                 <div class="block-products-carousel__column">
