@@ -37,7 +37,7 @@ get_header();
                                 </div>
                             </a>
                             <a class="block-slideshow__slide" href="<?php echo  $redux_options['slide-button-2']; ?>">
-                                <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('<?php echo  $redux_options['slide-img-2']['url']; ?>'')"></div>
+                                <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('<?php echo  $redux_options['slide-img-2']['url']; ?>')"></div>
                                 <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('<?php echo  $redux_options['slide-img-mobile-2']['url']; ?>')"></div>
                                 <div class="block-slideshow__slide-content">
                                     <div class="block-slideshow__slide-title"><?php echo  $redux_options['slide-title-2']; ?></div>
@@ -110,6 +110,7 @@ get_header();
             </div>
         </div>
     </div>
+    <!-- .block-features / end -->
 
     <!-- .block-products-carousel / start -->
 <?php
@@ -142,12 +143,12 @@ while ( $featured->have_posts() ) {
                 <div class="block-header__arrows-list">
                     <button class="block-header__arrow block-header__arrow--left" type="button">
                         <svg width="7px" height="11px">
-                            <use xlink:href="images/sprite.svg#arrow-rounded-left-7x11"></use>
+                            <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#arrow-rounded-left-7x11"></use>
                         </svg>
                     </button>
                     <button class="block-header__arrow block-header__arrow--right" type="button">
                         <svg width="7px" height="11px">
-                            <use xlink:href="images/sprite.svg#arrow-rounded-right-7x11"></use>
+                            <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#arrow-rounded-right-7x11"></use>
                         </svg>
                     </button>
                 </div>
@@ -182,7 +183,7 @@ while ( $featured->have_posts() ) {
                                 <div class="product-card product-card--hidden-actions ">
                                     <button class="product-card__quickview" type="button">
                                         <svg width="16px" height="16px">
-                                            <use xlink:href="images/sprite.svg#quickview-16"></use>
+                                            <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#quickview-16"></use>
                                         </svg>
                                         <span class="fake-svg-icon"></span>
                                     </button>
@@ -211,7 +212,7 @@ while ( $featured->have_posts() ) {
                                     </div>
                                     <div class="product-card__actions">
                                         <div class="product-card__availability">
-                                            Availability: <span class="text-success">In Stock</span>
+                                            <?php echo __('Availability:','defaut'); ?> <span class="text-success"><?php __('In Stock','default); ?>'); ?></span>
                                         </div>
                                         <div class="product-card__prices">
                                             <span class="product-card__new-price"><?php echo $featured_cours.$sale; ?></span>
@@ -222,13 +223,13 @@ while ( $featured->have_posts() ) {
                                             <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button">Add To Cart</button>
                                             <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist" type="button">
                                                 <svg width="16px" height="16px">
-                                                    <use xlink:href="images/sprite.svg#wishlist-16"></use>
+                                                    <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#wishlist-16"></use>
                                                 </svg>
                                                 <span class="fake-svg-icon fake-svg-icon--wishlist-16"></span>
                                             </button>
                                             <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare" type="button">
                                                 <svg width="16px" height="16px">
-                                                    <use xlink:href="images/sprite.svg#compare-16"></use>
+                                                    <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#compare-16"></use>
                                                 </svg>
                                                 <span class="fake-svg-icon fake-svg-icon--compare-16"></span>
                                             </button>
@@ -265,7 +266,7 @@ while ( $featured->have_posts() ) {
     <div class="block block-products block-products--layout--large-first" data-mobile-grid-columns="2">
         <div class="container">
             <div class="block-header">
-                <h3 class="block-header__title"><?php echo __('New products','default');?>></h3>
+                <h3 class="block-header__title"><?php echo __('New products','default');?></h3>
                 <div class="block-header__divider"></div>
             </div>
             <div class="block-products__body">
@@ -295,15 +296,15 @@ while ( $featured->have_posts() ) {
                     global $product;
                     if ( comments_open() ) {
                         if ( $num_comments == 0 ) {
-                            $comments = __('No Rewievs');
+                            $comments = __('No Rewievs','default');
                         } elseif ( $num_comments > 1 ) {
-                            $comments = $num_comments . __(' Rewievs');
+                            $comments = $num_comments . __(' Rewievs','default');
                         } else {
-                            $comments = __('1 Rewievs');
+                            $comments = __('1 Rewievs','default');
                         }
                         $write_comments = '<a href="' . get_comments_link() .'">'. $comments.'</a>';
                     } else {
-                        $write_comments =  __('Rewievs are off for this post.');
+                        $write_comments =  __('Rewievs are off for this product.');
                     }
                     if (get_post_meta($newProd_id, '_stock_status', true) == 'outofstock') {
                         $stock='<div class="outofstock">'.__('no stock','default').'</div>';
@@ -602,7 +603,207 @@ while ( $featured->have_posts() ) {
         </div>
     </div>
     <!-- .block-banner / end -->
+    <!-- .block-top-sile -->
+    <!-- .block-products-carousel -->
+    <div class="block block-products-carousel" data-layout="horizontal" data-mobile-grid-columns="2">
+        <div class="container">
+            <div class="block-header">
+                <h3 class="block-header__title"><?php echo __('Top sales','default'); ?></h3>
+                <div class="block-header__divider"></div>
+                <ul class="block-header__groups-list">
+                    <li><button type="button" class="block-header__group  block-header__group--active "><?php echo __('All','default'); ?></button></li>
+                    <li><button type="button" class="block-header__group ">Power Tools</button></li>
+                    <li><button type="button" class="block-header__group ">Hand Tools</button></li>
+                    <li><button type="button" class="block-header__group ">Plumbing</button></li>
+                </ul>
+                <div class="block-header__arrows-list">
+                    <button class="block-header__arrow block-header__arrow--left" type="button">
+                        <svg width="7px" height="11px">
+                            <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#arrow-rounded-left-7x11"></use>
+                        </svg>
+                    </button>
+                    <button class="block-header__arrow block-header__arrow--right" type="button">
+                        <svg width="7px" height="11px">
+                            <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#arrow-rounded-right-7x11"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="block-products-carousel__slider">
+                <div class="block-products-carousel__preloader"></div>
+                <div class="owl-carousel">
+                    <?php
+                    $args = array(
+                        'post_type' => 'product',
+                        'post_status' => 'publish',
+                        'posts_per_page' => 6,
+                        'meta_key' => 'total_sales',
+                        'orderby' => 'meta_value_num',
+                    );
+                    $wc_query = new WP_Query($args);
+                    $i=0;
+                    $output='';
+                    if ($wc_query->have_posts()) {
+                        while ($wc_query->have_posts()) {
+                            $wc_query->the_post();
+                            $topTitle=get_the_title();
+                            $topProd_id=get_the_ID();
+                            $topProd_image=get_the_post_thumbnail_url( $topProd_id, 'medium' );
+                            $topProd_link=get_permalink();
+                            $topPrice = get_post_meta( $topProd_id, '_regular_price', true);
+                            $topSale = get_post_meta( $topProd_id, '_price', true);
+                            $cours=get_woocommerce_currency_symbol();
+                            global $product;
+                            if ( comments_open() ) {
+                                if ( $num_comments == 0 ) {
+                                    $comments = __('No Rewievs','default');
+                                } elseif ( $num_comments > 1 ) {
+                                    $comments = $num_comments . __(' Rewievs','default');
+                                } else {
+                                    $comments = __('1 Rewievs','default');
+                                }
+                                $write_comments = '<a href="' . get_comments_link() .'">'. $comments.'</a>';
+                            } else {
+                                $write_comments =  __('Rewievs are off for this product.');
+                            }
+                            if($i==0){ ?>
+                                <div class="block-products-carousel__column">
+                        <div class="block-products-carousel__cell">
+                            <div class="product-card product-card--hidden-actions ">
+                                <button class="product-card__quickview" type="button">
+                                    <svg width="16px" height="16px">
+                                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#quickview-16"></use>
+                                    </svg>
+                                    <span class="fake-svg-icon"></span>
+                                </button>
+                                <div class="product-card__badges-list">
+                                    <div class="product-card__badge product-card__badge--new">New</div>
+                                </div>
+                                <div class="product-card__image product-image">
+                                    <a href="<?php echo $topProd_link; ?>" class="product-image__body">
+                                        <img class="product-image__img" src="<?php echo $topProd_image; ?>" alt="">
+                                    </a>
+                                </div>
+                                <div class="product-card__info">
+                                    <div class="product-card__name">
+                                        <a href="<?php echo $topProd_link; ?>"><?php echo $topTitle; ?></a>
+                                    </div>
+                                    <div class="product-card__rating">
+                                        <div class="product-card__rating-stars">
+                                            <div class="rating">
+                                                <div class="rating__body woocommerce">
+                                                    <?php wp_star_rating(); ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-card__rating-legend"><?php echo $write_comments; ?></div>
+                                    </div>
+                                    <ul class="product-card__features-list">
+                                    </ul>
+                                </div>
+                                <div class="product-card__actions">
+                                    <div class="product-card__availability">
+                                        <?php echo __('Availability:','default'); ?> <span class="text-success"><?php echo __('In Stock','default'); ?></span>
+                                    </div>
+                                    <div class="product-card__prices">
+                                        <span class="product-card__new-price"><?php echo $cours.$topSale; ?></span>
+                                        <span class="product-card__old-price"><?php echo $cours.$topPrice; ?></span>
+                                    </div>
+                                    <div class="product-card__buttons">
+                                        <?php woocommerce_simple_add_to_cart(); ?>
+                                        <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist" type="button">
+                                            <svg width="16px" height="16px">
+                                                <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#wishlist-16"></use>
+                                            </svg>
+                                            <span class="fake-svg-icon fake-svg-icon--wishlist-16"></span>
+                                        </button>
+                                        <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare" type="button">
+                                            <svg width="16px" height="16px">
+                                                <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#compare-16"></use>
+                                            </svg>
+                                            <span class="fake-svg-icon fake-svg-icon--compare-16"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                          <?php $i=1;  }
+                            else{ ?>
+                                 <div class="block-products-carousel__cell">
+                                    <div class="product-card product-card--hidden-actions ">
+                                        <button class="product-card__quickview" type="button">
+                                            <svg width="16px" height="16px">
+                                                <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#quickview-16"></use>
+                                            </svg>
+                                            <span class="fake-svg-icon"></span>
+                                        </button>
+                                        <div class="product-card__badges-list">
+                                            <div class="product-card__badge product-card__badge--hot">Hot</div>
+                                        </div>
+                                        <div class="product-card__image product-image">
+                                            <a href="<?php echo $topProd_link; ?>" class="product-image__body">
+                                                <img class="product-image__img" src="<?php echo $topProd_image; ?>" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="product-card__info">
+                                            <div class="product-card__name">
+                                                <a href="<?php echo $topProd_link; ?>"><?php echo $topTitle; ?></a>
+                                            </div>
+                                            <div class="product-card__rating">
+                                                <div class="product-card__rating-stars">
+                                                    <div class="rating">
+                                                        <div class="rating__body woocommerce">
+                                                            <?php wp_star_rating(); ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-card__rating-legend"><?php echo $write_comments; ?></div>
+                                            </div>
+                                            <ul class="product-card__features-list">
 
+                                            </ul>
+                                        </div>
+                                        <div class="product-card__actions">
+                                            <div class="product-card__availability">
+                                                <?php echo __('Availability:','default'); ?> <span class="text-success"><?php echo __('In Stock','default'); ?></span>
+                                            </div>
+                                            <div class="product-card__prices">
+                                                <span class="product-card__new-price"><?php echo $cours.$topSale; ?></span>
+                                                <span class="product-card__old-price"><?php echo $cours.$topPrice; ?></span>
+                                            </div>
+                                            <div class="product-card__buttons">
+                                                <?php woocommerce_simple_add_to_cart(); ?>
+                                                <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button">Add To Cart</button>
+                                                <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist" type="button">
+                                                    <svg width="16px" height="16px">
+                                                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#wishlist-16"></use>
+                                                    </svg>
+                                                    <span class="fake-svg-icon fake-svg-icon--wishlist-16"></span>
+                                                </button>
+                                                <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare" type="button">
+                                                    <svg width="16px" height="16px">
+                                                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#compare-16"></use>
+                                                    </svg>
+                                                    <span class="fake-svg-icon fake-svg-icon--compare-16"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                          <?php $i=0; }
+                        }
+                    }
+                    wp_reset_postdata();
+                    ?>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- .block-products-carousel / end -->
+    <!-- .block-top-sile / end -->
     <!-- .block-brands -->
     <div class="block block-brands">
         <div class="container">
@@ -625,7 +826,6 @@ while ( $featured->have_posts() ) {
         </div>
     </div>
     <!-- .block-brands / end -->
-
 <?php
 /*include "request-form.php";*/
 get_footer();
