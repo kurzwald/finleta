@@ -68,7 +68,7 @@
                         </button>
                         <a class="mobile-header__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
                             <!-- mobile-logo -->
-                            <img src="<?php echo $redux_options['opt-logo']['url'];?>" />
+                            <img src="<?php echo $redux_options['opt-mob-logo']['url'];?>" />
                             <!-- mobile-logo / end -->
                         </a>
                         <div class="search search--location--mobile-header mobile-header__search">
@@ -99,7 +99,7 @@
                             </div>
                             <div class="indicator indicator--mobile">
                                 <?php
-                                global $woocommerce; ?>
+                                //global $woocommerce; ?>
                                 <a href="<?php echo wc_get_cart_url() ?>" class="indicator__button">
                                         <span class="indicator__area">
                                             <svg width="20px" height="20px">
@@ -259,13 +259,13 @@
                                     </div>
                                     <div class="indicator indicator--mobile">
                                         <?php
-                                        global $woocommerce; ?>
-                                        <a href="<?php echo $woocommerce->cart->get_cart_url() ?>" class="indicator__button">
+                                        // global $woocommerce; ?>
+                                        <a href="<?php echo wc_get_cart_url() ?>" class="indicator__button">
                                         <span class="indicator__area">
                                             <svg width="20px" height="20px">
                                                 <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#cart-20"></use>
                                             </svg>
-                                            <span class="indicator__value"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+                                            <span class="indicator__value"><?php echo WC()->cart->get_cart_contents_count();; ?></span>
                                         </span>
                                         </a>
                                     </div>
