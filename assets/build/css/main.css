@@ -12745,8 +12745,23 @@ $head-color: #fff;
 [dir=ltr] .mobile-header__logo, [dir=ltr] .mobile-header__logo img {
   height: 100%; }
 
-.owl-item .quantity, .owl-item .tinv-wishlist {
+.woocommerce .quantity .qty {
+  width: 100%; }
+
+.btn-lg {
+  font-size: 1.125rem;
+  height: calc(2.75rem + 2px);
+  padding: .8125rem 2rem;
+  line-height: 1;
+  font-weight: 500; }
+
+.product > header.entry-header,
+footer.entry-footer + .navigation + .comments-area.reviews-view__list,
+footer.entry-footer + .navigation + .comments-area.reviews-view__list + .reviews-view__form {
   display: none; }
+
+.related.products {
+  margin-top: 50px; }
 
 #map {
   flex-grow: 0;

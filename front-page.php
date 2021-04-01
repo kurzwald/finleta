@@ -266,7 +266,7 @@ while ( $featured->have_posts() ) {
     <div class="block block-products block-products--layout--large-first" data-mobile-grid-columns="2">
         <div class="container">
             <div class="block-header">
-                <h3 class="block-header__title"><?php echo __('New products','default');?></h3>
+                <h3 class="block-header__title"><?php echo __('New products');?></h3>
                 <div class="block-header__divider"></div>
             </div>
             <div class="block-products__body">
@@ -296,20 +296,20 @@ while ( $featured->have_posts() ) {
                     global $product;
                     if ( comments_open() ) {
                         if ( $num_comments == 0 ) {
-                            $comments = __('No Rewievs','default');
+                            $comments = __('No Rewievs');
                         } elseif ( $num_comments > 1 ) {
-                            $comments = $num_comments . __(' Rewievs','default');
+                            $comments = $num_comments . __(' Rewievs');
                         } else {
-                            $comments = __('1 Rewievs','default');
+                            $comments = __('1 Rewievs');
                         }
                         $write_comments = '<a href="' . get_comments_link() .'">'. $comments.'</a>';
                     } else {
                         $write_comments =  __('Rewievs are off for this product.');
                     }
                     if (get_post_meta($newProd_id, '_stock_status', true) == 'outofstock') {
-                        $stock='<div class="outofstock">'.__('no stock','default').'</div>';
+                        $stock='<div class="outofstock">'.__('no stock').'</div>';
                     } else {
-                        $stock='<div class="stock">'.__('in stock','default').'</div>';
+                        $stock='<div class="stock">'.__('in stock').'</div>';
                     }
                     if($i==0){
                         ?>
@@ -324,7 +324,7 @@ while ( $featured->have_posts() ) {
                                 <span class="fake-svg-icon"></span>
                             </button>
                             <div class="product-card__badges-list">
-                                <div class="product-card__badge product-card__badge--new">'.__('New','default').'</div>
+                                <div class="product-card__badge product-card__badge--new">'.__('New').'</div>
                             </div>
                             <div class="product-card__image product-image">
                                 <a href="'.$newProd_link.'" class="product-image__body">
@@ -351,7 +351,7 @@ while ( $featured->have_posts() ) {
                             </div>
                             <div class="product-card__actions">
                                 <div class="product-card__availability">'.
-                                    __('Availability','default').': <span class="text-success">'.$stock.'</span>
+                                    __('Availability').': <span class="text-success">'.$stock.'</span>
                                 </div>
                                 <div class="product-card__prices">
                                     <span class="product-card__new-price">'.$newProd_cours.$sale.'</span>
@@ -360,7 +360,7 @@ while ( $featured->have_posts() ) {
                                 <div class="product-card__buttons"><form action="'
                                     .esc_url( $product->add_to_cart_url() ).'" class="cart" method="post" enctype="multipart/form-data">
                         <button type="submit" data-quantity="1" data-product_id="'.$newProd_id.'"
-                                class="btn btn-primary product-card__addtocart">'.__('Add to cart','default').'</button>
+                                class="btn btn-primary product-card__addtocart">'.__('Add to cart').'</button>
 
                         </form><button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button">Add To Cart</button>
                                     <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist" type="button">
@@ -415,7 +415,7 @@ while ( $featured->have_posts() ) {
                             </div>
                             <div class="product-card__actions">
                                 <div class="product-card__availability">'.
-                            __('Availability','default').': <span class="text-success">'.$stock.'</span>
+                            __('Availability').': <span class="text-success">'.$stock.'</span>
                                 </div>
                                 <div class="product-card__prices">
                                     <span class="product-card__new-price">'.$newProd_cours.$sale.'</span>
@@ -425,7 +425,7 @@ while ( $featured->have_posts() ) {
                                     <form action="'
                             .esc_url( $product->add_to_cart_url() ).'" class="cart" method="post" enctype="multipart/form-data">
                         <button type="submit" data-quantity="1" data-product_id="'.$newProd_id.'"
-                                class="btn btn-primary product-card__addtocart">'.__('Add to cart','default').'</button>
+                                class="btn btn-primary product-card__addtocart">'.__('Add to cart').'</button>
 
                         </form>
                                     <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button">Add To Cart</button>
@@ -608,10 +608,10 @@ while ( $featured->have_posts() ) {
     <div class="block block-products-carousel" data-layout="horizontal" data-mobile-grid-columns="2">
         <div class="container">
             <div class="block-header">
-                <h3 class="block-header__title"><?php echo __('Top sales','default'); ?></h3>
+                <h3 class="block-header__title"><?php echo __('Top sales'); ?></h3>
                 <div class="block-header__divider"></div>
                 <ul class="block-header__groups-list">
-                    <li><button type="button" class="block-header__group  block-header__group--active "><?php echo __('All','default'); ?></button></li>
+                    <li><button type="button" class="block-header__group  block-header__group--active "><?php echo __('All'); ?></button></li>
                     <li><button type="button" class="block-header__group ">Power Tools</button></li>
                     <li><button type="button" class="block-header__group ">Hand Tools</button></li>
                     <li><button type="button" class="block-header__group ">Plumbing</button></li>
@@ -656,15 +656,15 @@ while ( $featured->have_posts() ) {
                             global $product;
                             if ( comments_open() ) {
                                 if ( $num_comments == 0 ) {
-                                    $comments = __('No Rewievs','default');
+                                    $comments = __('No Rewievs');
                                 } elseif ( $num_comments > 1 ) {
-                                    $comments = $num_comments . __(' Rewievs','default');
+                                    $comments = $num_comments . __(' Rewievs');
                                 } else {
-                                    $comments = __('1 Rewievs','default');
+                                    $comments = __('1 Rewievs');
                                 }
                                 $write_comments = '<a href="' . get_comments_link() .'">'. $comments.'</a>';
                             } else {
-                                $write_comments =  __('Rewievs are off for this product.','default');
+                                $write_comments =  __('Rewievs are off for this product.');
                             }
                             if($i==0){ ?>
                                 <div class="block-products-carousel__column">
@@ -703,7 +703,7 @@ while ( $featured->have_posts() ) {
                                 </div>
                                 <div class="product-card__actions">
                                     <div class="product-card__availability">
-                                        <?php echo __('Availability:','default'); ?> <span class="text-success"><?php echo __('In Stock','default'); ?></span>
+                                        <?php echo __('Availability:'); ?> <span class="text-success"><?php echo __('In Stock','default'); ?></span>
                                     </div>
                                     <div class="product-card__prices">
                                         <span class="product-card__new-price"><?php echo $cours.$topSale; ?></span>
@@ -765,7 +765,7 @@ while ( $featured->have_posts() ) {
                                         </div>
                                         <div class="product-card__actions">
                                             <div class="product-card__availability">
-                                                <?php echo __('Availability:','default'); ?> <span class="text-success"><?php echo __('In Stock','default'); ?></span>
+                                                <?php echo __('Availability:'); ?> <span class="text-success"><?php echo __('In Stock'); ?></span>
                                             </div>
                                             <div class="product-card__prices">
                                                 <span class="product-card__new-price"><?php echo $cours.$topSale; ?></span>
@@ -826,6 +826,7 @@ while ( $featured->have_posts() ) {
         </div>
     </div>
     <!-- .block-brands / end -->
+
 <?php
 /*include "request-form.php";*/
 get_footer();
