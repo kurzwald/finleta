@@ -351,9 +351,9 @@ parent::__construct(
 // widget ID
 'hstngr_widget',
 // widget name
-__('Текст и ссылка для top-бар', ' hstngr_widget_domain'),
+__('Текст и ссылка для top-бар'),
 // widget description
-array( 'description' => __( 'Вставка текста и ссылки с тор', 'hstngr_widget_domain' ), )
+array( 'description' => __( 'Вставка текста и ссылки с тор'), )
 );
 }
 public function widget( $args, $instance) {
@@ -425,4 +425,393 @@ function your_get_rating_html($rating_html, $rating) {
     $rating_html .= '<span style="width:' . ( ( $rating / 5 ) * 100 ) . '%"><strong class="rating">' . $rating . '</strong> ' . __( 'out of 5', 'woocommerce' ) . '</span>';
     $rating_html .= '</div>';
     return $rating_html;
+}
+function get_hansel_and_gretel_breadcrumbs()
+{
+    // Set variables for later use
+    $here_text        = __( '' );
+    $home_link        = home_url('/');
+    $home_text        = __( 'Home' );
+    $link_before      = '<ol class="breadcrumb">';
+    $link_after       = '</ol>';
+    $link_attr        = ' ';
+    $link             = $link_before . '<a' . $link_attr . ' href="%1$s">%2$s</a>' . $link_after;
+    $delimiter        = ' ';              // Delimiter between crumbs
+    $before           = '<li class="breadcrumb-item">'; // Tag before the current crumb
+    $after            = '</li>';                // Tag after the current crumb
+    $page_addon       = '';                       // Adds the page number if the query is paged
+    $breadcrumb_trail = '';
+    $category_links   = '';
+
+
+    $wp_the_query   = $GLOBALS['wp_the_query'];
+    $queried_object = $wp_the_query->get_queried_object();
+
+    // Handle single post requests which includes single pages, posts and attatchments
+    if ( is_singular() )
+    {
+
+        $post_object = sanitize_post( $queried_object );
+
+        // Set variables
+        //$title          = apply_filters( 'the_title', $post_object->post_title );
+        $title          = $post_object->post_title;
+        $parent         = $post_object->post_parent;
+        $post_type      = $post_object->post_type;
+        $post_id        = $post_object->ID;
+        $post_link      = $before . $title . $after;
+        $parent_string  = '';
+        $post_type_link = '';
+        $breadcrumb_trail= '';
+
+        if ( 'post' === $post_type )
+        {
+            // Get the post categories
+            $categories = get_the_category( $post_id );
+            if ( $categories ) {
+                // Lets grab the first category
+                $category  = $categories[0];
+
+                $category_links = get_category_parents( $category, true, $delimiter );
+                $category_links = str_replace( '<a',   $link_before . '<a' . $link_attr, $category_links );
+                $category_links = str_replace( '</a>', '</a>' . $link_after,             $category_links );
+            }
+        }
+
+        if ( !in_array( $post_type, ['post', 'page', 'attachment'] ) )
+        {
+            $post_type_object = get_post_type_object( $post_type );
+            $archive_link     = esc_url( get_post_type_archive_link( $post_type ) );
+
+            $post_type_link   = sprintf( $link, $archive_link, $post_type_object->labels->singular_name );
+        }
+
+        // Get post parents if $parent !== 0
+        if ( 0 !== $parent )
+        {
+            $parent_links = [];
+            while ( $parent ) {
+                $post_parent = get_post( $parent );
+
+                $parent_links[] = sprintf( $link, esc_url( get_permalink( $post_parent->ID ) ), get_the_title( $post_parent->ID ) );
+
+                $parent = $post_parent->post_parent;
+            }
+
+            $parent_links = array_reverse( $parent_links );
+
+            $parent_string = implode( $delimiter, $parent_links );
+        }
+
+        // Lets build the breadcrumb trail
+        if ( $parent_string ) {
+            $breadcrumb_trail = $parent_string . $delimiter . $post_link;
+        } else {
+            $breadcrumb_trail = $post_link;
+        }
+
+        if ( $post_type_link )
+            $breadcrumb_trail = $post_type_link . $delimiter . $breadcrumb_trail;
+
+        if ( $category_links )
+            $breadcrumb_trail = $category_links . $breadcrumb_trail;
+    }
+
+    // Handle archives which includes category-, tag-, taxonomy-, date-, custom post type archives and author archives
+    if( is_archive() )
+    {
+        if (    is_category()
+            || is_tag()
+            || is_tax()
+        ) {
+            // Set the variables for this section
+            $term_object        = get_term( $queried_object );
+            $taxonomy           = $term_object->taxonomy;
+            $term_id            = $term_object->term_id;
+            $term_name          = $term_object->name;
+            $term_parent        = $term_object->parent;
+            $taxonomy_object    = get_taxonomy( $taxonomy );
+            $current_term_link  = $before . $taxonomy_object->labels->singular_name . ': ' . $term_name . $after;
+            $parent_term_string = '';
+
+            if ( 0 !== $term_parent )
+            {
+                // Get all the current term ancestors
+                $parent_term_links = [];
+                while ( $term_parent ) {
+                    $term = get_term( $term_parent, $taxonomy );
+
+                    $parent_term_links[] = sprintf( $link, esc_url( get_term_link( $term ) ), $term->name );
+
+                    $term_parent = $term->parent;
+                }
+
+                $parent_term_links  = array_reverse( $parent_term_links );
+                $parent_term_string = implode( $delimiter, $parent_term_links );
+            }
+
+            if ( $parent_term_string ) {
+                $breadcrumb_trail = $parent_term_string . $delimiter . $current_term_link;
+            } else {
+                $breadcrumb_trail = $current_term_link;
+            }
+
+        } elseif ( is_author() ) {
+
+            $breadcrumb_trail = __( 'Author archive for ') .  $before . $queried_object->data->display_name . $after;
+
+        } elseif ( is_date() ) {
+            // Set default variables
+            $year     = $wp_the_query->query_vars['year'];
+            $monthnum = $wp_the_query->query_vars['monthnum'];
+            $day      = $wp_the_query->query_vars['day'];
+
+            // Get the month name if $monthnum has a value
+            if ( $monthnum ) {
+                $date_time  = DateTime::createFromFormat( '!m', $monthnum );
+                $month_name = $date_time->format( 'F' );
+            }
+
+            if ( is_year() ) {
+
+                $breadcrumb_trail = $before . $year . $after;
+
+            } elseif( is_month() ) {
+
+                $year_link        = sprintf( $link, esc_url( get_year_link( $year ) ), $year );
+
+                $breadcrumb_trail = $year_link . $delimiter . $before . $month_name . $after;
+
+            } elseif( is_day() ) {
+
+                $year_link        = sprintf( $link, esc_url( get_year_link( $year ) ),             $year       );
+                $month_link       = sprintf( $link, esc_url( get_month_link( $year, $monthnum ) ), $month_name );
+
+                $breadcrumb_trail = $year_link . $delimiter . $month_link . $delimiter . $before . $day . $after;
+            }
+
+        } elseif ( is_post_type_archive() ) {
+
+            $post_type        = $wp_the_query->query_vars['post_type'];
+            $post_type_object = get_post_type_object( $post_type );
+
+            $breadcrumb_trail = $before . $post_type_object->labels->singular_name . $after;
+
+        }
+    }
+
+    // Handle the search page
+    if ( is_search() ) {
+        $breadcrumb_trail = __( 'Search query for: ' ) . $before . get_search_query() . $after;
+    }
+
+    // Handle 404's
+    if ( is_404() ) {
+        $breadcrumb_trail = $before . __( 'Error 404' ) . $after;
+    }
+
+    // Handle paged pages
+    if ( is_paged() ) {
+        $current_page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : get_query_var( 'page' );
+        $page_addon   = $before . sprintf( __( ' ( Page %s )' ), number_format_i18n( $current_page ) ) . $after;
+    }
+
+    $breadcrumb_output_link  = '';
+    $breadcrumb_output_link .= '<li class="breadcrumb-item">';
+    if (    is_home()
+        || is_front_page()
+    ) {
+        // Do not show breadcrumbs on page one of home and frontpage
+        if ( is_paged() ) {
+            $breadcrumb_output_link .= $here_text . $delimiter;
+            $breadcrumb_output_link .= '<a href="' . $home_link . '">' . $home_text . '</a>';
+            $breadcrumb_output_link .= $page_addon;
+        }
+    } else {
+        $breadcrumb_output_link .= $here_text . $delimiter;
+        $breadcrumb_output_link .= '<a href="' . $home_link . '" rel="v:url" property="v:title">' . $home_text . '</a>';
+        $breadcrumb_output_link .= $delimiter;
+        $breadcrumb_output_link .= $breadcrumb_trail;
+        $breadcrumb_output_link .= $page_addon;
+    }
+    $breadcrumb_output_link .= '</li><!-- .breadcrumbs -->';
+
+    return $breadcrumb_output_link;
+}
+add_action( 'woocommerce_before_single_product', 'action_function_woocommerce_breadcrumbs',10);
+function action_function_woocommerce_breadcrumbs(){
+    $before='<div class="page-header">
+    <div class="page-header__container container">
+        <div class="page-header__breadcrumb">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">';
+    $after='</ol>
+           </nav>
+        </div>
+    </div>
+</div>';
+    $args=array(
+        'delimiter'   => '',
+        'wrap_before' => $before,
+        'wrap_after'  => $after,
+        'before'      => '<li class="breadcrumb-item">',
+        'after'       => '</li>',
+        'home'        => _x( 'Home', 'breadcrumb', 'woocommerce' ),
+    );
+    echo woocommerce_breadcrumb($args);
+    //echo $breadcrumbs=get_hansel_and_gretel_breadcrumbs();
+   // return $before.$breadcrumbs.$after;
+}
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title',10);
+add_action('woocommerce_single_product_summary', 'change_single_product_ratings', 2 );
+function change_single_product_ratings(){
+    remove_action('woocommerce_single_product_summary','woocommerce_template_single_rating', 10 );
+    add_action('woocommerce_single_product_summary','wc_single_product_ratings', 15 );
+}
+
+function wc_single_product_ratings(){
+    global $product;
+
+    $rating_count = $product->get_rating_count();
+
+    if ( $rating_count >= 0 ) {
+        $review_count = $product->get_review_count();
+        $average      = $product->get_average_rating();
+        ?>
+        <div class="product__rating">
+            <div class="product__rating-stars"><div class="rating">
+                    <?php echo wc_get_rating_html( $average, $rating_count ); ?>
+                </div>
+            </div>
+                <?php if ( comments_open() ) : ?><div class="product__rating-legend"><a href="#reviews" class="woocommerce-review-link" rel="nofollow"><?php printf( _n( '%s customer review', '%s customer reviews', $review_count, 'woocommerce' ), '<span class="count">' . esc_html( $review_count ) . '</span>' ); ?></a><?php endif ?></div>
+        </div>
+        <?php
+    }
+}
+add_action('woocommerce_single_product_summary', 'change_single_product_ratings', 20 );
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+add_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 25 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price',30);
+remove_action('woocommerce_single_product_summary', 'woocommerce_get_availability', 30 );
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart',35);
+add_action( 'woocommerce_single_product_summary', 'woocommerce_custom_category',45);
+remove_action('woocommerce_after_single_product_summary','woocommerce_review_comment',15);
+add_filter( 'woocommerce_product_tabs', 'woo_rename_tabs', 98 );
+function woo_rename_tabs( $tabs ) {
+    $tabs['reviews']['title'] = __( 'Reviews' );
+    $tabs['reviews']['callback']='woo_add_comment';
+    return $tabs;
+
+}
+function woo_add_comment() {
+    ?>
+    <div class="reviews-view">
+        <?php comments_template();?>
+    </div>
+
+    <?php
+}
+function woocommerce_custom_category(){
+    global $product;
+    $before_cat='<div class="product__footer">';
+    $after_cat='</div></div>';
+    $social='<div class="product__share-links share-links">
+                                    <ul class="share-links__list">
+                                        <!--<li class="share-links__item share-links__item--type--like"><a href="">Like</a></li>
+                                        <li class="share-links__item share-links__item--type--tweet"><a href="">Tweet</a></li>
+                                        <li class="share-links__item share-links__item--type--pin"><a href="">Pin It</a></li>
+                                        <li class="share-links__item share-links__item--type--counter"><a href="">4K</a></li>-->
+                                    </ul>
+                                </div>';
+    echo $before_cat.'<div class="product__tags tags"><div class="tags__list">'.wc_get_product_category_list($product->get_id(), _n('', '', count($product->get_category_ids()), 'woocommerce') ).'</div></div>'.$social.$after_cat;
+}
+function custom_comments( $comment, $args, $depth ){
+
+    ?><li <?php comment_class('reviews-list__item') ?> id="comment-<?php comment_ID() ?>">
+    <div class="review">
+        <div class="review__avatar">
+        <?php echo get_avatar( $comment, 70, '', '', array( 'class' => 'comment-avatar' ) ) ?>
+        </div>
+        <div class="review__content">
+            <div class="review__author"><?php comment_author() ?></div>
+            <div class="review__rating">
+                <div class="rating">
+                    <div class="rating__body">
+                    <?php wp_star_rating(); ?>
+                    </div>
+                </div>
+            </div>
+            <div class="review__text"><?php comment_text() ?></div>
+            <div class="review__date"><?php comment_date( 'j F Y в H:i' ) ?></div>
+
+        </div>
+    </div>
+    <?php
+
+}
+function end_custom_comments(){
+    echo '</li>';
+}
+add_filter( 'comment_form_default_fields', 'comment_form_default_add_my_fields' );
+function comment_form_default_add_my_fields( $fields ) {
+    unset( $fields['url'] );
+    return $fields;
+}
+
+add_action( 'comment_form_before_fields', 'action_function_name_before_fil' );
+function action_function_name_before_fil(){
+    echo '<div class="col-12 col-lg-9 col-xl-8"><div class="form-row">';
+}
+add_action( 'comment_form_after_fields', 'action_function_name_after_fil' );
+function action_function_name_after_fil(){
+    echo '</div></div>';
+}
+function comment_change_checkcdpr( $fields ) {
+    $fields['cookies'] = '';
+    return $fields;
+}
+add_filter( 'comment_form_default_fields', 'comment_change_checkcdpr' );
+
+
+
+add_filter( 'woocommerce_after_single_product_summary', 'add_stars_to_review_tab', 98 );
+function add_stars_to_review_tab( $title ) {
+    global $product;
+
+    $average_rating = $product->get_average_rating();
+    $rating_count = $product->get_rating_count();
+    $review_count = $product->get_review_count();
+
+    if( ! empty($average_rating) && $average_rating > 0 ) {
+        return '<div>' . $title . '</div>' . wc_get_rating_html($average_rating) . sprintf(
+                '<div class="stars">%s / 5 (%s %s)</div>',
+                $average_rating,
+                $review_count,
+                _n( "review", "reviews", $review_count, "woocommerce" )
+            );
+    }
+    else{
+
+    }
+    return $title;
+}
+remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
+add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
+
+if ( ! function_exists( 'woocommerce_template_loop_product_thumbnail' ) ) {
+    function woocommerce_template_loop_product_thumbnail() {
+        echo '<div class="product-card__image product-image">'.woocommerce_get_product_thumbnail().'</div>';
+    }
+}
+remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
+add_action( 'woocommerce_shop_loop_item_title', 'finleta_template_loop_product_title', 10 );
+function finleta_template_loop_product_title() {
+    echo '<div class="product-card__info"><div class="product-card__name">' . get_the_title() . '</div></div>';
+}
+remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
+add_action( 'woocommerce_after_shop_loop_item_title', 'finleta_template_loop_rating', 5 );
+function finleta_template_loop_rating() {
+    echo '<div class="product-card__info">' . wc_get_template( 'loop/rating.php' ) . '</div>';
 }

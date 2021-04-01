@@ -24,7 +24,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
     return;
 }
 ?>
-<li <?php wc_product_class( 'product-card product-card--hidden-actions ', $product ); ?> >
+<li <?php wc_product_class( 'product-card', $product ); ?> >
     <?php
     /**
      * Hook: woocommerce_before_shop_loop_item.
