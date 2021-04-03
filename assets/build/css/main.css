@@ -12757,7 +12757,9 @@ $head-color: #fff;
 
 .product > header.entry-header,
 footer.entry-footer + .navigation + .comments-area.reviews-view__list,
-footer.entry-footer + .navigation + .comments-area.reviews-view__list + .reviews-view__form {
+footer.entry-footer + .navigation + .comments-area.reviews-view__list + .reviews-view__form,
+.shopPage .woocommerce-result-count,
+.shopPage .woocommerce-ordering {
   display: none; }
 
 .related.products {
