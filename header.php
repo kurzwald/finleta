@@ -63,7 +63,7 @@
                     <div class="mobile-header__body">
                         <button class="mobile-header__menu-button">
                             <svg width="18px" height="14px">
-                                <use xlink:href="<?php echo get_template_directory_uri(); ?>images/sprite.svg#menu-18x14"></use>
+                                <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#menu-18x14"></use>
                             </svg>
                         </button>
                         <a class="mobile-header__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -88,12 +88,12 @@
                                 </button>
                             </div>
                             <div class="indicator indicator--mobile d-sm-flex d-none">
-                                <a href="wishlist.html" class="indicator__button">
+                                <a href="<?php echo get_site_url(); ?>/список-желаний" class="indicator__button">
                                         <span class="indicator__area">
                                             <svg width="20px" height="20px">
                                                 <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#heart-20"></use>
                                             </svg>
-                                            <span class="indicator__value">0</span>
+                                            <span class="indicator__value wishlist_products_counter_number"><?php //echo do_shortcode('[ti_wishlist_products_counter]'); ?></span>
                                         </span>
                                 </a>
                             </div>
@@ -150,7 +150,7 @@
                     </div>
                 </div>
             </div>
-            <h class="site-header__nav-panel">
+            <header class="site-header__nav-panel">
                 <!-- data-sticky-mode - one of [pullToShow, alwaysOnTop] -->
                 <div class="nav-panel nav-panel--sticky" data-sticky-mode="pullToShow">
                     <div class="nav-panel__container container">
@@ -248,7 +248,7 @@
 
 
                                     <div class="indicator indicator--mobile d-sm-flex d-none">
-                                        <a href="wishlist.html" class="indicator__button">
+                                        <a href="<?php echo get_site_url(); ?>/список-желаний" class="indicator__button">
                                         <span class="indicator__area">
                                             <svg width="20px" height="20px">
                                                 <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#heart-20"></use>
@@ -260,12 +260,12 @@
                                     <div class="indicator indicator--mobile">
                                         <?php
                                         // global $woocommerce; ?>
-                                        <a href="<?php echo wc_get_cart_url() ?>" class="indicator__button">
+                                        <a href="<?php echo wc_get_cart_url(); ?>" class="indicator__button">
                                         <span class="indicator__area">
                                             <svg width="20px" height="20px">
                                                 <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#cart-20"></use>
                                             </svg>
-                                            <span class="indicator__value"><?php echo WC()->cart->get_cart_contents_count();; ?></span>
+                                            <span class="indicator__value"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
                                         </span>
                                         </a>
                                     </div>
@@ -286,4 +286,6 @@
                 </div>
             </div>
     </header>
+        </div>
+        </header>
     <div id="content" class="site__body">
