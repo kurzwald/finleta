@@ -338,6 +338,17 @@ if (function_exists('register_sidebar')){
         'after_title'   => '</h5>',//закрывающий тег заголовка виджета
     ) );
 }
+if (function_exists('register_sidebar')){
+    register_sidebar( array(
+        'name'          => 'Left sitebar for shop', //название виджета в админ-панели
+        'id'            => 'shop_left_sitebar', //идентификатор виджета
+        'description'   => 'Сайтбар слева для фильтров на странице магазина', //описание виджета в админ-панели
+        'before_widget' => '<div class="block-sidebar__body">', //открывающий тег виджета с динамичным идентификатором
+        'after_widget'  => '</div>', //закрывающий тег виджета с очищающим блоком
+        'before_title'  => '<div class="block-sidebar__header"><div class="block-sidebar__title">', //открывающий тег заголовка виджета
+        'after_title'   => '</div></div>',//закрывающий тег заголовка виджета
+    ) );
+}
 function hstngr_register_widget() {
 register_widget( 'hstngr_widget' );
 }
@@ -348,11 +359,8 @@ class hstngr_widget extends WP_Widget {
 
 function __construct() {
 parent::__construct(
-// widget ID
 'hstngr_widget',
-// widget name
 __('Текст и ссылка для top-бар'),
-// widget description
 array( 'description' => __( 'Вставка текста и ссылки с тор'), )
 );
 }
@@ -374,8 +382,6 @@ else{
 		echo $args['before_title'].'<div class="topbar__item topbar__item--link"><a class="topbar-link" href="'.$link.'">Ссылка</a>'.$args['after_title'].'</div>';
 	}
 }
-//output
-//echo __( 'Текст', 'hstngr_widget_domain' );
 echo $args['after_widget'];
 }
 public function form( $instance) {
@@ -428,7 +434,7 @@ function your_get_rating_html($rating_html, $rating) {
 }
 function get_hansel_and_gretel_breadcrumbs()
 {
-    // Set variables for later use
+
     $here_text        = __( '' );
     $home_link        = home_url('/');
     $home_text        = __( 'Home' );
@@ -600,17 +606,14 @@ function get_hansel_and_gretel_breadcrumbs()
         }
     }
 
-    // Handle the search page
     if ( is_search() ) {
         $breadcrumb_trail = __( 'Search query for: ' ) . $before . get_search_query() . $after;
     }
 
-    // Handle 404's
     if ( is_404() ) {
         $breadcrumb_trail = $before . __( 'Error 404' ) . $after;
     }
 
-    // Handle paged pages
     if ( is_paged() ) {
         $current_page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : get_query_var( 'page' );
         $page_addon   = $before . sprintf( __( ' ( Page %s )' ), number_format_i18n( $current_page ) ) . $after;
@@ -659,9 +662,9 @@ function action_function_woocommerce_breadcrumbs(){
         'home'        => _x( 'Home', 'breadcrumb', 'woocommerce' ),
     );
     echo woocommerce_breadcrumb($args);
-    //echo $breadcrumbs=get_hansel_and_gretel_breadcrumbs();
-   // return $before.$breadcrumbs.$after;
+
 }
+
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title',10);
 add_action('woocommerce_single_product_summary', 'change_single_product_ratings', 2 );
@@ -815,3 +818,4 @@ add_action( 'woocommerce_after_shop_loop_item_title', 'finleta_template_loop_rat
 function finleta_template_loop_rating() {
     echo '<div class="product-card__info">' . wc_get_template( 'loop/rating.php' ) . '</div>';
 }
+
