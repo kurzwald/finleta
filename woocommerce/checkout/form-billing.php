@@ -37,11 +37,9 @@ defined( 'ABSPATH' ) || exit;
 
 		foreach ( $fields as $key => $field ) {
 		    ?>
-            <div class="form-group">
             <?php
 			woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
             ?>
-            </div>
             <?php
 		}
 		?>

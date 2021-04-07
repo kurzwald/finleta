@@ -424,10 +424,10 @@ function your_get_rating_html($rating_html, $rating) {
     if ( $rating > 0 ) {
         $title = sprintf( __( 'Rated %s out of 5', 'woocommerce' ), $rating );
     } else {
-        $title = 'Not yet rated';
+        $title = __('Not yet rated');
         $rating = 0;
     }
-    $rating_html  = '<div class="star-rating" title="' . $title . '">';
+    $rating_html  = '<div class="star-rating product-card__info" title="' . $title . '">';
     $rating_html .= '<span style="width:' . ( ( $rating / 5 ) * 100 ) . '%"><strong class="rating">' . $rating . '</strong> ' . __( 'out of 5', 'woocommerce' ) . '</span>';
     $rating_html .= '</div>';
     return $rating_html;
@@ -818,4 +818,3 @@ add_action( 'woocommerce_after_shop_loop_item_title', 'finleta_template_loop_rat
 function finleta_template_loop_rating() {
     echo '<div class="product-card__info">' . wc_get_template( 'loop/rating.php' ) . '</div>';
 }
-
