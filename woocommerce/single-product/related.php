@@ -49,7 +49,7 @@ if ( $related_products ) : ?>
                 <div class="block-products-carousel__slider">
                     <div class="block-products-carousel__preloader"></div>
                     <div class="owl-carousel">
-		<?php woocommerce_product_loop_start(); ?>
+		<?php //woocommerce_product_loop_start(); ?>
 
 			<?php foreach ( $related_products as $related_product ) : ?>
 
@@ -68,7 +68,7 @@ if ( $related_products ) : ?>
                         </div>
 			<?php endforeach; ?>
 
-		<?php woocommerce_product_loop_end(); ?>
+		<?php //woocommerce_product_loop_end(); ?>
                     </div>
                 </div>
             </div>

@@ -6130,7 +6130,7 @@ departments__item{
 }
 
 .megamenu__links a {
-  color: inherit;
+  color: inherit!important;
   -webkit-transition: color .15s;
   transition: color .15s;
 }
@@ -11497,6 +11497,7 @@ departments__item{
 
 .products-list[data-layout^="grid-"] .product-card .product-card__info {
   padding: 0 24px 0;
+  left:18px
 }
 
 .products-list[data-layout^="grid-"] .product-card .product-card__actions {

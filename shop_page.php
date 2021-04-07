@@ -26,7 +26,6 @@ get_header();
                     <?php dynamic_sidebar( 'shop_left_sitebar' ); ?>
                 </div>
             </div>
-        </div>
         <div class="shop-layout__content">
             <div claas="block">
                 <div class="products-view">
@@ -81,6 +80,7 @@ get_header();
                     <div class="products-view__pagination"></div>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 <?php

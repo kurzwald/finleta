@@ -156,7 +156,13 @@
                     <div class="nav-panel__container container">
                         <div class="nav-panel__row">
                             <div class="nav-panel__departments">
-                                <div class="departments  departments--open departments--fixed " data-departments-fixed-by=".block-slideshow">
+                                <?php
+                                $class_mega_menu='departments';
+                                if(is_front_page()){
+                                    $class_mega_menu.='  departments--open departments--fixed';
+                                }
+                                ?>
+                                <div class="<?php echo $class_mega_menu; ?>" data-departments-fixed-by=".block-slideshow">
                                     <div class="departments__body">
                                         <div class="departments__links-wrapper">
                                             <div class="departments__submenus-container"></div>

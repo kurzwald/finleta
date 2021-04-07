@@ -676,9 +676,9 @@ while ( $featured->have_posts() ) {
                                     </svg>
                                     <span class="fake-svg-icon"></span>
                                 </button>
-                                <div class="product-card__badges-list">
+                                <!--<div class="product-card__badges-list">
                                     <div class="product-card__badge product-card__badge--new">New</div>
-                                </div>
+                                </div> -->
                                 <div class="product-card__image product-image">
                                     <a href="<?php echo $topProd_link; ?>" class="product-image__body">
                                         <img class="product-image__img" src="<?php echo $topProd_image; ?>" alt="">
@@ -737,9 +737,9 @@ while ( $featured->have_posts() ) {
                                             </svg>
                                             <span class="fake-svg-icon"></span>
                                         </button>
-                                        <div class="product-card__badges-list">
+                                        <!--<div class="product-card__badges-list">
                                             <div class="product-card__badge product-card__badge--hot">Hot</div>
-                                        </div>
+                                        </div>-->
                                         <div class="product-card__image product-image">
                                             <a href="<?php echo $topProd_link; ?>" class="product-image__body">
                                                 <img class="product-image__img" src="<?php echo $topProd_image; ?>" alt="">

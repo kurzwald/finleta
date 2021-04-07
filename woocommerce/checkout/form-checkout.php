@@ -29,7 +29,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 ?>
 <div class="checkout block">
-<form name="checkout" method="post" class="checkout woocommerce-checkout container" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
+<form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
 
 	<?php if ( $checkout->get_checkout_fields() ) : ?>
 
@@ -49,6 +49,8 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                 </div>
             </div>
     <div class="col-12 col-lg-6 col-xl-5 mt-4 mt-lg-0">
+        <div class="card mb-0">
+            <div class="card-body">
 	<?php endif; ?>
 	
 	<?php do_action( 'woocommerce_checkout_before_order_review_heading' ); ?>
@@ -65,5 +67,8 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 
 </form>
+</div>
+</div>
+</div>
 </div>
 <?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>
