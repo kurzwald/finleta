@@ -1000,6 +1000,39 @@ Redux::setSection( $opt_name, array(
                                 ',
         ),
     )
-) );
+)
+);
+
+Redux::setSection( $opt_name, array(
+    'title' => __( 'Prices page ', 'redux-framework-demo' ),
+    'id'    => 'opt-prices',
+    'desc'  => __( 'Prices page.', 'redux-framework-demo' ),
+    'icon'  => 'el el-coin'
+
+));
+
+Redux::setSection( $opt_name, array(
+        'title'      => __( 'Add prices', 'redux-framework-demo' ),
+        'id'         => 'additional-prices',
+        'desc'       => __( 'Add prices ', 'redux-framework-demo' ) ,
+        'subsection' => true,
+        'fields'     => array(
+            array(
+                'id'       => 'prices-form-header',
+                'type'     => 'text',
+                'title'    => __( 'Our Prices header', 'redux-framework-demo' ),
+                'desc'     => __( 'Our Prices', 'redux-framework-demo' ),
+                'default'  => 'Our Prices',
+            ),
+            array(
+                'id'       => 'prices-form-desc',
+                'type'     => 'textarea',
+                'title'    => __( 'Prices integration from google docs', 'redux-framework-demo' ),
+                'desc'     => __( 'Insert iframe code from google docs here like this ', 'redux-framework-demo' ),
+                'default'  => '',
+            ),
+        )
+    )
+);
      /* <--- END SECTIONS
      */
