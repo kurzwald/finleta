@@ -967,6 +967,38 @@ Redux::setSection( $opt_name, array(
             'desc'     => __( 'Like [contact-form-* id="*" title="contact form"]', 'redux-framework-demo' ),
             'default'  => '',
         ),
+        array(
+            'id'       => 'contacts-form-header',
+            'type'     => 'text',
+            'title'    => __( 'Our Address header', 'redux-framework-demo' ),
+            'desc'     => __( 'Our Address', 'redux-framework-demo' ),
+            'default'  => 'Our Address',
+        ),
+        array(
+            'id'       => 'contacts-form-desc',
+            'type'     => 'textarea',
+            'title'    => __( 'Contact form desc', 'redux-framework-demo' ),
+            'desc'     => __( ' ', 'redux-framework-demo' ),
+            'default'  => '
+                               
+                                    <p>
+                                        715 Fake Ave, Apt. 34, New York, NY 10021 USA<br>
+                                        Email: stroyka@example.com<br>
+                                        Phone Number: +1 754 000-00-00
+                                    </p>
+                                    <p>
+                                        <strong>Opening Hours</strong><br>
+                                        Monday to Friday: 8am-8pm<br>
+                                        Saturday: 8am-6pm<br>
+                                        Sunday: 10am-4pm
+                                    </p>
+                                    <p>
+                                        <strong>Comment</strong><br>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur suscipit suscipit mi, non
+                                        tempor nulla finibus eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </p>
+                                ',
+        ),
     )
 ) );
      /* <--- END SECTIONS
