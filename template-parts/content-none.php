@@ -9,9 +9,9 @@
 
 ?>
 
-<section class="no-results not-found">
+<section class="no-results not-found not-found__content">
 	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'olynk' ); ?></h1>
+		<h1 class="page-title not-found__title"><?php echo pll__( 'Nothing Found'); ?></h1>
 	</header><!-- .page-header -->
 
 	<div class="page-content">
@@ -21,7 +21,7 @@
 			printf(
 				'<p>' . wp_kses(
 					/* translators: 1: link to WP admin new post page. */
-					__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'olynk' ),
+					pll__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.'),
 					array(
 						'a' => array(
 							'href' => array(),
@@ -34,7 +34,7 @@
 		elseif ( is_search() ) :
 			?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'olynk' ); ?></p>
+			<p><?php pll__( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'olynk' ); ?></p>
 			<?php
 			get_search_form();
 

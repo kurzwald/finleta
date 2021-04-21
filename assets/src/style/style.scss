@@ -11497,7 +11497,6 @@ departments__item{
 
 .products-list[data-layout^="grid-"] .product-card .product-card__info {
   padding: 0 24px 0;
-  left:18px
 }
 
 .products-list[data-layout^="grid-"] .product-card .product-card__actions {
@@ -12055,7 +12054,7 @@ departments__item{
   margin: -8px 0px;
 }
 
-.products-list[data-layout="list"] .products-list__item {
+.woocommerce ul.products.products-list[data-layout="list"] li.product.products-list__item {
   width: 100%;
   margin: 8px 0px;
 }

@@ -428,7 +428,7 @@ function your_get_rating_html($rating_html, $rating) {
         $rating = 0;
     }
     $rating_html  = '<div class="star-rating product-card__info" title="' . $title . '">';
-    $rating_html .= '<span style="width:' . ( ( $rating / 5 ) * 100 ) . '%"><strong class="rating">' . $rating . '</strong> ' . __( 'out of 5', 'woocommerce' ) . '</span>';
+    $rating_html .= '<span style="width:' . ( ( $rating / 5 ) * 100 ) . '%"><strong class="rating"></strong> </span>';
     $rating_html .= '</div>';
     return $rating_html;
 }
@@ -703,7 +703,7 @@ add_action( 'woocommerce_single_product_summary', 'woocommerce_custom_category',
 remove_action('woocommerce_after_single_product_summary','woocommerce_review_comment',15);
 add_filter( 'woocommerce_product_tabs', 'woo_rename_tabs', 98 );
 function woo_rename_tabs( $tabs ) {
-    $tabs['reviews']['title'] = __( 'Reviews' );
+    $tabs['reviews']['title'] = pll__( 'Reviews' );
     $tabs['reviews']['callback']='woo_add_comment';
     return $tabs;
 
@@ -818,3 +818,31 @@ add_action( 'woocommerce_after_shop_loop_item_title', 'finleta_template_loop_rat
 function finleta_template_loop_rating() {
     echo '<div class="product-card__info">' . wc_get_template( 'loop/rating.php' ) . '</div>';
 }
+add_action('init', function() {
+    pll_register_string('finleta-add-to-card', 'Add to cart');
+
+    pll_register_string('finleta-no-rewievs', 'No Rewievs');
+    pll_register_string('finleta-1-rewiev', '1 Rewiev');
+    pll_register_string('finleta-rewievs', 'Rewievs');
+    pll_register_string('finleta-rewievs-are-off', 'Rewievs are off');
+    pll_register_string('finleta-default', 'Default');
+    pll_register_string('finleta-name-a-z', 'Name (A-Z)');
+    pll_register_string('finleta-sort-by', 'Sort By');
+    pll_register_string('finleta-show', 'Show');
+    pll_register_string('finleta-showing', 'Showing');
+    pll_register_string('finleta-of', 'of');
+    pll_register_string('finleta-products', 'products');
+    pll_register_string('finleta-in-stock', 'In stock');
+    pll_register_string('finleta-no-stock', 'No stock');
+    pll_register_string('finleta-аvailability', 'Availability');
+    pll_register_string('finleta-search-resalt', 'Search Results for: %s');
+    pll_register_string('finleta-nothing-found', 'Nothing Found');
+    pll_register_string('finleta-sorry-nothing', 'Sorry, but nothing matched your search terms. Please try again with some different keywords.');
+    pll_register_string('finleta-ready-to-publish', 'Ready to publish your first post? <a href="%1$s">Get started here</a>.');
+    pll_register_string('finleta-error-404', 'Oops! Error 404.');
+    pll_register_string('finleta-page-not--found', 'Page Not Found');
+    pll_register_string('finleta-cannot-find-page', "We can't seem to find the page you're looking for. Try to use the search.");
+    pll_register_string('finleta-go-home-page', 'Go To Home Page');
+    pll_register_string('finleta-or-go-home-page', 'Or go to the home page to start over.');
+});
+add_image_size( 'spec_thumb', 150, 150, true );

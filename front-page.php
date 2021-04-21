@@ -296,7 +296,7 @@ while ( $featured->have_posts() ) {
                     global $product;
                     if ( comments_open() ) {
                         if ( $num_comments == 0 ) {
-                            $comments = __('No Rewievs');
+                            $comments =  pll__('No Rewievs');
                         } elseif ( $num_comments > 1 ) {
                             $comments = $num_comments . __(' Rewievs');
                         } else {
@@ -360,7 +360,7 @@ while ( $featured->have_posts() ) {
                                 <div class="product-card__buttons"><form action="'
                                     .esc_url( $product->add_to_cart_url() ).'" class="cart" method="post" enctype="multipart/form-data">
                         <button type="submit" data-quantity="1" data-product_id="'.$newProd_id.'"
-                                class="btn btn-primary product-card__addtocart">'.__('Add to cart').'</button>
+                                class="btn btn-primary product-card__addtocart">'.pll__('Add to cart').'</button>
 
                         </form><button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button">Add To Cart</button>
                                     <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist" type="button">
@@ -425,7 +425,7 @@ while ( $featured->have_posts() ) {
                                     <form action="'
                             .esc_url( $product->add_to_cart_url() ).'" class="cart" method="post" enctype="multipart/form-data">
                         <button type="submit" data-quantity="1" data-product_id="'.$newProd_id.'"
-                                class="btn btn-primary product-card__addtocart">'.__('Add to cart').'</button>
+                                class="btn btn-primary product-card__addtocart">'.pll__('Add to cart').'</button>
 
                         </form>
                                     <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button">Add To Cart</button>
@@ -703,7 +703,7 @@ while ( $featured->have_posts() ) {
                                 </div>
                                 <div class="product-card__actions">
                                     <div class="product-card__availability">
-                                        <?php echo __('Availability:'); ?> <span class="text-success"><?php echo __('In Stock','default'); ?></span>
+                                        <?php echo __('Availability:','redux'); ?> <span class="text-success"><?php echo __('In Stock','redux'); ?></span>
                                     </div>
                                     <div class="product-card__prices">
                                         <span class="product-card__new-price"><?php echo $cours.$topSale; ?></span>
