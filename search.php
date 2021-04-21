@@ -10,20 +10,22 @@
 get_header();
 ?>
 
-	<section id="primary" class="content-area">
+	<section id="primary" class="content-area block">
 		<main id="main" class="site-main">
 
 		<?php if ( have_posts() ) : ?>
-
-			<header class="page-header">
+            <div class="page-header__container container">
+			<header class="page-header page-header__title ">
 				<h1 class="page-title">
 					<?php
 					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'olynk' ), '<span>' . get_search_query() . '</span>' );
+					printf( pll__( 'Search Results for: %s', 'olynk' ), '<span>' . get_search_query() . '</span>' );
 					?>
 				</h1>
 			</header><!-- .page-header -->
-
+            </div>
+        <div class="products-list__body container">
+            <div class="products-list" data-layout="list">
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) :
@@ -46,7 +48,8 @@ get_header();
 
 		endif;
 		?>
-
+        </div>
+        </div>
 		</main><!-- #main -->
 	</section><!-- #primary -->
 

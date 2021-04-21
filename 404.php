@@ -15,40 +15,22 @@ get_header();
 
 			<section class="error-404 not-found">
 				<header class="page-header">
-					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'olynk' ); ?></h1>
+					<h1 class="page-title not-found__404"><?php echo pll__( 'Oops! Error 404.'); ?></h1>
 				</header><!-- .page-header -->
 
-				<div class="page-content">
-					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'olynk' ); ?></p>
-
+				<div class="page-content not-found__content">
+                    <h1 class="not-found__title"><?php echo pll__('Page Not Found'); ?></h1>
+					<p><?php echo pll__( "We can't seem to find the page you're looking for. Try to use the search."); ?></p>
 					<?php
 					get_search_form();
 
-					the_widget( 'WP_Widget_Recent_Posts' );
+					//the_widget( 'WP_Widget_Recent_Posts' );
 					?>
+                    <p class="not-found__text">
+                        <?php echo pll__('Or go to the home page to start over.'); ?>
+                    </p>
+                    <a class="btn btn-secondary btn-sm" href="<?php echo home_url(); ?>"><?php echo pll__('Go To Home Page'); ?></a>
 
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'olynk' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories( array(
-								'orderby'    => 'count',
-								'order'      => 'DESC',
-								'show_count' => 1,
-								'title_li'   => '',
-								'number'     => 10,
-							) );
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$olynk_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'olynk' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$olynk_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
 
 				</div><!-- .page-content -->
 			</section><!-- .error-404 -->

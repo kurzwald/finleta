@@ -46,8 +46,8 @@ var gulp = require('gulp'),  // подключаем Gulp
     uglify = require('gulp-uglify'), // модуль для минимизации JavaScript
     cache = require('gulp-cache'), // модуль для кэширования
     imagemin = require('gulp-imagemin'), // плагин для сжатия PNG, JPEG, GIF и SVG изображений
-   // jpegrecompress = require('imagemin-jpeg-recompress'), // плагин для сжатия jpeg
-   // pngquant = require('imagemin-pngquant'), // плагин для сжатия png
+    jpegrecompress = require('imagemin-jpeg-recompress'), // плагин для сжатия jpeg
+    pngquant = require('imagemin-pngquant'), // плагин для сжатия png
     rimraf = require('gulp-rimraf'), // плагин для удаления файлов и каталогов
     rename = require('gulp-rename');
 
@@ -103,21 +103,21 @@ gulp.task('fonts:build', function () {
 });
 
 // обработка картинок
-// gulp.task('image:build', function () {
-//     return gulp.src(path.src.img) // путь с исходниками картинок
-//         .pipe(cache(imagemin([ // сжатие изображений
-//             imagemin.gifsicle({ interlaced: true }),
-//             jpegrecompress({
-//                 progressive: true,
-//                 max: 90,
-//                 min: 80
-//             }),
-//             pngquant(),
-//             imagemin.svgo({ plugins: [{ removeViewBox: false }] })
-//         ])))
-//         .pipe(gulp.dest(path.build.img)); // выгрузка готовых файлов
-//
-// });
+ gulp.task('image:build', function () {
+    return gulp.src(path.src.img) // путь с исходниками картинок
+         .pipe(cache(imagemin([ // сжатие изображений
+            imagemin.gifsicle({ interlaced: true }),
+             jpegrecompress({
+                 progressive: true,
+                 max: 90,
+                 min: 80
+             }),
+             pngquant(),
+             imagemin.svgo({ plugins: [{ removeViewBox: false }] })
+         ])))
+         .pipe(gulp.dest(path.build.img)); // выгрузка готовых файлов
+
+ });
 
 // удаление каталога build
 gulp.task('clean:build', function () {
@@ -138,7 +138,7 @@ gulp.task('build',
             'css:build',
             'js:build',
             'fonts:build',
-           // 'image:build'
+            'image:build'
         )
     )
 );
@@ -148,7 +148,7 @@ gulp.task('watch', function () {
     gulp.watch(path.watch.html, gulp.series('html:build'));
     gulp.watch(path.watch.css, gulp.series('css:build'));
     gulp.watch(path.watch.js, gulp.series('js:build'));
-   // gulp.watch(path.watch.img, gulp.series('image:build'));
+    gulp.watch(path.watch.img, gulp.series('image:build'));
     gulp.watch(path.watch.fonts, gulp.series('fonts:build'));
 });
 

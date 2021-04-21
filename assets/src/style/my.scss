@@ -233,6 +233,54 @@ p#billing_address_2_field,p#billing_address_1_field{
 .woocommerce .products .star-rating{
   left:18px
 }
+.star-rating.product-card__info span{
+  color:#3366cc
+}
+.catalog .product__actions-item{
+  display:none
+}
+.catalog p.out-of-stock{
+  display:none
+}
+.products-list[data-layout="list"] .products-list__item {
+  width: 100%;
+  margin: 8px 0px;
+}
+.product>header.entry-header.search-finleta{
+  display: block;
+}
+.search-submit{
+  border-color: #36c;
+  background: #36c;
+  color: #fff;
+  fill: #fff;
+  border-radius: 2px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  font-size: 1rem;
+  height: calc(2.25rem + 2px);
+  line-height: 1.5;
+  padding: .375rem 1.25rem;
+  font-weight: 500;
+}
+.search-form{
+  margin-bottom: 30px;
+}
+.search-field{
+  border-radius: 2px;
+  line-height: 1.25;
+  display: block;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
 @media (max-width: 767px){
 .woocommerce .cart-table__column--image {
   padding: 20px 20px 12px;
