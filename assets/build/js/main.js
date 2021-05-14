@@ -11974,7 +11974,7 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
     });
 })(jQuery);
 // пагинация для страницы каталога
-(function($) {
+/*(function($) {
 
     $.fn.easyPaginate = function(options){
 
@@ -11989,7 +11989,7 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
             clickstop:true,
             controls: 'pagination',
             current: 'active',
-            randomstart: false
+            randomstart: true
         };
 
         var options = $.extend(defaults, options);
@@ -11997,6 +11997,7 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
         var lower, upper;
         var children = $(this).children();
         var count = children.length;
+        console.log('children='+count);
         var obj, next, prev;
         var pages = Math.floor(count/step);
         var page = (options.randomstart) ? Math.floor(Math.random()*pages)+1 : 1;
@@ -12016,8 +12017,8 @@ animateIn:!1},e.prototype.swap=function(){if(1===this.core.settings.items&&a.sup
                     if(lower >= 1) { prev.fadeIn('fast'); } else { prev.fadeOut('fast'); };
                 };
             });
-            $('li class="page-item"','#'+ options.controls).removeClass(options.current);
-            $('li[data-index="'+page+'"]','#'+ options.controls).addClass(options.current);
+            //$('li class="page-item"','#'+ options.controls).removeClass(options.current);
+            //$('li[data-index="'+page+'"]','#'+ options.controls).addClass(options.current);
 
             if(options.auto){
                 if(options.clickstop && clicked){}else{ timeout = setTimeout(auto,options.pause); };
@@ -12164,6 +12165,7 @@ $('#control-number').change(function(){
         });
     });
 });
+ */
 (function($) {
     "use strict";
 

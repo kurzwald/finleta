@@ -35,10 +35,9 @@ get_header();
                             <div class="view-options__filters-button">
                                 <button type="button" class="filters-button">
                                     <svg class="filters-button__icon" width="16px" height="16px">
-                                        <use xlink:href="images/sprite.svg#filters-16"></use>
+                                        <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#filters-16"></use>
                                     </svg>
                                     <span class="filters-button__title">Filters</span>
-                                    <span class="filters-button__counter">3</span>
                                 </button>
                             </div>
                             <div class="view-options__layout">
@@ -200,8 +199,8 @@ get_header();
                           </div>
                     </div>
                     <div class="products-view__pagination" >
-                        <ol class="pagination justify-content-center" id="pagination">
-                        </ol>
+                       <!-- <ol class="pagination justify-content-center" id="pagination">
+                        </ol> -->
                     </div>
                 </div>
             </div>

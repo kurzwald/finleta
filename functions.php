@@ -343,8 +343,8 @@ if (function_exists('register_sidebar')){
         'name'          => 'Left sitebar for shop', //название виджета в админ-панели
         'id'            => 'shop_left_sitebar', //идентификатор виджета
         'description'   => 'Сайтбар слева для фильтров на странице магазина', //описание виджета в админ-панели
-        'before_widget' => '<div class="block-sidebar__body">', //открывающий тег виджета с динамичным идентификатором
-        'after_widget'  => '</div>', //закрывающий тег виджета с очищающим блоком
+        'before_widget' => '<div class="block-sidebar__item"><div class="widget-filters widget widget-filters--offcanvas--mobile">', //открывающий тег виджета с динамичным идентификатором
+        'after_widget'  => '</div></div>', //закрывающий тег виджета с очищающим блоком
         'before_title'  => '<div class="block-sidebar__header"><div class="block-sidebar__title">', //открывающий тег заголовка виджета
         'after_title'   => '</div></div>',//закрывающий тег заголовка виджета
     ) );
@@ -427,7 +427,7 @@ function your_get_rating_html($rating_html, $rating) {
         $title = __('Not yet rated');
         $rating = 0;
     }
-    $rating_html  = '<div class="star-rating product-card__info" title="' . $title . '">';
+    $rating_html  = '<div class="star-rating" title="' . $title . '">';
     $rating_html .= '<span style="width:' . ( ( $rating / 5 ) * 100 ) . '%"><strong class="rating"></strong> </span>';
     $rating_html .= '</div>';
     return $rating_html;
@@ -703,7 +703,7 @@ add_action( 'woocommerce_single_product_summary', 'woocommerce_custom_category',
 remove_action('woocommerce_after_single_product_summary','woocommerce_review_comment',15);
 add_filter( 'woocommerce_product_tabs', 'woo_rename_tabs', 98 );
 function woo_rename_tabs( $tabs ) {
-    $tabs['reviews']['title'] = pll__( 'Reviews' );
+    $tabs['reviews']['title'] = pll__( 'Rewievs ' );
     $tabs['reviews']['callback']='woo_add_comment';
     return $tabs;
 
@@ -811,12 +811,12 @@ if ( ! function_exists( 'woocommerce_template_loop_product_thumbnail' ) ) {
 remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
 add_action( 'woocommerce_shop_loop_item_title', 'finleta_template_loop_product_title', 10 );
 function finleta_template_loop_product_title() {
-    echo '<div class="product-card__info"><div class="product-card__name">' . get_the_title() . '</div></div>';
+    echo '<div class="product-card__name">' . get_the_title() . '</div>';
 }
 remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
 add_action( 'woocommerce_after_shop_loop_item_title', 'finleta_template_loop_rating', 5 );
 function finleta_template_loop_rating() {
-    echo '<div class="product-card__info">' . wc_get_template( 'loop/rating.php' ) . '</div>';
+    echo wc_get_template( 'loop/rating.php' ) ;
 }
 add_action('init', function() {
     pll_register_string('finleta-add-to-card', 'Add to cart');
@@ -824,7 +824,9 @@ add_action('init', function() {
     pll_register_string('finleta-no-rewievs', 'No Rewievs');
     pll_register_string('finleta-1-rewiev', '1 Rewiev');
     pll_register_string('finleta-rewievs', 'Rewievs');
+    pll_register_string('finleta-rewievs_', 'Rewievs ');
     pll_register_string('finleta-rewievs-are-off', 'Rewievs are off');
+    pll_register_string('finleta-rewievs-are-off', 'Rewievs are off for this product.');
     pll_register_string('finleta-default', 'Default');
     pll_register_string('finleta-name-a-z', 'Name (A-Z)');
     pll_register_string('finleta-sort-by', 'Sort By');
@@ -835,6 +837,7 @@ add_action('init', function() {
     pll_register_string('finleta-in-stock', 'In stock');
     pll_register_string('finleta-no-stock', 'No stock');
     pll_register_string('finleta-аvailability', 'Availability');
+    pll_register_string('finleta-аvailability_', 'Availability:');
     pll_register_string('finleta-search-resalt', 'Search Results for: %s');
     pll_register_string('finleta-nothing-found', 'Nothing Found');
     pll_register_string('finleta-sorry-nothing', 'Sorry, but nothing matched your search terms. Please try again with some different keywords.');
@@ -844,5 +847,60 @@ add_action('init', function() {
     pll_register_string('finleta-cannot-find-page', "We can't seem to find the page you're looking for. Try to use the search.");
     pll_register_string('finleta-go-home-page', 'Go To Home Page');
     pll_register_string('finleta-or-go-home-page', 'Or go to the home page to start over.');
+    pll_register_string('finleta-featured_products', 'Featured Products');
+    pll_register_string('finleta-new_products', 'New products');
+    pll_register_string('finleta-new_', 'New');
+    pll_register_string('finleta-top_sales', 'Top sales');
+    pll_register_string('finleta-all', 'All');
+    pll_register_string('finleta-view-all-product-in', 'View all products in %s');
+    pll_register_string('finleta-shop-by-category', 'Shop by category');
+
+    global $redux_options;
+    pll_register_string('link-call-to-action-text',$redux_options['link-call-to-action-text']);
+    pll_register_string('slide-title-1',$redux_options['slide-title-1']);
+    pll_register_string('slide-desc-1',$redux_options['slide-desc-1']);
+    pll_register_string('slide-title-2',$redux_options['slide-title-2']);
+    pll_register_string('slide-desc-2',$redux_options['slide-desc-2']);
+    pll_register_string('slide-title-3',$redux_options['slide-title-3']);
+    pll_register_string('slide-desc-3',$redux_options['slide-desc-3']);
+    pll_register_string('slide-button-text',$redux_options['slide-button-text']);
+    pll_register_string('team-title-1',$redux_options['team-title-1']);
+    pll_register_string('team-title-2',$redux_options['team-title-2']);
+    pll_register_string('team-title-3',$redux_options['team-title-3']);
+    pll_register_string('team-title-4',$redux_options['team-title-4']);
+    pll_register_string('banner-title-1',$redux_options['banner-title-1']);
+    pll_register_string('banner-desc-1',$redux_options['banner-desc-1']);
+    pll_register_string('services-title',$redux_options['services-title']);
+    pll_register_string('services-title-1',$redux_options['services-title-1']);
+    pll_register_string('services-desc-1',$redux_options['services-desc-1']);
+    pll_register_string('services-button-text',$redux_options['services-button-text']);
+    pll_register_string('services-title-2',$redux_options['services-title-2']);
+    pll_register_string('services-desc-2',$redux_options['services-desc-2']);
+    pll_register_string('services-title-3',$redux_options['services-title-3']);
+    pll_register_string('services-desc-3',$redux_options['services-desc-3']);
+    pll_register_string('services-title-4',$redux_options['services-title-4']);
+    pll_register_string('services-desc-4',$redux_options['services-desc-4']);
+    pll_register_string('services-title-5',$redux_options['services-title-5']);
+    pll_register_string('services-desc-5',$redux_options['services-desc-5']);
+    pll_register_string('services-title-6',$redux_options['services-title-6']);
+    pll_register_string('services-desc-6',$redux_options['services-desc-6']);
+    pll_register_string('banner-title-2',$redux_options['banner-title-2']);
+    pll_register_string('banner-desc-2',$redux_options['banner-desc-2']);
+    pll_register_string('banner-button-2',$redux_options['banner-button-2']);
+
+
 });
 add_image_size( 'spec_thumb', 150, 150, true );
+add_action( 'woocommerce_before_main_content', array( 'class-finleta', 'output_content_wrapper' ) );
+add_action( 'woocommerce_before_shop_loop_item_title', 'add_start_div_finleta_page_cat' );
+function add_start_div_finleta_page_cat() {
+    echo '<div class="product-card__info">';
+}
+add_action( 'woocommerce_after_shop_loop_item_title', 'add_end_div_finleta_page_cat' );
+function add_end_div_finleta_page_cat() {
+    echo '</div>';
+}
+remove_action ('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5);
+add_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 15);
+remove_action ('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
+add_action('woocommerce_template_loop_product_title', 'woocommerce_template_loop_rating', 10);

@@ -47,7 +47,11 @@ if ( empty( $product ) || ! $product->is_visible() ) {
      *
      * @hooked woocommerce_template_loop_product_title - 10
      */
+
+    $link = apply_filters( 'woocommerce_loop_product_link', get_the_permalink(), $product );
+    echo '<a href="' . esc_url( $link ) . '" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">';
     do_action( 'woocommerce_shop_loop_item_title' );
+    echo '</a>';
 
     /**
      * Hook: woocommerce_after_shop_loop_item_title.

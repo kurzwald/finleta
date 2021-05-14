@@ -146,7 +146,7 @@
                 <div class="site-header__phone">
                     <div class="site-header__phone-number"><?php echo  $redux_options['phone-number']; ?></div>
                     <div class="site-header__phone-title">
-                        <a href="<?php echo  $redux_options['link-call-to-action']; ?>" target="_blank"><?php echo  $redux_options['link-call-to-action-text']; ?></a>
+                        <a href="<?php echo  $redux_options['link-call-to-action']; ?>" target="_blank"><?php echo  pll__($redux_options['link-call-to-action-text']); ?></a>
                     </div>
                 </div>
             </div>
@@ -182,7 +182,7 @@
                                                        $next_sub = get_terms('product_cat', $args);
                                                        if ($next_sub) {
                                                            foreach ($next_sub as $cat_sub) {
-                                                               $r .= '<li class="departments__item"><a class="departments__item-link" href=" ' . get_term_link($cat_sub->slug, $cat_sub->taxonomy) . '" title="' . sprintf(__("View all products in %s"), $cat_sub->name) . '" ' . '>' .
+                                                               $r .= '<li class="departments__item"><a class="departments__item-link" href=" ' . get_term_link($cat_sub->slug, $cat_sub->taxonomy) . '" title="' . sprintf(pll__("View all products in %s"), $cat_sub->name) . '" ' . '>' .
                                                                    $cat_sub->name;
                                                                $args = array(
                                                                    'parent' => $cat_sub->term_id,
@@ -239,7 +239,7 @@
                                         <svg class="departments__button-icon" width="18px" height="14px">
                                             <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#menu-18x14"></use>
                                         </svg>
-                                        <?php echo __('Shop by category'); ?>
+                                        <?php echo pll__('Shop by category'); ?>
                                         <svg class="departments__button-arrow" width="9px" height="6px">
                                             <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#arrow-rounded-down-9x6"></use>
                                         </svg>

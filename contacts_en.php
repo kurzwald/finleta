@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Contacts
+Template Name: Contacts En
 */
 
 get_header();
@@ -17,7 +17,7 @@ get_header();
                 </nav>
             </div>
             <div class="page-header__title">
-                <h1><?php echo __( 'Наши контакты'); ?></h1>
+                <h1><?php echo __( 'Contact Us'); ?></h1>
             </div>
         </div>
     </div>
@@ -29,18 +29,18 @@ get_header();
                         <div class="row">
                             <div class="col-12 col-lg-6 pb-4 pb-lg-0">
                                 <h4 class="contact-us__header card-title">
-                                    <?php echo do_shortcode( $redux_options['contacts-form-header-ru'] ); ?>
+                                    <?php echo do_shortcode( $redux_options['contacts-form-header-en'] ); ?>
                                 </h4>
                                 <div class="contact-us__address">
-                                    <?php echo do_shortcode( $redux_options['contacts-form-desc-ru'] ); ?>
+                                    <?php echo do_shortcode( $redux_options['contacts-form-desc-en'] ); ?>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-6">
                                 <h4 class="contact-us__header card-title">
-                                    <?php echo __( 'Отправить сообщение'); ?>
+                                    <?php echo __( 'Leave us a Message'); ?>
                                 </h4>
 
-                                <?php echo do_shortcode( $redux_options['contacts-form-ru'] ); ?>
+                                <?php echo do_shortcode( $redux_options['contacts-form-en'] ); ?>
                             </div>
                         </div>
                     </div>

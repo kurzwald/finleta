@@ -961,21 +961,21 @@ Redux::setSection( $opt_name, array(
     'subsection' => true,
     'fields'     => array(
         array(
-            'id'       => 'contacts-form',
+            'id'       => 'contacts-form-en',
             'type'     => 'text',
             'title'    => __( 'Add shortcode Contact form 7', 'redux-framework-demo' ),
             'desc'     => __( 'Like [contact-form-* id="*" title="contact form"]', 'redux-framework-demo' ),
             'default'  => '',
         ),
         array(
-            'id'       => 'contacts-form-header',
+            'id'       => 'contacts-form-header-en',
             'type'     => 'text',
             'title'    => __( 'Our Address header', 'redux-framework-demo' ),
             'desc'     => __( 'Our Address', 'redux-framework-demo' ),
             'default'  => 'Our Address',
         ),
         array(
-            'id'       => 'contacts-form-desc',
+            'id'       => 'contacts-form-desc-en',
             'type'     => 'textarea',
             'title'    => __( 'Contact form desc', 'redux-framework-demo' ),
             'desc'     => __( ' ', 'redux-framework-demo' ),
@@ -994,6 +994,45 @@ Redux::setSection( $opt_name, array(
                                     </p>
                                     <p>
                                         <strong>Comment</strong><br>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur suscipit suscipit mi, non
+                                        tempor nulla finibus eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </p>
+                                ',
+        ),
+        array(
+            'id'       => 'contacts-form-ru',
+            'type'     => 'text',
+            'title'    => __( 'Добавьте шорткод Contact form 7', 'redux-framework-demo' ),
+            'desc'     => __( 'По образцу [contact-form-* id="*" title="contact form"]', 'redux-framework-demo' ),
+            'default'  => '',
+        ),
+        array(
+            'id'       => 'contacts-form-header-ru',
+            'type'     => 'text',
+            'title'    => __( 'Заголовок Наш адрес', 'redux-framework-demo' ),
+            'desc'     => __( 'Наш адрес', 'redux-framework-demo' ),
+            'default'  => 'Наш адрес',
+        ),
+        array(
+            'id'       => 'contacts-form-desc-ru',
+            'type'     => 'textarea',
+            'title'    => __( 'Описание для контактной формы', 'redux-framework-demo' ),
+            'desc'     => __( ' ', 'redux-framework-demo' ),
+            'default'  => '
+                               
+                                    <p>
+                                        715 Авеню, кв. 34, Нью-йорк, NY 10021 США<br>
+                                        Email: stroyka@example.com<br>
+                                        Номер телефона: +1 754 000-00-00
+                                    </p>
+                                    <p>
+                                        <strong>Время работы</strong><br>
+                                        С понедельника по пятницу: 8am-8pm<br>
+                                        Суббота: 8am-6pm<br>
+                                        Воскресенье: 10am-4pm
+                                    </p>
+                                    <p>
+                                        <strong>Комментарии</strong><br>
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur suscipit suscipit mi, non
                                         tempor nulla finibus eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                     </p>

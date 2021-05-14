@@ -34,7 +34,7 @@
 		elseif ( is_search() ) :
 			?>
 
-			<p><?php pll__( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'olynk' ); ?></p>
+			<p><?php pll__( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.' ); ?></p>
 			<?php
 			get_search_form();
 

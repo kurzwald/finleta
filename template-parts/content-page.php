@@ -27,7 +27,21 @@
 	<?php olynk_post_thumbnail(); ?>
 
 	<div class="entry-content block">
-        <div class="container">
+        <div class="container products-view">
+            <?php
+            if(is_shop()|| is_product_category()){?>
+            <div class="shop-layout shop-layout--sidebar--start">
+                <div class="shop-layout__sidebar">
+                    <div class="block block-sidebar block-sidebar--offcanvas--mobile">
+                        <div class="block-sidebar__backdrop"></div>
+                        <div class="block-sidebar__body">
+
+                        <?php dynamic_sidebar( 'shop_left_sitebar' ); ?>
+                        </div>
+                    </div>
+                </div>
+            <?}
+            ?>
 		<?php
 		the_content();
 
