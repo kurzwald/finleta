@@ -23,11 +23,13 @@ global $product;
 ?>
 
 <?php if ( $price_html = $product->get_price_html() ) : ?>
-<div class="product-card__actions">
     <div class="product-card__prices">
-        <span class="product-card__new-price"><?php echo $product->get_sale_price(); ?></span>
-        <span class="product-card__old-price"><?php echo $product->get_regular_price(); ?></span>
+        <?php if($product->get_sale_price()){?>
+        <span class="product-card__new-price"><?php echo get_woocommerce_currency_symbol().$product->get_sale_price(); ?></span>
+        <span class="product-card__old-price"><?php echo get_woocommerce_currency_symbol().$product->get_regular_price(); ?></span>
+        <?php }else{
+            echo get_woocommerce_currency_symbol().$product->get_regular_price();
+        }?>
 	<!-- <span class="price"><?php echo $price_html; ?></span> -->
    </div>
-</div>
 <?php endif; ?>

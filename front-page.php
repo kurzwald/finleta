@@ -29,10 +29,10 @@ get_header();
                                 <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('<?php echo  $redux_options['slide-img-1']['url']; ?>')"></div>
                                 <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('<?php echo  $redux_options['slide-img-mobile-1']['url']; ?>')"></div>
                                 <div class="block-slideshow__slide-content">
-                                    <div class="block-slideshow__slide-title"><?php echo  $redux_options['slide-title-1']; ?></div>
-                                    <div class="block-slideshow__slide-text"><?php echo  $redux_options['slide-desc-1']; ?></div>
+                                    <div class="block-slideshow__slide-title"><?php echo pll__($redux_options['slide-title-1']); ?></div>
+                                    <div class="block-slideshow__slide-text"><?php echo  pll__($redux_options['slide-desc-1']); ?></div>
                                     <div class="block-slideshow__slide-button">
-                                        <span class="btn btn-primary btn-lg"><?php echo  $redux_options['slide-button-text']; ?></span>
+                                        <span class="btn btn-primary btn-lg"><?php echo  pll__($redux_options['slide-button-text']); ?></span>
                                     </div>
                                 </div>
                             </a>
@@ -40,10 +40,10 @@ get_header();
                                 <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('<?php echo  $redux_options['slide-img-2']['url']; ?>')"></div>
                                 <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('<?php echo  $redux_options['slide-img-mobile-2']['url']; ?>')"></div>
                                 <div class="block-slideshow__slide-content">
-                                    <div class="block-slideshow__slide-title"><?php echo  $redux_options['slide-title-2']; ?></div>
-                                    <div class="block-slideshow__slide-text"><?php echo  $redux_options['slide-desc-2']; ?></div>
+                                    <div class="block-slideshow__slide-title"><?php echo  pll__($redux_options['slide-title-2']); ?></div>
+                                    <div class="block-slideshow__slide-text"><?php echo  pll__($redux_options['slide-desc-2']); ?></div>
                                     <div class="block-slideshow__slide-button">
-                                        <span class="btn btn-primary btn-lg"><?php echo  $redux_options['slide-button-text']; ?></span>
+                                        <span class="btn btn-primary btn-lg"><?php echo  pll__($redux_options['slide-button-text']); ?></span>
                                     </div>
                                 </div>
                             </a>
@@ -51,10 +51,10 @@ get_header();
                                 <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('<?php echo  $redux_options['slide-img-3']['url']; ?>')"></div>
                                 <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('<?php echo  $redux_options['slide-img-mobile-3']['url']; ?>')"></div>
                                 <div class="block-slideshow__slide-content">
-                                    <div class="block-slideshow__slide-title"><?php echo  $redux_options['slide-title-3']; ?></div>
-                                    <div class="block-slideshow__slide-text"><?php echo  $redux_options['slide-desc-3']; ?></div>
+                                    <div class="block-slideshow__slide-title"><?php echo  pll__($redux_options['slide-title-3']); ?></div>
+                                    <div class="block-slideshow__slide-text"><?php echo  pll__($redux_options['slide-desc-3']); ?></div>
                                     <div class="block-slideshow__slide-button">
-                                        <span class="btn btn-primary btn-lg"><?php echo  $redux_options['slide-button-text']; ?></span>
+                                        <span class="btn btn-primary btn-lg"><?php echo  pll__($redux_options['slide-button-text']); ?></span>
                                     </div>
                                 </div>
                             </a>
@@ -73,7 +73,7 @@ get_header();
                         <img  width="48px" height="48px" src="<?php echo  $redux_options['team-icon-1']['url']; ?>" />
                     </div>
                     <div class="block-features__content">
-                        <div class="block-features__title"><?php echo  $redux_options['team-title-1']; ?></div>
+                        <div class="block-features__title"><?php echo  pll__($redux_options['team-title-1']); ?></div>
                         <div class="block-features__subtitle"><?php echo  $redux_options['team-desc-1']; ?></div>
                     </div>
                 </div>
@@ -83,7 +83,7 @@ get_header();
                         <img  width="48px" height="48px" src="<?php echo  $redux_options['team-icon-2']['url']; ?>" />
                     </div>
                     <div class="block-features__content">
-                        <div class="block-features__title"><?php echo  $redux_options['team-title-2']; ?></div>
+                        <div class="block-features__title"><?php echo  pll__($redux_options['team-title-2']); ?></div>
                         <div class="block-features__subtitle"><?php echo  $redux_options['team-desc-1']; ?></div>
                     </div>
                 </div>
@@ -93,7 +93,7 @@ get_header();
                         <img  width="48px" height="48px" src="<?php echo  $redux_options['team-icon-3']['url']; ?>" />
                     </div>
                     <div class="block-features__content">
-                        <div class="block-features__title"><?php echo  $redux_options['team-title-3']; ?></div>
+                        <div class="block-features__title"><?php echo  pll__($redux_options['team-title-3']); ?></div>
                         <div class="block-features__subtitle"><?php echo  $redux_options['team-desc-1']; ?></div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@ get_header();
                         <img  width="48px" height="48px" src="<?php echo  $redux_options['team-icon-4']['url']; ?>" />
                     </div>
                     <div class="block-features__content">
-                        <div class="block-features__title"><?php echo  $redux_options['team-title-4']; ?></div>
+                        <div class="block-features__title"><?php echo  pll__($redux_options['team-title-4']); ?></div>
                         <div class="block-features__subtitle"><?php echo  $redux_options['team-desc-1']; ?></div>
                     </div>
                 </div>
@@ -132,13 +132,13 @@ while ( $featured->have_posts() ) {
     <div class="block block-products-carousel" data-layout="grid-4" data-mobile-grid-columns="2">
         <div class="container">
             <div class="block-header">
-                <h3 class="block-header__title"><?php echo __('Featured Products','default'); ?></h3>
+                <h3 class="block-header__title"><?php echo pll__('Featured Products'); ?></h3>
                 <div class="block-header__divider"></div>
                 <ul class="block-header__groups-list">
-                    <li><button type="button" class="block-header__group  block-header__group--active ">All</button></li>
+                    <!--<li><button type="button" class="block-header__group  block-header__group--active ">All</button></li>
                     <li><button type="button" class="block-header__group ">Power Tools</button></li>
                     <li><button type="button" class="block-header__group ">Hand Tools</button></li>
-                    <li><button type="button" class="block-header__group ">Plumbing</button></li>
+                    <li><button type="button" class="block-header__group ">Plumbing</button></li>-->
                 </ul>
                 <div class="block-header__arrows-list">
                     <button class="block-header__arrow block-header__arrow--left" type="button">
@@ -146,6 +146,7 @@ while ( $featured->have_posts() ) {
                             <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#arrow-rounded-left-7x11"></use>
                         </svg>
                     </button>
+
                     <button class="block-header__arrow block-header__arrow--right" type="button">
                         <svg width="7px" height="11px">
                             <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#arrow-rounded-right-7x11"></use>
@@ -177,6 +178,21 @@ while ( $featured->have_posts() ) {
                         $price = get_post_meta( $featured_id, '_regular_price', true);
                         $sale = get_post_meta( $featured_id, '_price', true);
                         $featured_cours=get_woocommerce_currency_symbol();
+                        $num_comments = get_comments_number();
+                        global $product;
+                        $rating=$product->get_average_rating();
+                        if ( comments_open() ) {
+                            if ( $num_comments == 0 ) {
+                                $comments =  pll__('No Rewievs');
+                            } elseif ( $num_comments > 1 ) {
+                                $comments = $num_comments . ' ' .pll__('Rewievs');
+                            } else {
+                                $comments = pll__('1 Rewievs');
+                            }
+                            $write_comments = '<a href="' . get_comments_link() .'">'. $comments.'</a>';
+                        } else {
+                            $write_comments =  pll__('Rewievs are off for this product.');
+                        }
                         ?>
                         <div class="block-products-carousel__column">
                             <div class="block-products-carousel__cell">
@@ -200,11 +216,11 @@ while ( $featured->have_posts() ) {
                                             <div class="product-card__rating-stars">
                                                 <div class="rating">
                                                     <div class="rating__body woocommerce">
-                                                        <?php wp_star_rating( ); ?>
+                                                        <?php echo wc_get_rating_html( $rating, $num_comments );?>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="product-card__rating-legend"><?php comments_number( __('No reviews','default'), __('1 review','default'), __('reviews','default'), $featured_id ); ?></div>
+                                            <div class="product-card__rating-legend"><?php echo $write_comments; ?></div>
                                         </div>
                                         <ul class="product-card__features-list">
 
@@ -212,7 +228,7 @@ while ( $featured->have_posts() ) {
                                     </div>
                                     <div class="product-card__actions">
                                         <div class="product-card__availability">
-                                            <?php echo __('Availability:','default'); ?> <span class="text-success"><?php __('In Stock','default); ?>'); ?></span>
+                                            <?php echo pll__('Availability:'); ?> <span class="text-success"><?php pll__('In stock'); ?>'); ?></span>
                                         </div>
                                         <div class="product-card__prices">
                                             <span class="product-card__new-price"><?php echo $featured_cours.$sale; ?></span>
@@ -253,10 +269,10 @@ while ( $featured->have_posts() ) {
             <a href="<?php echo  $redux_options['banner-button-link-1']; ?>" class="block-banner__body">
                 <div class="block-banner__image block-banner__image--desktop" style="background-image: url('<?php echo  $redux_options['banner-img-1']['url']; ?>')"></div>
                 <div class="block-banner__image block-banner__image--mobile" style="background-image: url('<?php echo  $redux_options['banner-img-mob-1']['url']; ?>')"></div>
-                <div class="block-banner__title"><?php echo  $redux_options['banner-title-1']; ?></div>
-                <div class="block-banner__text"><?php echo  $redux_options['banner-desc-1']; ?></div>
+                <div class="block-banner__title"><?php echo  pll__($redux_options['banner-title-1']); ?></div>
+                <div class="block-banner__text"><?php echo  pll__($redux_options['banner-desc-1']); ?></div>
                 <div class="block-banner__button">
-                    <span class="btn btn-sm btn-primary"><?php echo  $redux_options['banner-button-1']; ?></span>
+                    <span class="btn btn-sm btn-primary"><?php echo  pll__($redux_options['banner-button-1']); ?></span>
                 </div>
             </a>
         </div>
@@ -266,7 +282,7 @@ while ( $featured->have_posts() ) {
     <div class="block block-products block-products--layout--large-first" data-mobile-grid-columns="2">
         <div class="container">
             <div class="block-header">
-                <h3 class="block-header__title"><?php echo __('New products');?></h3>
+                <h3 class="block-header__title"><?php echo pll__('New products');?></h3>
                 <div class="block-header__divider"></div>
             </div>
             <div class="block-products__body">
@@ -282,6 +298,7 @@ while ( $featured->have_posts() ) {
                 $ProdListBefore='<div class="block-products__list">';
                 $ProdListAfter='</div>';
                 $ProdList='';
+                $ptodFeatured='';
                 $i=0;
                 while ( $newProd->have_posts() ) {
                     $newProd->the_post();
@@ -293,23 +310,25 @@ while ( $featured->have_posts() ) {
                     $sale = get_post_meta( $newProd_id, '_price', true);
                     $newProd_cours=get_woocommerce_currency_symbol();
                     $num_comments = get_comments_number();
+
                     global $product;
+                    $rating=$product->get_average_rating();
                     if ( comments_open() ) {
                         if ( $num_comments == 0 ) {
                             $comments =  pll__('No Rewievs');
                         } elseif ( $num_comments > 1 ) {
-                            $comments = $num_comments . __(' Rewievs');
+                            $comments = $num_comments . ' ' .pll__('Rewievs');
                         } else {
-                            $comments = __('1 Rewievs');
+                            $comments = pll__('1 Rewievs');
                         }
                         $write_comments = '<a href="' . get_comments_link() .'">'. $comments.'</a>';
                     } else {
-                        $write_comments =  __('Rewievs are off for this product.');
+                        $write_comments =  pll__('Rewievs are off for this product.');
                     }
                     if (get_post_meta($newProd_id, '_stock_status', true) == 'outofstock') {
-                        $stock='<div class="outofstock">'.__('no stock').'</div>';
+                        $stock='<div class="outofstock">'.pll__('No stock').'</div>';
                     } else {
-                        $stock='<div class="stock">'.__('in stock').'</div>';
+                        $stock='<div class="stock">'.pll__('In stock').'</div>';
                     }
                     if($i==0){
                         ?>
@@ -324,7 +343,7 @@ while ( $featured->have_posts() ) {
                                 <span class="fake-svg-icon"></span>
                             </button>
                             <div class="product-card__badges-list">
-                                <div class="product-card__badge product-card__badge--new">'.__('New').'</div>
+                                <div class="product-card__badge product-card__badge--new">'.pll__('New').'</div>
                             </div>
                             <div class="product-card__image product-image">
                                 <a href="'.$newProd_link.'" class="product-image__body">
@@ -351,7 +370,7 @@ while ( $featured->have_posts() ) {
                             </div>
                             <div class="product-card__actions">
                                 <div class="product-card__availability">'.
-                                    __('Availability').': <span class="text-success">'.$stock.'</span>
+                                    pll__('Availability').': <span class="text-success">'.$stock.'</span>
                                 </div>
                                 <div class="product-card__prices">
                                     <span class="product-card__new-price">'.$newProd_cours.$sale.'</span>
@@ -404,7 +423,7 @@ while ( $featured->have_posts() ) {
                                     <div class="product-card__rating-stars">
                                         <div class="rating">
                                             <div class="rating__body woocommerce">'
-                                                .wp_star_rating().
+                                                .wc_get_rating_html( $rating, $num_comments ).
                                             '</div>
                                         </div>
                                     </div>
@@ -415,7 +434,7 @@ while ( $featured->have_posts() ) {
                             </div>
                             <div class="product-card__actions">
                                 <div class="product-card__availability">'.
-                            __('Availability').': <span class="text-success">'.$stock.'</span>
+                            pll__('Availability').': <span class="text-success">'.$stock.'</span>
                                 </div>
                                 <div class="product-card__prices">
                                     <span class="product-card__new-price">'.$newProd_cours.$sale.'</span>
@@ -468,7 +487,7 @@ while ( $featured->have_posts() ) {
     <div class="block block--highlighted block-categories block-categories--layout--classic">
         <div class="container">
             <div class="block-header">
-                <h3 class="block-header__title"><?php echo  $redux_options['services-title']; ?></h3>
+                <h3 class="block-header__title"><?php echo  pll__($redux_options['services-title']); ?></h3>
                 <div class="block-header__divider"></div>
             </div>
             <div class="block-categories__list">
@@ -479,13 +498,13 @@ while ( $featured->have_posts() ) {
                         </div>
                         <div class="category-card__content">
                             <div class="category-card__name">
-                                <a href="<?php echo  $redux_options['services-link-1']; ?>"><?php echo  $redux_options['services-title-1']; ?></a>
+                                <a href="<?php echo  $redux_options['services-link-1']; ?>"><?php echo  pll__($redux_options['services-title-1']); ?></a>
                             </div>
                             <ul class="category-card__links">
-                                <?php echo  $redux_options['services-desc-1']; ?>
+                                <?php echo  pll__($redux_options['services-desc-1']); ?>
                             </ul>
                             <div class="category-card__all">
-                                <a href="<?php echo  $redux_options['services-link-1']; ?>"><?php echo  $redux_options['services-button-text']; ?></a>
+                                <a href="<?php echo  $redux_options['services-link-1']; ?>"><?php echo  pll__($redux_options['services-button-text']); ?></a>
                             </div>
                         </div>
                     </div>
@@ -497,13 +516,13 @@ while ( $featured->have_posts() ) {
                         </div>
                         <div class="category-card__content">
                             <div class="category-card__name">
-                                <a href="<?php echo  $redux_options['services-link-2']; ?>"><?php echo  $redux_options['services-title-2']; ?></a>
+                                <a href="<?php echo  $redux_options['services-link-2']; ?>"><?php echo  pll__($redux_options['services-title-2']); ?></a>
                             </div>
                             <ul class="category-card__links">
-                                <?php echo  $redux_options['services-desc-2']; ?>
+                                <?php echo  pll__($redux_options['services-desc-2']); ?>
                             </ul>
                             <div class="category-card__all">
-                                <a href="<?php echo  $redux_options['services-link-2']; ?>"><?php echo  $redux_options['services-button-text']; ?></a>
+                                <a href="<?php echo  $redux_options['services-link-2']; ?>"><?php echo  pll__($redux_options['services-button-text']); ?></a>
                             </div>
                         </div>
                     </div>
@@ -515,13 +534,13 @@ while ( $featured->have_posts() ) {
                         </div>
                         <div class="category-card__content">
                             <div class="category-card__name">
-                                <a href="<?php echo  $redux_options['services-link-3']; ?>"><?php echo  $redux_options['services-title-3']; ?></a>
+                                <a href="<?php echo  $redux_options['services-link-3']; ?>"><?php echo  pll__($redux_options['services-title-3']); ?></a>
                             </div>
                             <ul class="category-card__links">
-                                <?php echo  $redux_options['services-desc-3']; ?>
+                                <?php echo  pll__($redux_options['services-desc-3']); ?>
                             </ul>
                             <div class="category-card__all">
-                                <a href="<?php echo  $redux_options['services-link-3']; ?>"><?php echo  $redux_options['services-button-text']; ?></a>
+                                <a href="<?php echo  $redux_options['services-link-3']; ?>"><?php echo  pll__($redux_options['services-button-text']); ?></a>
                             </div>
                         </div>
                     </div>
@@ -533,13 +552,13 @@ while ( $featured->have_posts() ) {
                         </div>
                         <div class="category-card__content">
                             <div class="category-card__name">
-                                <a href="<?php echo  $redux_options['services-link-4']; ?>"><?php echo  $redux_options['services-title-4']; ?></a>
+                                <a href="<?php echo  $redux_options['services-link-4']; ?>"><?php echo  pll__($redux_options['services-title-4']); ?></a>
                             </div>
                             <ul class="category-card__links">
                                 <?php echo  $redux_options['services-desc-4']; ?>
                             </ul>
                             <div class="category-card__all">
-                                <a href="<?php echo  $redux_options['services-link-4']; ?>"><?php echo  $redux_options['services-button-text']; ?></a>
+                                <a href="<?php echo  $redux_options['services-link-4']; ?>"><?php echo  pll__($redux_options['services-button-text']); ?></a>
                             </div>
                         </div>
                     </div>
@@ -551,13 +570,13 @@ while ( $featured->have_posts() ) {
                         </div>
                         <div class="category-card__content">
                             <div class="category-card__name">
-                                <a href="<?php echo  $redux_options['services-link-5']; ?>"><?php echo  $redux_options['services-title-5']; ?></a>
+                                <a href="<?php echo  $redux_options['services-link-5']; ?>"><?php echo  pll__($redux_options['services-title-5']); ?></a>
                             </div>
                             <ul class="category-card__links">
-                                <?php echo  $redux_options['services-desc-5']; ?>
+                                <?php echo  pll__($redux_options['services-desc-5']); ?>
                             </ul>
                             <div class="category-card__all">
-                                <a href="<?php echo  $redux_options['services-link-5']; ?>"><?php echo  $redux_options['services-button-text']; ?></a>
+                                <a href="<?php echo  $redux_options['services-link-5']; ?>"><?php echo  pll__($redux_options['services-button-text']); ?></a>
                             </div>
                             <div class="category-card__products">
                                 366 Products
@@ -572,13 +591,13 @@ while ( $featured->have_posts() ) {
                         </div>
                         <div class="category-card__content">
                             <div class="category-card__name">
-                                <a href="<?php echo  $redux_options['services-link-6']; ?>"><?php echo  $redux_options['services-title-6']; ?></a>
+                                <a href="<?php echo  $redux_options['services-link-6']; ?>"><?php echo  pll__($redux_options['services-title-6']); ?></a>
                             </div>
                             <ul class="category-card__links">
-                                <?php echo  $redux_options['services-desc-6']; ?>
+                                <?php echo  pll__($redux_options['services-desc-6']); ?>
                             </ul>
                             <div class="category-card__all">
-                                <a href="<?php echo  $redux_options['services-link-6']; ?>"><?php echo  $redux_options['services-button-text']; ?></a>
+                                <a href="<?php echo  $redux_options['services-link-6']; ?>"><?php echo  pll__($redux_options['services-button-text']); ?></a>
                             </div>
                         </div>
                     </div>
@@ -592,12 +611,12 @@ while ( $featured->have_posts() ) {
     <div class="block block-banner">
         <div class="container">
             <a href="<?php echo  $redux_options['banner-button-link-2']; ?>" class="block-banner__body">
-                <div class="block-banner__image block-banner__image--desktop" style="background-image: url('<?php echo  $redux_options['banner-img-2']['url']; ?>')"></div>
-                <div class="block-banner__image block-banner__image--mobile" style="background-image: url('<?php echo  $redux_options['banner-img-mob-2']['url']; ?>')"></div>
-                <div class="block-banner__title"><?php echo  $redux_options['banner-title-2']; ?></div>
-                <div class="block-banner__text"><?php echo  $redux_options['banner-desc-2']; ?></div>
+                <div class="block-banner__image block-banner__image--desktop logo_easy_celing" style="background-image: url('<?php echo  $redux_options['banner-img-2']['url']; ?>')"></div>
+                <div class="block-banner__image block-banner__image--mobile logo_easy_celing" style="background-image: url('<?php echo  $redux_options['banner-img-mob-2']['url']; ?>')"></div>
+                <div class="block-banner__title"><?php echo  pll__($redux_options['banner-title-2']); ?></div>
+                <div class="block-banner__text"><?php echo  pll__($redux_options['banner-desc-2']); ?></div>
                 <div class="block-banner__button">
-                    <span class="btn btn-sm btn-primary"><?php echo  $redux_options['banner-button-2']; ?></span>
+                    <span class="btn btn-sm btn-primary"><?php echo  pll__($redux_options['banner-button-2']); ?></span>
                 </div>
             </a>
         </div>
@@ -608,13 +627,13 @@ while ( $featured->have_posts() ) {
     <div class="block block-products-carousel" data-layout="horizontal" data-mobile-grid-columns="2">
         <div class="container">
             <div class="block-header">
-                <h3 class="block-header__title"><?php echo __('Top sales'); ?></h3>
+                <h3 class="block-header__title"><?php echo pll__('Top sales'); ?></h3>
                 <div class="block-header__divider"></div>
                 <ul class="block-header__groups-list">
-                    <li><button type="button" class="block-header__group  block-header__group--active "><?php echo __('All'); ?></button></li>
+                    <!--<li><button type="button" class="block-header__group  block-header__group--active "><?php //echo pll__('All'); ?></button></li>
                     <li><button type="button" class="block-header__group ">Power Tools</button></li>
                     <li><button type="button" class="block-header__group ">Hand Tools</button></li>
-                    <li><button type="button" class="block-header__group ">Plumbing</button></li>
+                    <li><button type="button" class="block-header__group ">Plumbing</button></li> -->
                 </ul>
                 <div class="block-header__arrows-list">
                     <button class="block-header__arrow block-header__arrow--left" type="button">
@@ -653,18 +672,20 @@ while ( $featured->have_posts() ) {
                             $topPrice = get_post_meta( $topProd_id, '_regular_price', true);
                             $topSale = get_post_meta( $topProd_id, '_price', true);
                             $cours=get_woocommerce_currency_symbol();
+                            $num_comments = get_comments_number();
                             global $product;
+                            $rating=$product->get_average_rating();
                             if ( comments_open() ) {
                                 if ( $num_comments == 0 ) {
-                                    $comments = __('No Rewievs');
+                                    $comments = pll__('No Rewievs');
                                 } elseif ( $num_comments > 1 ) {
-                                    $comments = $num_comments . __(' Rewievs');
+                                    $comments = $num_comments . ' '.pll__('Rewievs');
                                 } else {
-                                    $comments = __('1 Rewievs');
+                                    $comments = pll__('1 Rewievs');
                                 }
                                 $write_comments = '<a href="' . get_comments_link() .'">'. $comments.'</a>';
                             } else {
-                                $write_comments =  __('Rewievs are off for this product.');
+                                $write_comments =  pll__('Rewievs are off for this product.');
                             }
                             if($i==0){ ?>
                                 <div class="block-products-carousel__column">
@@ -692,7 +713,7 @@ while ( $featured->have_posts() ) {
                                         <div class="product-card__rating-stars">
                                             <div class="rating">
                                                 <div class="rating__body woocommerce">
-                                                    <?php wp_star_rating(); ?>
+                                                    <?php echo wc_get_rating_html( $rating, $num_comments ); ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -703,7 +724,7 @@ while ( $featured->have_posts() ) {
                                 </div>
                                 <div class="product-card__actions">
                                     <div class="product-card__availability">
-                                        <?php echo __('Availability:','redux'); ?> <span class="text-success"><?php echo __('In Stock','redux'); ?></span>
+                                        <?php echo pll__('Availability:'); ?> <span class="text-success"><?php echo pll__('In Stock'); ?></span>
                                     </div>
                                     <div class="product-card__prices">
                                         <span class="product-card__new-price"><?php echo $cours.$topSale; ?></span>
@@ -753,7 +774,7 @@ while ( $featured->have_posts() ) {
                                                 <div class="product-card__rating-stars">
                                                     <div class="rating">
                                                         <div class="rating__body woocommerce">
-                                                            <?php wp_star_rating(); ?>
+                                                            <?php echo wc_get_rating_html( $rating, $num_comments ); ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -765,7 +786,7 @@ while ( $featured->have_posts() ) {
                                         </div>
                                         <div class="product-card__actions">
                                             <div class="product-card__availability">
-                                                <?php echo __('Availability:'); ?> <span class="text-success"><?php echo __('In Stock'); ?></span>
+                                                <?php echo pll__('Availability:'); ?> <span class="text-success"><?php echo pll__('In Stock'); ?></span>
                                             </div>
                                             <div class="product-card__prices">
                                                 <span class="product-card__new-price"><?php echo $cours.$topSale; ?></span>
@@ -773,7 +794,7 @@ while ( $featured->have_posts() ) {
                                             </div>
                                             <div class="product-card__buttons">
                                                 <?php woocommerce_simple_add_to_cart(); ?>
-                                                <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button">Add To Cart</button>
+                                                <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button"><?php echo pll__('Add To Cart'); ?></button>
                                                 <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist" type="button">
                                                     <svg width="16px" height="16px">
                                                         <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#wishlist-16"></use>

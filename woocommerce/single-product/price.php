@@ -23,6 +23,10 @@ global $product;
 
 ?>
 <div class="product__prices <?php echo esc_attr( apply_filters( 'woocommerce_product_price_class', 'price' ) ); ?>">
-    <span class="product-card__new-price"><?php echo $product->get_sale_price(); ?></span>
-    <span class="product-card__old-price"><?php echo $product->get_regular_price(); ?></span>
+    <?php if($product->get_sale_price()){?>
+        <span class="product-card__new-price"><?php echo get_woocommerce_currency_symbol().$product->get_sale_price(); ?></span>
+        <span class="product-card__old-price"><?php echo get_woocommerce_currency_symbol().$product->get_regular_price(); ?></span>
+    <?php }else{
+        echo get_woocommerce_currency_symbol().$product->get_regular_price();
+    }?>
 </div>

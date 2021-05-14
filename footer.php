@@ -94,7 +94,7 @@ global $redux_options;
                         <a href="<?php echo $url; ?>" class="mobile-links__item-link"><?php echo $title; ?></a>
                         <button class="mobile-links__item-toggle" type="button" data-collapse-trigger>
                             <svg class="mobile-links__item-arrow" width="12px" height="7px">
-                                <use xlink:href="images/sprite.svg#arrow-rounded-down-12x7"></use>
+                                <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#arrow-rounded-down-12x7"></use>
                             </svg>
                         </button>
                     </div>

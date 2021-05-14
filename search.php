@@ -24,7 +24,7 @@ get_header();
 				</h1>
 			</header><!-- .page-header -->
             </div>
-        <div class="products-list__body container">
+            <div class="container">
             <div class="products-list" data-layout="list">
 			<?php
 			/* Start the Loop */
