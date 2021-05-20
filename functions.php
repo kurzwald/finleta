@@ -632,7 +632,9 @@ function get_hansel_and_gretel_breadcrumbs()
         }
     } else {
         $breadcrumb_output_link .= $here_text . $delimiter;
-        $breadcrumb_output_link .= '<a href="' . $home_link . '" rel="v:url" property="v:title">' . $home_text . '</a>';
+        $breadcrumb_output_link .= '<a href="' . $home_link . '" rel="v:url" property="v:title">' . $home_text . '</a><svg class="breadcrumb-arrow" width="6px" height="9px">
+                                        <use xlink:href="'.get_template_directory_uri().'/images/sprite.svg#arrow-rounded-right-6x9"></use>
+                                    </svg>';
         $breadcrumb_output_link .= $delimiter;
         $breadcrumb_output_link .= $breadcrumb_trail;
         $breadcrumb_output_link .= $page_addon;
@@ -854,6 +856,10 @@ add_action('init', function() {
     pll_register_string('finleta-all', 'All');
     pll_register_string('finleta-view-all-product-in', 'View all products in %s');
     pll_register_string('finleta-shop-by-category', 'Shop by category');
+    pll_register_string('finleta-our-contacts', 'Our contacts');
+    pll_register_string('finleta-send-message', 'Send message');
+    pll_register_string('finleta-menu', 'Menu');
+    pll_register_string('finleta-copyright', '© All rights reserved. Website development');
 
     global $redux_options;
     pll_register_string('link-call-to-action-text',$redux_options['link-call-to-action-text']);
@@ -887,6 +893,8 @@ add_action('init', function() {
     pll_register_string('banner-title-2',$redux_options['banner-title-2']);
     pll_register_string('banner-desc-2',$redux_options['banner-desc-2']);
     pll_register_string('banner-button-2',$redux_options['banner-button-2']);
+    pll_register_string('contacts-form-header',$redux_options['contacts-form-header']);
+    pll_register_string('contacts-form-desc',$redux_options['contacts-form-desc']);
 
 
 });

@@ -6254,7 +6254,7 @@ departments__item {
   border-top: 1px solid #ebebeb;
   display: flex;
   align-items: center;
-  justify-content: space-between; }
+  justify-content: center; }
 
 .site-footer__copyright {
   font-size: 14px; }
@@ -13034,9 +13034,8 @@ p#billing_address_2_field, p#billing_address_1_field {
   left: 0; }
 
 .table-coast {
-  min-width: 320px;
+  min-width: 290px;
   max-width: 100%;
-  padding: 0 15px;
   box-sizing: border-box; }
 
 .table-coast table {
@@ -13051,11 +13050,54 @@ p#billing_address_2_field, p#billing_address_1_field {
 .table-coast table tr td {
   width: calc(100% / 7); }
 
+.table-coast table thead tr {
+  background: #3e7afb;
+  color: #fff; }
+
 .table-coast table tr td:nth-child(2) {
   width: calc(100% / 7 * 2); }
 
 .table-coast tr:nth-child(even) {
-  background-color: #f0f4c3; }
+  background-color: #cfdefe; }
+
+.lang-mob {
+  display: flex;
+  padding: 20px; }
+
+.lang-mob .topbar__item:nth-child(2) > ul {
+  padding-left: 15px; }
+
+.site-footer__widget.footer-links .footer-payment img {
+  margin-top: 0; }
+
+.site-footer__widget.footer-links form {
+  margin-bottom: 28px; }
+
+.site__footer .row > div:nth-child(4) p {
+  margin-bottom: 13px; }
+
+.table-coast.table-polotna {
+  width: 100%; }
+
+.table-coast.table-polotna table tr td:first-child, .table-coast.table-polotna table tr td:nth-child(2) {
+  width: 25%; }
+
+.table-coast.table-polotna table tr td:nth-child(n+2) {
+  width: calc(50% / 3); }
+
+h1 + h5 {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 22px;
+  color: #999;
+  font-weight: 400; }
+
+.topbar__item > ul {
+  display: flex;
+  padding-left: 20px; }
+
+.lang-item {
+  padding: 0 5px; }
 
 @media (max-width: 419px) and (min-width: 320px) {
   .woocommerce ul.products.products-list[data-layout=grid-3-sidebar] li.product.products-list__item {
