@@ -29,18 +29,34 @@ global $redux_options;
                     </div>
                     <div class="col-12 col-md-12 col-lg-4">
                         <?php dynamic_sidebar( 'footer_fourth' ); ?>
+                        <div class="social-links footer-newsletter__social-links social-links--shape" bis_skin_checked="1">
+                            <ul class="social-links__list">
+                                <?php
+                                $array_payment=$redux_options['payment'];
+                                if(isset($array_payment) && !empty($array_payment)){
+                                    foreach ($array_payment as $payment){
+                                        ?>
+                                        <li class="social-links__item footer-payment">
+                                            <a class="social-links__link" href="<?php if($payment['url']){echo $payment['url']; }?>" target="_blank" rel="noopener">
+                                                <img src="<?php echo $payment['image']?>" alt="<?php if($payment['title']){echo $payment['title']; }?>">
+                                            </a>
+                                        </li>
+                                        <?php
+                                    }
+                                }
+                                ?>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="site-footer__bottom">
         <div class="site-footer__copyright">
             <!-- copyright -->
-            Powered by HTML — Design by <a href="https://themeforest.net/user/kos9" target="_blank">Kos</a>
+            <?php echo pll__('© All rights reserved. Website development'); ?> <a href="https://kurzwald.by/" target="_blank">kurzwald.by</a>
             <!-- copyright / end -->
         </div>
-        <div class="site-footer__payments">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/payments.png" alt="">
-        </div>
+
      </div>
         </div>
         <div class="totop">
@@ -70,7 +86,7 @@ global $redux_options;
     <div class="mobilemenu__backdrop"></div>
     <div class="mobilemenu__body">
         <div class="mobilemenu__header">
-            <div class="mobilemenu__title"><?php echo __('Menu'); ?></div>
+            <div class="mobilemenu__title"><?php echo pll__('Menu'); ?></div>
             <button type="button" class="mobilemenu__close">
                 <svg width="20px" height="20px">
                     <use xlink:href="<?php echo get_template_directory_uri(); ?>/images/sprite.svg#cross-20"></use>
@@ -106,6 +122,7 @@ global $redux_options;
         </div> -->
         </li>
         <?php } ?>
+                        <li  class="mobile-links__item lang-mob" data-collapse-item><?php dynamic_sidebar( 'top_bar-right' ); ?></li>
         </ul>
 
                         <?php } ?>

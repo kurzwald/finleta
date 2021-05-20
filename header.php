@@ -182,8 +182,7 @@
                                                        $next_sub = get_terms('product_cat', $args);
                                                        if ($next_sub) {
                                                            foreach ($next_sub as $cat_sub) {
-                                                               $r .= '<li class="departments__item"><a class="departments__item-link" href=" ' . get_term_link($cat_sub->slug, $cat_sub->taxonomy) . '" title="' . sprintf(pll__("View all products in %s"), $cat_sub->name) . '" ' . '>' .
-                                                                   $cat_sub->name;
+                                                               $r .= '<li class="departments__item"><a class="departments__item-link" href=" ' . get_term_link($cat_sub->slug, $cat_sub->taxonomy) . '" title="' . sprintf(__("View all products in %s"), $cat_sub->name) . '" ' . '>' .$cat_sub->name;
                                                                $args = array(
                                                                    'parent' => $cat_sub->term_id,
                                                                );
