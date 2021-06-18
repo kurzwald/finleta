@@ -87,7 +87,7 @@
                                         </span>
                                 </button>
                             </div>
-                            <div class="indicator indicator--mobile d-sm-flex d-none">
+                            <!--<div class="indicator indicator--mobile d-sm-flex d-none">
                                 <a href="<?php echo get_site_url(); ?>/список-желаний" class="indicator__button">
                                         <span class="indicator__area">
                                             <svg width="20px" height="20px">
@@ -96,7 +96,7 @@
                                             <span class="indicator__value wishlist_products_counter_number"><?php //echo do_shortcode('[ti_wishlist_products_counter]'); ?></span>
                                         </span>
                                 </a>
-                            </div>
+                            </div> -->
                             <div class="indicator indicator--mobile">
                                 <?php
                                 //global $woocommerce; ?>
@@ -165,73 +165,25 @@
                                 <div class="<?php echo $class_mega_menu; ?>" data-departments-fixed-by=".block-slideshow">
                                     <div class="departments__body">
                                         <div class="departments__links-wrapper">
-                                            <div class="departments__submenus-container"></div>
-                                               <?php
-                                               $category = 0;
-                                               $r = '';
-                                               $args = array(
-                                                   'parent' => $category,
-                                               );
-                                               $next = get_terms('product_cat', $args);
-                                               if ($next) {
-                                                   foreach ($next as $cat) {
-                                                       $r .= '<ul  class="departments__links">';
-                                                       $args = array(
-                                                           'parent' => $cat->term_id,
-                                                       );
-                                                       $next_sub = get_terms('product_cat', $args);
-                                                       if ($next_sub) {
-                                                           foreach ($next_sub as $cat_sub) {
-                                                               $r .= '<li class="departments__item"><a class="departments__item-link" href=" ' . get_term_link($cat_sub->slug, $cat_sub->taxonomy) . '" title="' . sprintf(__("View all products in %s"), $cat_sub->name) . '" ' . '>' .$cat_sub->name;
-                                                               $args = array(
-                                                                   'parent' => $cat_sub->term_id,
-                                                               );
-                                                               $next_sub_child = get_terms('product_cat', $args);
-                                                               if ($next_sub_child) {
+										    <div class="departments__submenus-container"></div>
+										    <?php
+										    /*wp_nav_menu( array(
+											'menu_class'=>'departments__links',
+											'theme_location'=>'menu-catalog',
+											'container'       => '', 
+											) );*/
+											// И там, где нужно выводим меню так:
+	                                  
+	                                        wp_nav_menu( array(
+											'theme_location'    => 'menu-catalog',
+											'container'         => '',
+	                                        'menu_class'        => 'departments__links',
+											'walker'            => new submenu_wrap(),
+											) );
 
-                                                                   $r .= '<svg class="departments__item-arrow" width="6px" height="9px">
-                                                                      <use xlink:href="'.get_template_directory_uri() .'/images/sprite.svg#arrow-rounded-right-6x9"></use>
-                                                                   </svg>
-                                                                </a>';
-                                                                   $thumbnail_id = get_term_meta($cat_sub->term_id, 'thumbnail_id', true);
-                                                                   $image = wp_get_attachment_url($thumbnail_id);
-                                                                   $r .= '<div class="departments__submenu departments__submenu--type--megamenu departments__submenu--size--xl">
-                                                                      <div class="megamenu  megamenu--departments ">
-                                                                          <div class="megamenu__body" style="background-image:url(' . $image . ')">
-                                                                             <div class="row">
-                                                                                 <div class="col-3">
-                                                                                     <ul class="megamenu__links megamenu__links--level--0">';
-                                                                   foreach ($next_sub_child as $cat_sub_child) {
-                                                                       $r .= '<li class="megamenu__item  megamenu__item--with-submenu ">
-                                                                                <a href="' . get_term_link($cat_sub_child->slug, $cat_sub_child->taxonomy) . '"title="' . sprintf(__("View all products in %s"), $cat_sub_child->name) . '" >' . $cat_sub_child->name . '</a>';
-                                                                       if ($cat_sub_child->term_id !== 0) {
-                                                                           $args = array(
-                                                                               'parent' => $cat_sub_child->term_id,
-                                                                           );
-                                                                           $next_sub_child_last = get_terms('product_cat', $args);
-                                                                           $r .= '<ul class="megamenu__links megamenu__links--level--1">';
-                                                                           foreach ($next_sub_child_last as $cat_sub_child_last) {
-                                                                               $r .= '<li class="megamenu__item">
-                                                                                 <a href="' . get_term_link($cat_sub_child_last->slug, $cat_sub_child_last->taxonomy) . '"title="' . sprintf(__("View all products in %s"), $cat_sub_child_last->name) . '">' . $cat_sub_child_last->name . '</a>
-                                                                              </li>';
-                                                                           }
-                                                                           $r .= '</ul>';
-                                                                       }
-                                                                       $r .= '</li>';
-                                                                   }
-                                                                   $r .= '</div></div></div></div></div></ul>';
-                                                               } else {
-                                                                   $r .= '</a>';
-                                                               }
-                                                               $r .= '</li>';
-                                                           }
-
-                                                       }
-                                                       $r .= '</ul>';
-                                                   }
-                                               }
-                                               echo $r;
-                                                ?>
+										    ?>
+                                  
+                                               
                                         </div>
                                     </div>
                                     <button class="departments__button">

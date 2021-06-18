@@ -1,4 +1,4 @@
-//= ../../../node_modules/jquery/dist/jquery.js
+
 // Импортируем bootstrap
 //= ../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js
 // Импортируем необходимые js-файлы owl.carousel

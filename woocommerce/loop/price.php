@@ -30,6 +30,6 @@ global $product;
         <?php }else{
             echo get_woocommerce_currency_symbol().$product->get_regular_price();
         }?>
-	<!-- <span class="price"><?php echo $price_html; ?></span> -->
+	 <!-- <span class="price"><?php //echo $price_html; ?></span>  -->
    </div>
 <?php endif; ?>

@@ -138,7 +138,11 @@
             nav: false,
             dots: false,
             loop: true,
+            autoplay:true,
+            autoplayTimeout:3000,
+            autoplayHoverPause:true,
             rtl: isRTL(),
+
             responsive: {
                 1200: {items: 6},
                 992: {items: 5},
@@ -885,6 +889,17 @@
         }, passiveSupported ? {passive: true} : false);
     });
 })(jQuery);
+var nav_menu=document.querySelector('ul.departments__links'),
+    items_nav_menu=nav_menu.querySelectorAll('li.departments__item');
+items_nav_menu.forEach((item) => {
+    var a_item=item.querySelector('a.departments__item-link');
+        listClassesItem=a_item.classList;
+        console.log('Вывод - '+listClassesItem);
+    if(listClassesItem.indexOf( 'menu-item-has-children' ) == -1 ){
+
+        item.querySelector('svg').remove();
+    }
+})
 // пагинация для страницы каталога
 /*(function($) {
 

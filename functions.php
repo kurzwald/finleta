@@ -111,7 +111,7 @@ function olynk_register_required_plugins() {
 require_once(dirname(__FILE__) . '/inc/redux-config.php');
 
 
-if ( ! function_exists( 'olynk_setup' ) ) :
+if ( ! function_exists( 'finleta_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -119,14 +119,14 @@ if ( ! function_exists( 'olynk_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function olynk_setup() {
+	function finleta_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on olynk, use a find and replace
 		 * to change 'olynk' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'olynk', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'finleta', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -148,7 +148,8 @@ if ( ! function_exists( 'olynk_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'olynk' ),
+			'menu-1' => esc_html__( 'Primary', 'finleta' ),
+            'menu-catalog'=> esc_html__('Catalog','finleta'),
 		) );
 
 		/*
@@ -185,7 +186,7 @@ if ( ! function_exists( 'olynk_setup' ) ) :
 		) );
 	}
 endif;
-add_action( 'after_setup_theme', 'olynk_setup' );
+add_action( 'after_setup_theme', 'finleta_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -432,7 +433,7 @@ function your_get_rating_html($rating_html, $rating) {
     $rating_html .= '</div>';
     return $rating_html;
 }
-function get_hansel_and_gretel_breadcrumbs()
+ function get_hansel_and_gretel_breadcrumbs()
 {
 
     $here_text        = __( '' );
@@ -642,7 +643,7 @@ function get_hansel_and_gretel_breadcrumbs()
     $breadcrumb_output_link .= '</li><!-- .breadcrumbs -->';
 
     return $breadcrumb_output_link;
-}
+} 
 add_action( 'woocommerce_before_single_product', 'action_function_woocommerce_breadcrumbs',10);
 function action_function_woocommerce_breadcrumbs(){
     $before='<div class="page-header">
@@ -659,7 +660,9 @@ function action_function_woocommerce_breadcrumbs(){
         'delimiter'   => '',
         'wrap_before' => $before,
         'wrap_after'  => $after,
-        'before'      => '<li class="breadcrumb-item">',
+        'before'      => '<li class="breadcrumb-item"><svg class="breadcrumb-arrow" width="6px" height="9px">
+                                        <use xlink:href="'.get_template_directory_uri().'/images/sprite.svg#arrow-rounded-right-6x9"></use>
+                                    </svg>',
         'after'       => '</li>',
         'home'        => _x( 'Home', 'breadcrumb', 'woocommerce' ),
     );
@@ -755,7 +758,7 @@ function custom_comments( $comment, $args, $depth ){
     </div>
     <?php
 
-}
+} 
 function end_custom_comments(){
     echo '</li>';
 }
@@ -912,3 +915,70 @@ remove_action ('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_pr
 add_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 15);
 remove_action ('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
 add_action('woocommerce_template_loop_product_title', 'woocommerce_template_loop_rating', 10);
+
+
+add_filter( 'nav_menu_css_class', 'change_menu_item_css_classes', 10, 4 );
+
+function change_menu_item_css_classes( $classes, $item, $args, $depth ) {
+	if( 'menu-catalog' === $args->theme_location ){
+		if($depth==0){
+			$classes[] = 'departments__item';
+		}
+		if($depth==1){
+			$classes[] = 'megamenu__item  megamenu__item--with-submenu';
+		}
+		if($depth==2){
+			$classes[] = 'megamenu__item';
+		}
+	} 
+	return $classes;
+}
+function add_specific_menu_location_atts( $atts, $item, $args, $depth ) {
+    if( $args->theme_location == 'menu-catalog' ) {
+		if($depth==0){
+			$atts['class'] = 'departments__item-link';
+		}
+	  if($depth==0){
+		  $item->title.='<svg class="departments__item-arrow" width="6px" height="9px">
+                                                                      <use xlink:href="'.get_template_directory_uri() .'/images/sprite.svg#arrow-rounded-right-6x9"></use>
+                                                                   </svg>';
+	  }
+    }
+	return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'add_specific_menu_location_atts', 10, 4);
+add_filter( 'nav_menu_submenu_css_class', 'catalog_first_submenu', 10, 3 );
+/*add_filter( 'nav_menu_item_args', 'submenu_function_first', 10, 3 );
+function submenu_function_first( $args, $item, $depth ){
+	if($depth==2){
+		$args->items_wrap='<ul><li id="item-id">Список: </li>%3$s</ul>';
+	}
+	return $args;
+}*/
+
+class submenu_wrap extends Walker_Nav_Menu {
+    function start_lvl( &$output, $depth = 0, $args = array() ) {
+        $indent = str_repeat("\t", $depth);
+		
+		if($depth==0){
+                 $output .= "\n$indent<div class='departments__submenu departments__submenu--type--megamenu departments__submenu--size--xl'>
+                                                                      <div class='megamenu  megamenu--departments '>
+                                                                          <div class='megamenu__body'>
+                                                                             <div class='row'>
+                                                                                 <div class='col-3'><ul class='megamenu__links megamenu__links--level--0'>\n";
+		}
+		if($depth==1){
+		$output .= "\n$indent<ul class='megamenu__links megamenu__links--level--1'>\n";
+		}	
+		}
+    
+    function end_lvl( &$output, $depth = 0, $args = array() ) {
+        $indent = str_repeat("\t", $depth);
+		if($depth==0){
+			    $output .= "$indent</ul></div></div></div></div></div>\n";
+		}
+		if($depth==1){
+			$output .= "$indent</ul>\n";
+		}
+    }
+}
